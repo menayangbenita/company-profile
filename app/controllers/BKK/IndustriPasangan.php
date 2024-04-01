@@ -1,15 +1,15 @@
 <?php
 
-class Home extends Controller
+class industriPasangan extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'Beranda';
+        $data['judul'] = 'Industri Pasangan';
 
         // $data['user'] = $this->user; @ if already using jwt
 
         $this->view('templates-user/header', $data);
-        $this->view('index', $data);
+        $this->view('bkk/industriPasangan', $data);
         $this->view('templates-user/footer');
     }
 }

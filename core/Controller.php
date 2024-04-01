@@ -17,10 +17,7 @@ class Controller
         }
 
         if (!in_array($controller, ['login', 'lupasandi', 'verifikasi', 'api', ''])) {
-            if (!$jwt) {
-                header("Location: " . BASEURL . "/"); // untuk set default page jika user belum login (jika jwt sudah selesai di setup)
-                exit;
-            } else {
+            if ($jwt) {
                 $data["id"] = $jwt->sub;
                 $data["username"] = $jwt->name;
                 $data["role"] = $jwt->role;

@@ -17,16 +17,24 @@ class App
             $folder = "";
             $this->controller = $url[0];
             unset($url[0]);
-        } else if (file_exists("../app/controllers/folder1/$url[0].php")) {  // ubah folder1, folder2, folder3 sesuai folder yang dibuat di app/controllers kalian
-            $folder = "folder1/";
+        } else if (file_exists("../app/controllers/Manajemen/$url[0].php")) {  // ubah folder1, folder2, folder3 sesuai folder yang dibuat di app/controllers kalian
+            $folder = "Manajemen/";
             $this->controller = $url[0];
             unset($url[0]);
-        } else if (file_exists("../app/controllers/folder2/$url[0].php")) {
-            $folder = "folder2/";
+        } else if (file_exists("../app/controllers/KonsentrasiKeahlian/$url[0].php")) {
+            $folder = "KonsentrasiKeahlian/";
             $this->controller = $url[0];
             unset($url[0]);
-        } else if (file_exists("../app/controllers/folder3/$url[0].php")) {
-            $folder = "folder3/";
+        } else if (file_exists("../app/controllers/BKK/$url[0].php")) {
+            $folder = "BKK/";
+            $this->controller = $url[0];
+            unset($url[0]);
+        } else if (file_exists("../app/controllers/Kesiswaan/$url[0].php")) {
+            $folder = "Kesiswaan/";
+            $this->controller = $url[0];
+            unset($url[0]);
+        } else if (file_exists("../app/controllers/Adiwiyata/$url[0].php")) {
+            $folder = "Adiwiyata/";
             $this->controller = $url[0];
             unset($url[0]);
         } else {

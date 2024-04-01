@@ -1,15 +1,15 @@
 <?php
 
-class Home extends Controller
+class guru extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'Beranda';
+        $data['judul'] = 'Guru';
 
         // $data['user'] = $this->user; @ if already using jwt
 
         $this->view('templates-user/header', $data);
-        $this->view('index', $data);
+        $this->view('guru', $data);
         $this->view('templates-user/footer');
     }
 }

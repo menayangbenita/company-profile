@@ -5,7 +5,7 @@
     @ put ur project base url 
  */
 
-define('BASEURL', 'http://localhost/company-profile/public');
+define('BASEURL', 'http://company-profile.test/');
 
 /** @ DB CONFIG
     @ here, put the database configuration
