@@ -55,7 +55,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="copyright text-white-50">
-                    Copyright <span class="ms-2"></span>&copy; <strong><span>2024</span></strong>. All Rights Reserved
+                    Copyright <span class="ms-2"></span>&copy; <strong><span><script>document.write(new Date().getFullYear())</script></span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
                     Designed by <a href="" target="_blank">Paper Play Studio</a>
