@@ -15,12 +15,12 @@
                 <h4 class="pb-0">Asta Arkananta K8 Malang</h4>
                 <hr>
                 <ul>
-                    <li><a href="profilSekolah.html">Profile Sekolah</a></li>
-                    <li><a href="#">Kepala Sekolah</a></li>
-                    <li><a href="#">Prestasi</a></li>
-                    <li><a href="./visiMisi.html">Visi & Misi</a></li>
-                    <li><a href="#">Guru</a></li>
-                    <li><a href="./galeri.html">Galeri</a></li>
+                    <li><a href="<?= BASEURL; ?>profilSekolah">Profile Sekolah</a></li>
+                    <li><a href="<?= BASEURL; ?>kepalaSekolah">Kepala Sekolah</a></li>
+                    <li><a href="<?= BASEURL; ?>prestasi">Prestasi</a></li>
+                    <li><a href="<?= BASEURL; ?>visiMisi">Visi & Misi</a></li>
+                    <li><a href="<?= BASEURL; ?>guru">Guru</a></li>
+                    <li><a href="<?= BASEURL; ?>galeri">Galeri</a></li>
                 </ul>
             </div>
 
@@ -28,10 +28,10 @@
                 <h4 class="pb-0">Konsentrasi Keahlian</h4>
                 <hr>
                 <ul>
-                    <li><a href="#">Enetrotika</a></li>
-                    <li><a href="#">Elektronik Industri</a></li>
-                    <li><a href="#">Teknik Komputer & Jaringan</a></li>
-                    <li><a href="#">Rekayasa Perangkat Lunak</a></li>
+                    <li><a href="<?= BASEURL; ?>enetrotika">Enetrotika</a></li>
+                    <li><a href="<?= BASEURL; ?>elektronikIndustri">Elektronik Industri</a></li>
+                    <li><a href="<?= BASEURL; ?>tkj">Teknik Komputer & Jaringan</a></li>
+                    <li><a href="<?= BASEURL; ?>rpl">Rekayasa Perangkat Lunak</a></li>
                 </ul>
             </div>
 
