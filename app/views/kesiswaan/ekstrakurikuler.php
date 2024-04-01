@@ -15,7 +15,7 @@
     <nav>
         <div class="container">
             <ol>
-                <li><a href="index.html">KESISWAAN</a></li>
+                <li><a href="<?= BASEURL; ?>L; ?>">KESISWAAN</a></li>
                 <li>Ekstrakurikuler</li>
             </ol>
         </div>

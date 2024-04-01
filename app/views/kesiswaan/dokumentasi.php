@@ -15,7 +15,7 @@
     <nav>
         <div class="container">
             <ol>
-                <li><a href="index.html">KESISWAAN</a></li>
+                <li><a href="<?= BASEURL; ?>">KESISWAAN</a></li>
                 <li>Dokumentasi Ekstrakurikuler</li>
             </ol>
         </div>

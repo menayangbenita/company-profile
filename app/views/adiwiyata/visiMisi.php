@@ -15,7 +15,7 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="index.html">ADIWIYATA</a></li>
+                    <li><a href="<?= BASEURL; ?>">ADIWIYATA</a></li>
                     <li>Visi Misi Adiwiyata</li>
                 </ol>
             </div>

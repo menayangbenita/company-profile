@@ -15,7 +15,7 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="index.html">BKK</a></li>
+                    <li><a href="<?= BASEURL; ?>L; ?>L; ?>">BKK</a></li>
                     <li>Sharing Praktik Baik</li>
                 </ol>
             </div>

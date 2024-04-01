@@ -15,7 +15,7 @@
     <nav>
         <div class="container">
             <ol>
-                <li><a href="index.html">ADIWIYATA</a></li>
+                <li><a href="<?= BASEURL; ?>L; ?>">ADIWIYATA</a></li>
                 <li>Organisasi Adiwiyata</li>
             </ol>
         </div>

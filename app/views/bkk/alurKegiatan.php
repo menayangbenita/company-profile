@@ -15,7 +15,7 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="index.html">BKK</a></li>
+                    <li><a href="<?= BASEURL; ?>">BKK</a></li>
                     <li>Alur Kegiatan BKK</li>
                 </ol>
             </div>

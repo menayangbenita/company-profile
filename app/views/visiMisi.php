@@ -15,7 +15,7 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="index.html">ASTA ARKANANTA K8</a></li>
+                    <li><a href="<?= BASEURL; ?>L; ?>">ASTA ARKANANTA K8</a></li>
                     <li>Visi Misi</li>
                 </ol>
             </div>

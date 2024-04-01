@@ -15,7 +15,7 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="index.html">BERITA</a></li>
+                    <li><a href="<?= BASEURL; ?>L; ?>">BERITA</a></li>
                     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                 </ol>
             </div>
