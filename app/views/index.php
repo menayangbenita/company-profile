@@ -66,12 +66,12 @@
             </div>
             <div class="row">
                 <div class="col-md-6 mb-lg-3">
-                    <a href="beritaAfter.html">
+                    <a href="<?= BASEURL; ?>berita/berita">
                         <div class="card border-0 shadow-none mb-5 px-lg-3">
                             <div class="card-body p-0 pe-lg-5">
                                 <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
                                     src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                <a class="text-dark" href="beritaAfter.html">
+                                <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
                                     <h3 class="mb-3 fw-bold" id="judul">Lorem, ipsum dolor.</h3>
                                 </a>
                                 <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo
@@ -80,7 +80,7 @@
                                     harum dicta ipsam,
                                     cumque qui magni tempora?....</p>
                                 <div class="d-flex justify-content-between" style="font-size: smaller;">
-                                    <a href="beritaAfter.html" class="fw-bold text-dark">READ MORE <i
+                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold text-dark">READ MORE <i
                                             class="bi bi-arrow-up-right-circle"></i></a>
                                     <p class="fw-bold">24 MARET 2024</p>
                                     <p class="fw-bold">SMKN 8 MALANG</p>
@@ -90,12 +90,12 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-lg-3">
-                    <a href="beritaAfter.html">
+                    <a href="<?= BASEURL; ?>berita/berita">
                         <div class="card border-0 shadow-none mb-5 px-lg-3">
                             <div class="card-body p-0 pe-lg-5">
                                 <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
                                     src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                <a class="text-dark" href="beritaAfter.html">
+                                <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
                                     <h3 class="mb-3 fw-bold" id="judul">Lorem, ipsum dolor.</h3>
                                 </a>
                                 <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo
@@ -104,7 +104,7 @@
                                     harum dicta ipsam,
                                     cumque qui magni tempora?....</p>
                                 <div class="d-flex justify-content-between" style="font-size: smaller;">
-                                    <a href="beritaAfter.html" class="fw-bold text-dark">READ MORE <i
+                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold text-dark">READ MORE <i
                                             class="bi bi-arrow-up-right-circle"></i></a>
                                     <p class="fw-bold">24 MARET 2024</p>
                                     <p class="fw-bold">SMKN 8 MALANG</p>
@@ -114,12 +114,12 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-lg-3">
-                    <a href="beritaAfter.html">
+                    <a href="<?= BASEURL; ?>berita/berita">
                         <div class="card border-0 shadow-none mb-5 px-lg-3">
                             <div class="card-body p-0 pe-lg-5">
                                 <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
                                     src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                <a class="text-dark" href="beritaAfter.html">
+                                <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
                                     <h3 class="mb-3 fw-bold" id="judul">Lorem, ipsum dolor.</h3>
                                 </a>
                                 <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo
@@ -128,7 +128,7 @@
                                     harum dicta ipsam,
                                     cumque qui magni tempora?....</p>
                                 <div class="d-flex justify-content-between" style="font-size: smaller;">
-                                    <a href="beritaAfter.html" class="fw-bold text-dark">READ MORE <i
+                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold text-dark">READ MORE <i
                                             class="bi bi-arrow-up-right-circle"></i></a>
                                     <p class="fw-bold">24 MARET 2024</p>
                                     <p class="fw-bold">SMKN 8 MALANG</p>
@@ -138,12 +138,12 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-lg-3">
-                    <a href="beritaAfter.html">
+                    <a href="<?= BASEURL; ?>berita/berita">
                         <div class="card border-0 shadow-none mb-5 px-lg-3">
                             <div class="card-body p-0 pe-lg-5">
                                 <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
                                     src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                <a class="text-dark" href="beritaAfter.html">
+                                <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
                                     <h3 class="mb-3 fw-bold" id="judul">Lorem, ipsum dolor.</h3>
                                 </a>
                                 <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo
@@ -152,7 +152,7 @@
                                     harum dicta ipsam,
                                     cumque qui magni tempora?....</p>
                                 <div class="d-flex justify-content-between" style="font-size: smaller;">
-                                    <a href="beritaAfter.html" class="fw-bold text-dark">READ MORE <i
+                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold text-dark">READ MORE <i
                                             class="bi bi-arrow-up-right-circle"></i></a>
                                     <p class="fw-bold">24 MARET 2024</p>
                                     <p class="fw-bold">SMKN 8 MALANG</p>
@@ -177,7 +177,7 @@
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
                         id est
                         laborum.</p>
-                    <a class="cta-btn" href="./hubungikami.html">Kotak Pertanyaan</a>
+                    <a class="cta-btn" href="<?= BASEURL;?>hubungikami">Kotak Pertanyaan</a>
                 </div>
             </div>
 
