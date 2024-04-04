@@ -227,7 +227,7 @@
 										</div>
 										<div class="separator my-2"></div>
 										<div class="menu-item px-5">
-											<a href="<?= BASEURL; ?>" class="menu-link px-5">Sign Out</a>
+											<a href="<?= BASEURL; ?>logout" class="menu-link px-5">Sign Out</a>
 										</div>
 									</div>
 								</div>
