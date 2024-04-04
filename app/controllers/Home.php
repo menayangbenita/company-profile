@@ -10,6 +10,6 @@ class Home extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('index', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

@@ -37,6 +37,10 @@ class App
             $folder = "Adiwiyata/";
             $this->controller = $url[0];
             unset($url[0]);
+        } else if (file_exists("../app/controllers/Admin/$url[0].php")) {
+            $folder = "Admin/";
+            $this->controller = $url[0];
+            unset($url[0]);
         } else {
             $this->controller = 'Notfound';
             unset($url[0]);

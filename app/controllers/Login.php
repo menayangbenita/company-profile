@@ -11,14 +11,12 @@ class Login extends Controller
     public function index()
     {
         if (isset($_COOKIE['YOURPROJECT-SESSION'])) {
-            header("Location: " . BASEURL);
+            header("Location: " . BASEURL . "dashboard");
         }
 
         $data['judul'] = 'Login';
 
-        // $this->view('login/head', $data);
-        // $this->view('login/index');
-        // $this->view('login/foot');
+        $this->view('login', $data);
     }
 
     public function logProccess()
@@ -34,15 +32,13 @@ class Login extends Controller
                     $payload = [
                         'sub' => $user['id'],
                         'name' => $user['username'],
-                        'role' => $user['role'],
-                        'akses' => $user['hak_akses'],
                         'iat' => time(),
                         'exp' =>  time() + (7 * 24 * 60 * 60) // Token berlaku selama 1 hari
                     ];
                     Cookie::create_jwt($payload, $payload['exp']);
                     // Kirim token JWT sebagai respons
                     Flasher::setFlash('BERHASIL', 'Login', 'success');
-                    header("Location: " . BASEURL);
+                    header("Location: " . BASEURL . "dashboard");
                 }
             } else {
                 Flasher::setFlash('GAGAL', 'Login', 'danger');

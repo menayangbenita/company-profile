@@ -10,6 +10,6 @@ class organisasiAdiwiyata extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('adiwiyata/organisasi', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

@@ -2,12 +2,12 @@
 
 class Login_model
 {
-    private $table = 'login';
+    private $table = 'user';
     private $db;
 
     public function __construct()
     {
-        $this->db = new Database(DB_USERS);
+        $this->db = new Database(DB_NAME);
     }
 
     // Method untuk login //
@@ -65,7 +65,7 @@ class Login_model
     {
 
         $this->db->query(
-            "SELECT `username`, `password`, `email` FROM {$this->table}
+            "SELECT `username`, `password`, `nama`, `last_login_at`, `status_login` FROM {$this->table}
                         WHERE
                     `id` = :id AND
                     `username` = :username"

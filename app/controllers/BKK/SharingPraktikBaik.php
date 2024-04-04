@@ -10,6 +10,6 @@ class sharingPraktikBaik extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('bkk/sharingPraktikBaik', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

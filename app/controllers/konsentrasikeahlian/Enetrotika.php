@@ -10,6 +10,6 @@ class enetrotika extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('kompetensikeahlian/enetrotika', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

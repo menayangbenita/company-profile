@@ -10,7 +10,7 @@ class berita extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('berita/index', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 
     public function berita()
@@ -21,6 +21,6 @@ class berita extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('berita/berita', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

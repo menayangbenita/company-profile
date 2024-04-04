@@ -10,6 +10,6 @@ class alurKegiatanAdiwiyata extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('adiwiyata/alurKegiatan', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }

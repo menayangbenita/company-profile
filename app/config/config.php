@@ -13,6 +13,7 @@ define('BASEURL', 'http://company-profile.test/');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+define('DB_NAME', 'smk8mlg');
 
 /** 
     @ DB NAMES 
@@ -21,7 +22,7 @@ define('DB_PASS', '');
  */
 define('DB_MASTER', 'masterdata');
 define('DB_TU', 'tu');
-define('DB_USERS', 'users');
+// define('DB_USERS', 'users');
 define('DB_KESISWAAN', 'kesiswaan');
 define('DB_HUMAS', 'humas');
 define('DB_KURIKULUM', 'kurikulum');

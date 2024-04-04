@@ -10,6 +10,6 @@ class wakaPsdm extends Controller
 
         $this->view('templates-user/header', $data);
         $this->view('manajemen/psdm', $data);
-        $this->view('templates-user/footer');
+        $this->view('templates-user/footer', $data);
     }
 }
