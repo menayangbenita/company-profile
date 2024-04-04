@@ -20,8 +20,7 @@ class Controller
             if ($jwt) {
                 $data["id"] = $jwt->sub;
                 $data["username"] = $jwt->name;
-                $data["role"] = $jwt->role;
-                $data["hak_akses"] = $jwt->akses;
+
                 $this->user = $this->model("Login", "Login_model")->getUserData($jwt);
             }
         }

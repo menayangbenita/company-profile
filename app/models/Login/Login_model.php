@@ -79,9 +79,6 @@ class Login_model
         return [
             'username' => $result[0],
             'password' => $result[1],
-            'email' => isset($result[2]) ? $result[2] : '-',
-            'role' => $jwt->role,
-            'hak_akses' => $jwt->akses
         ];
     }
 }
