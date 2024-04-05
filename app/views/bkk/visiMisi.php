@@ -31,22 +31,15 @@
         <h3>Visi</h3>
         <div class="border-start border-secondary border-2 mb-5 pe-lg-5">
           <p class="ms-3">
-            <i>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam itaque similique qui at iure omnis
-              fugiat laborum facilis voluptatum ipsum! Nesciunt fugit nam mollitia sunt accusamus animi asperiores
-              saepe atque, repudiandae beatae aut doloremque excepturi tempore vel error autem sequi iure culpa
-              accusantium magni molestias est assumenda non necessitatibus! Unde nam repudiandae tempora sunt
-              laborum sed cupiditate veritatis dolore quae. Laboriosam magnam odio autem.</i>
+            <i> <?= $data['BkkVisiMisi']['visi'] ?></i>
           </p>
         </div>
         <div>
+        <?php foreach( $data['BkkVisiMisi'] as $BkkVisiMisi ) : ?>
           <h3>Misi</h3>
           <ul>
-            <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-arrow-right-short"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-arrow-right-short"></i> Ullam est qui quos consequatur eos accusamus.</li>
-            <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-arrow-right-short"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-arrow-right-short"></i> Ullam est qui quos consequatur eos accusamus.</li>
+            <li><i class="bi bi-arrow-right-short"></i><?= $BkkVisiMisi['misi']; ?></li>
+            <?php endforeach; ?>  
           </ul>
         </div>
       </div>

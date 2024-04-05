@@ -2,9 +2,12 @@
 
 class sharingPraktikBaik extends Controller
 {
+    private $model_name = "Bkk";
     public function index()
     {
         $data['judul'] = 'Sharing Praktik Baik';
+        $data['Sharing'] = $this->model("$this->model_name", 'SharingPraktik_model')->getMaxId();
+
 
         // $data['user'] = $this->user; @ if already using jwt
 
