@@ -19,11 +19,11 @@ class BkksharingPraktik extends Controller
     {
         if ($this->model("$this->model_name", 'SharingPraktik_model')->tambahData($_POST) > 0) {
             Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
-            header('Location: ' . BASEURL . '/BkksharingPraktik');
+            header('Location: ' . BASEURL . 'BkksharingPraktik');
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
-            header('Location: ' . BASEURL . '/BkksharingPraktik');
+            header('Location: ' . BASEURL . 'BkksharingPraktik');
             exit;
         }
     }

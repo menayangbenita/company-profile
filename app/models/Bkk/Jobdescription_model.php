@@ -5,9 +5,9 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class SharingPraktik_model
+class Jobdescription_model
 {
-    private $table = 'sharing_praktik'; 
+    private $table = 'jobdesc_bkk'; 
     private $fields = [
         'isi',
         'link'
