@@ -18,11 +18,11 @@ class BkkOrganisasi extends Controller
     {
         if ($this->model("$this->model_name", 'Organisasi_model')->tambahData($_POST) > 0) {
             Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
-            header('Location: ' . BASEURL . '/BkkOrganisasi');
+            header('Location: ' . BASEURL . 'BkkOrganisasi');
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
-            header('Location: ' . BASEURL . '/BkkOrganisasi');
+            header('Location: ' . BASEURL . 'BkkOrganisasi');
             exit;
         }
     }

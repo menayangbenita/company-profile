@@ -5,12 +5,11 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class Organisasi_model
+class VisiMisi_model
 {
-    private $table = 'struktur_organisasi_bkk'; 
+    private $table = 'visi_misi'; 
     private $fields = [
-        'isi',
-        'link'
+        'isi_visi'
     ];
 
     private $user;
@@ -100,8 +99,10 @@ class Organisasi_model
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi, :link)"
+            (null, :isi_visi, :isi_misi)"
         );
+
+        $this->db->bind(':isi_misi', json_encode($data['isi_misi']));
         
         foreach ($this->fields as $field) {
             $this->db->bind($field, $data[$field]);

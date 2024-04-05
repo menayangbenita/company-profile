@@ -29,6 +29,39 @@
 		</div>
 		<!--end::Scrolltop-->
 
+		<!--begin::Javascript-->
+		<script>var hostUrl = "<?= BASEURL; ?>admin/";</script>
+		<!--Global Javascript Bundle(mandatory for all pages)-->
+		<script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
+
+		<!--Vendors Javascript(used for this page only)-->
+		<script src="<?= BASEURL; ?>admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="<?= BASEURL; ?>admin/plugins/custom/datatables/datatables.bundle.js"></script>
+
+		<!--Custom Javascript(used for this page only)-->
+		<script src="<?= BASEURL; ?>admin/js/widgets.bundle.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/widgets.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/apps/chat/chat.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/create-app.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+		<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
+
 		<!--end::Javascript-->
 
         <!--CKEditor Build Bundles:: Only include the relevant bundles accordingly-->
@@ -165,23 +198,5 @@
             });
         </script>
 
-        
-        <script>
-            $('#kt_docs_repeater_basic').repeater({
-                initEmpty: false,
-
-                defaultValues: {
-                    'text-input': 'foo'
-                },
-
-                show: function () {
-                    $(this).slideDown();
-                },
-
-                hide: function (deleteElement) {
-                    $(this).slideUp(deleteElement);
-                }
-            });
-        </script>
 	</body>
 </html>
