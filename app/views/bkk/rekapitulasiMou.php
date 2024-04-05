@@ -29,19 +29,18 @@
                 <div class="col-lg-8 content mb-5">
                     <h3>Rekapitulasi MOU</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit : <br>
+                    <?= $data['RekapMou']['isi'] ?><br>
                     </p>
                     <div class="pe-lg-3 mb-3 position-relative">
                         <div class="pdf-container rounded-2">
-                            <iframe src="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/preview"
+                        <iframe src="<?= $data['RekapMou']['link'] ?>" width="100%" height=""
                                 width="100%" height=""></iframe>
                         </div>
                     </div>
                     <p>
                         Selengkapnya bisa melihat detailnya di sini: <br>
                         <a class="text-primary text-decoration-underline" target="_blank"
-                            href="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/view?usp=sharing">Sed
-                            vestibulum ante quis justo accumsan, vel congue justo vehicula</a>
+                            href="<?= $data['RekapMou']['link'] ?>"><?= $data['RekapMou']['link'] ?></a>
                     </p>
                 </div>
 

@@ -34,17 +34,18 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-														<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
+														<form id="kt_docs_formvalidation" class="form"  method="post"
+										action="<?= BASEURL; ?>BkkrekapitulasiMOU/tambah" autocomplete="off">
 															<div class="row mb-5 fv-row">
 																<label for="teksmou" class="col-sm-2 col-form-label required">Teks</label>
 																<div class="col-sm-10">
-																	<input type="text" class="form-control" id="teksmou"  name="teksmou"  value="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
+																	<input type="text" class="form-control" id="teksmou"  name="isi"  placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
 																</div>
 															</div>
 															<div class="row mb-5 fv-row">
 																<label for="linkgdrivemou" class="col-sm-2 col-form-label required">Link Google Drive</label>
 																<div class="col-sm-10">
-																	<input type="url" class="form-control" id="linkgdrivemou" name="linkgdrivemou" value="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula">
+																	<input type="url" class="form-control" id="linkgdrivemou" name="link" placeholder="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula">
 																	<div class="form-text">Inputkan link file dari google drive (pastikan akses file sudah dipublik)</div>
 																</div>
 															</div>
