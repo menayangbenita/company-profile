@@ -30,27 +30,13 @@
                 <div class="col-lg-8 content mb-5">
                     <h3>Profile Sekolah</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam itaque similique qui at iure
-                        omnis fugiat
-                        laborum facilis voluptatum ipsum! Nesciunt fugit nam mollitia sunt accusamus animi asperiores
-                        saepe atque,
-                        repudiandae beatae aut doloremque excepturi tempore vel error autem sequi iure culpa accusantium
-                        magni
-                        molestias est assumenda non necessitatibus! Unde nam repudiandae tempora sunt laborum sed
-                        cupiditate
-                        veritatis dolore quae. Laboriosam magnam odio autem. Ut illo adipisci necessitatibus aliquam
-                        corporis
-                        repellendus accusantium velit, totam reprehenderit praesentium esse enim repudiandae.
-                        Voluptatibus minima,
-                        expedita porro rerum iusto enim quaerat necessitatibus perferendis illo dignissimos perspiciatis
-                        eaque.
-                        Tempore, vitae iure necessitatibus quam at adipisci.
+                        <?= $data['profil']['isi'] ?>
                     </p>
                     <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/SMKN8.JPG" class="img-fluid rounded-4" alt="">
-                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['profil']['thumbnail'] ?>" class="img-fluid rounded-4" alt="">
+                        <a href="<?= $data['profil']['video'] ?>" class="glightbox play-btn"></a>
                     </div>
-                    <p>
+                    <!-- <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam itaque similique qui at iure
                         omnis fugiat
                         laborum facilis voluptatum ipsum! Nesciunt fugit nam mollitia sunt accusamus animi asperiores
@@ -62,7 +48,7 @@
                         veritatis dolore quae. Laboriosam magnam odio autem. Ut illo adipisci necessitatibus aliquam
                         corporis
                         repellendus accusantium velit, totam reprehenderit praesentium esse enim repudiandae.
-                    </p>
+                    </p> -->
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
                     <h5 class="text-lg-end mb-4"><span

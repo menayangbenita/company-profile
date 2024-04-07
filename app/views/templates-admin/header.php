@@ -18,6 +18,8 @@
 		<!--Global Stylesheets Bundle(mandatory for all pages)-->
 		<link href="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="<?= BASEURL; ?>admin/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
         <style>
             table.table-bordered.dataTable td:first-child,
             table.table-bordered.dataTable th:first-child {
@@ -292,7 +294,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="kepalaSekolah.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminKepalaSekolah">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -300,7 +302,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="prestasi.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminPrestasi">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -316,7 +318,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="guru.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminGuru">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -324,7 +326,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="galeri.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminGaleri">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -348,7 +350,7 @@
 										</span>
 										<div class="menu-sub menu-sub-accordion">
 											<div class="menu-item">
-												<a class="menu-link" href="wakaHumas.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenHumas">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -356,7 +358,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="wakaSapras.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenSarpras">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -364,7 +366,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="wakaKesiswaan.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenKesiswaan">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -372,15 +374,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="visiMisi.html">
-													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
-													</span>
-													<span class="menu-title">Visi & Misi</span>
-												</a>
-											</div>
-											<div class="menu-item">
-												<a class="menu-link" href="wakaKurikulum.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenKurikulum">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -388,7 +382,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="wakaPSDM.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenPSDM">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -396,7 +390,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="kepalaTU.html">
+												<a class="menu-link" href="<?= BASEURL; ?>ManajemenTu">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -422,7 +416,7 @@
 										</span>
 										<div class="menu-sub menu-sub-accordion">
 											<div class="menu-item">
-												<a class="menu-link" href="enetrotika.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminEnetrotika">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -430,7 +424,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="elektronikIndustri.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminElektronikIndustri">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -438,7 +432,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="tkj.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminTkj">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -446,7 +440,7 @@
 												</a>
 											</div>
 											<div class="menu-item">
-												<a class="menu-link" href="rpl.html">
+												<a class="menu-link" href="<?= BASEURL; ?>AdminRpl">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>

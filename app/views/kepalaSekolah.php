@@ -29,36 +29,36 @@
                 <div class="col-lg-8 content mb-5">
                     <div>
                         <h3>Kepala Sekolah</h3>
-                        <h6 class="fw-bolder mt-3">Drs. Gunawan Dwiyono, M.Pd. (2021 – Sekarang)</h6>
+                        <h6 class="fw-bolder mt-3"><?= $data['kepsek']['nama'] ?> (<?= $data['kepsek']['periode'] ?>)</h6>
                         <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
+                            <img src="<?= BASEURL; ?>img/datafoto/<?= $data['kepsek']['gambar'] ?>" class="img-fluid rounded-4" alt="">
                         </div>
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
                                         <th>Nama</th>
-                                        <td>Drs. Gunawan Dwiyono, M.Pd.</td>
+                                        <td><?= $data['kepsek']['nama'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>NIP</th>
-                                        <td>19670930 199512 1 002</td>
+                                        <td><?= $data['kepsek']['nip'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
-                                        <td>Malang, 30 September 1967</td>
+                                        <td><?= $data['kepsek']['tanggal_lahir'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>TMT CPNS</th>
-                                        <td>01 Desember 1995</td>
+                                        <td><?= $data['kepsek']['tmt_cpns'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>TMT PNS</th>
-                                        <td>TMT PNS</td>
+                                        <td><?= $data['kepsek']['tmt_pns'] ?></td>
                                     </tr>
                                     <tr>
                                         <th>Jabatan Sekarang</th>
-                                        <td>Kepala SMK Negeri 4 Malang</td>
+                                        <td><?= $data['kepsek']['jabatan_sekarang'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -80,12 +80,13 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php foreach ($data['kepsekDulu'] as $kepsek) : ?>
                                                     <tr>
-                                                        <td>1938 - 1954</td>
-                                                        <td>Fr. Cicilianus H.C.A Lommelaars</td>
-                                                        <td>Nama sekolah masih Sekolah Teknik Pertama Percetakan
-                                                            (Grafisce School)</td>
+                                                        <td><?= $kepsek['dari'] ?> - <?= $kepsek['sampai'] ?></td>
+                                                        <td><?= $kepsek['nama'] ?></td>
+                                                        <td><?= $kepsek['keterangan'] ?></td>
                                                     </tr>
+                                                    <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>

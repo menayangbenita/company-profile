@@ -5,11 +5,15 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class VisiMisi_model
+class Prestasi_model
 {
-    private $table = 'visi_misi'; 
+    private $table = 'prestasi'; 
     private $fields = [
-        'isi_visi'
+        'nama',
+        'jenis',
+        'skala',
+        'juara',
+        'tahun'
     ];
 
     private $user;
@@ -52,10 +56,17 @@ class VisiMisi_model
         return $this->db->fetch(); 
     }
 
+    public function getLatest()
+    {
+        $this->db->query("SELECT * FROM {$this->table} ORDER BY id DESC");
+        return $this->db->fetchAll(); 
+    }
+
+
     public function uploadImage()
     {
-        $targetDir = 'images/datafoto/'; // direktori tempat menyimpan file upload
-        $temp = $_FILES['foto']['name'];
+        $targetDir = 'img/datafoto/'; // direktori tempat menyimpan file upload
+        $temp = $_FILES['thumbnail']['name'];
         $imageFileType = explode('.', $temp);
         $imageFileType = strtolower(end($imageFileType));
 
@@ -73,7 +84,7 @@ class VisiMisi_model
 
 
         // validasi ukuran file
-        if ($_FILES["foto"]["size"] > 1000000) {
+        if ($_FILES["thumbnail"]["size"] > 1000000) {
             echo
             '
                 <script>
@@ -85,7 +96,7 @@ class VisiMisi_model
 
         try {
             // simpan file upload ke direktori
-            move_uploaded_file($_FILES['foto']['tmp_name'], $targetFile);
+            move_uploaded_file($_FILES['thumbnail']['tmp_name'], $targetFile);
         } catch (IOExceptionInterface $e) {
             echo $e->getMessage();
         }
@@ -99,11 +110,12 @@ class VisiMisi_model
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi_visi, :isi_misi)"
+            (null, :nama, :jenis, :skala, :juara, :tahun)"
         );
 
-        $this->db->bind(':isi_visi', $data['isi_visi']);
-        $this->db->bind(':isi_misi', json_encode($data['isi_misi']));
+        foreach ($this->fields as $field) {
+            $this->db->bind($field, $data[$field]);
+        }
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -111,62 +123,33 @@ class VisiMisi_model
 
     public function hapusData($id)
     {
-        $this->db->query(
-            "UPDATE {$this->table}  
-                SET 
-                deleted_at = CURRENT_TIMESTAMP,
-                deleted_by = :deleted_by,
-                is_deleted = 1,
-                is_restored = 0
-            WHERE id = :id"
-        );
-
-        $this->db->bind('deleted_by', $this->user);
-        $this->db->bind("id", $id);
+        $query = "DELETE FROM {$this->table} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
 
         $this->db->execute();
+
         return $this->db->rowCount();
     }
 
     public function ubahData($data)
     {
-        $data['user'] = "Admin";
         $this->db->query(
             "UPDATE {$this->table}
                 SET 
-                foto = :foto,
-                nama_lengkap = :nama_lengkap,
-                jenis_kelamin = :jenis_kelamin,
-                tempat_lahir = :tempat_lahir,
-                tanggal_lahir = :tanggal_lahir,
-                alamat_lengkap = :alamat_lengkap,
-                pendidikan_terakhir = :pendidikan_terakhir,
-                jurusan_pendidikan_terakhir = :jurusan_pendidikan_terakhir,
-                nomor_hp = :nomor_hp,
-                kategori = :kategori,
-                mapel_yg_diampu = :mapel_yg_diampu,
-                kategori_mapel = :kategori_mapel,
-                nip = :nip,
-                status_sertifikasi = :status_sertifikasi,
-                keahlian_ganda = :keahlian_ganda,
-                status_pernikahan = :status_pernikahan,
-                modified_at = CURRENT_TIMESTAMP,
-                modified_by = :modified_by
+                nama = :nama,
+                jenis = :jenis,
+                skala = :skala,
+                juara = :juara,
+                tahun = :tahun
             WHERE id = :id"
         );
 
-
-        if ($_FILES["foto"]["error"] === 4) {
-            $foto = $data['fotoLama'];
-        } else {
-            $foto = $this->uploadImage();
-        }
-
-        $this->db->bind('foto', $foto);
         foreach ($this->fields as $field) {
             $this->db->bind($field, $data[$field]);
         }
-        $this->db->bind('modified_by', $this->user);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();

@@ -41,55 +41,36 @@
 											<label for="visi" class="col-sm-2 col-form-label">Visi</label>
 											<div class="col-sm-10">
 												<textarea name="isi_visi" id="isi_visi" class="form-control"
-													data-kt-autosize="true"
-													placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?"></textarea>
+													data-kt-autosize="true" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?"></textarea>
 											</div>
 										</div>
 										<div class="row mb-5 fv-row">
 											<label class="col-form-label col-md-2">Misi</label>
 											<div class="col-sm-10">
-												<div id="kt_docs_repeater_basic">
-													<div class="form-group">
-														<div data-repeater-list="kt_docs_repeater_basic">
-															<div data-repeater-item>
-																<div class="form-group row">
-																	<div class="col-9 col-md-10">
-																		<input type="text" id="isi_misi"
-																			class="form-control mb-2" name="isi_misi"
-																			placeholder="Ketik misi...." value="" />
-																	</div>
-																	<div class="col-3 col-md-2">
-																		<a href="javascript:;" data-repeater-delete
-																			class="btn btn-outline btn-outline-danger btn-active-light-danger btn-sm mtb-2">
-																			<i class="ki-duotone ki-trash fs-5"><span
-																					class="path1"></span><span
-																					class="path2"></span><span
-																					class="path3"></span><span
-																					class="path4"></span><span
-																					class="path5"></span></i>
-																			Hapus
-																		</a>
-																	</div>
-																</div>
-															</div>
+												<div class="form-group" id="misi">
+													<div class="form-group row input-misi">
+														<div class="col-9 col-md-10">
+															<input type="text" id="isi_misi" class="form-control mb-0"
+																name="isi_misi" placeholder="Ketik misi...." value="" />
+														</div>
+														<div class="col-3 col-md-2">
 														</div>
 													</div>
+												</div>
 
-													<!--begin::Form group-->
-													<div class="form-group mt-5">
-														<a href="javascript:;" data-repeater-create
-															class="btn btn btn-outline btn-outline-primary btn-active-light-primary btn-sm">
-															<i class="ki-duotone ki-plus fs-3"></i>
-															Tambah Misi
-														</a>
-													</div>
-													<!--end::Form group-->
+												<!--begin::Form group-->
+												<div class="form-group mt-5">
+													<button
+														class="btn btn btn-outline btn-outline-primary btn-active-light-primary">
+														<i class="ki-duotone ki-plus fs-3"></i>
+														Tambah Misi
+													</button>
 												</div>
 											</div>
 										</div>
 
 										<button id="kt_docs_formvalidation_submit" type="submit"
-											class="btn btn-primary float-end">
+											class="btn btn-primary float-end" onclick="konversiKeJSON()">
 											<span class="indicator-label">
 												Simpan Perubahan
 											</span>
@@ -112,115 +93,200 @@
 
 	<!--begin::Javascript-->
 	<script>var hostUrl = "<?= BASEURL; ?>admin/";</script>
-		<!--Global Javascript Bundle(mandatory for all pages)-->
-		<script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
+	<!--Global Javascript Bundle(mandatory for all pages)-->
+	<script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
 
-		<!--Vendors Javascript(used for this page only)-->
-		<script src="<?= BASEURL; ?>admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-		<script src="<?= BASEURL; ?>admin/plugins/custom/datatables/datatables.bundle.js"></script>
+	<!--Vendors Javascript(used for this page only)-->
+	<script src="<?= BASEURL; ?>admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+	<script src="<?= BASEURL; ?>admin/plugins/custom/datatables/datatables.bundle.js"></script>
 
-		<!--Custom Javascript(used for this page only)-->
-		<script src="<?= BASEURL; ?>admin/js/widgets.bundle.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/widgets.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/apps/chat/chat.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/create-app.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
-		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
-		<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
+	<!--Custom Javascript(used for this page only)-->
+	<script src="<?= BASEURL; ?>admin/js/widgets.bundle.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/widgets.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/apps/chat/chat.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/upgrade-plan.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/create-app.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+	<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
 
 	<script>
-		$('#kt_docs_repeater_basic').repeater({
-			initEmpty: false,
+		// Ambil semua tombol "Tambah Misi"
+		const tambahMisiBtns = document.querySelectorAll('.btn-outline-primary');
 
-			defaultValues: {
-				'text-input': 'foo'
-			},
-
-			show: function () {
-				$(this).slideDown();
-			},
-
-			hide: function (deleteElement) {
-				$(this).slideUp(deleteElement);
-			}
+		// Tambah event listener ke setiap tombol "Tambah Misi"
+		tambahMisiBtns.forEach(btn => {
+			btn.addEventListener('click', (event) => {
+				event.preventDefault();
+				tambahMisi(btn);
+			});
 		});
+
+		// Fungsi untuk menambahkan input misi baru
+		function tambahMisi(btn) {
+			const form = btn.closest('form');
+
+			const inputMisiDiv = document.createElement('div');
+			inputMisiDiv.classList.add('form-group', 'row', 'input-misi');
+
+			const inputColDiv = document.createElement('div');
+			inputColDiv.classList.add('col-9', 'col-md-10');
+
+			const inputMisi = document.createElement('input');
+			inputMisi.setAttribute('type', 'text');
+			inputMisi.setAttribute('id', 'misi');
+			inputMisi.setAttribute('class', 'form-control mb-5');
+			inputMisi.setAttribute('name', 'isi_misi');
+			inputMisi.setAttribute('placeholder', 'Ketik misi....');
+
+			const btnColDiv = document.createElement('div');
+			btnColDiv.classList.add('col-3', 'col-md-2');
+
+			const hapusBtn = document.createElement('button');
+			hapusBtn.setAttribute('class', 'btn btn-outline btn-outline-danger btn-active-light-danger mtb-2');
+			hapusBtn.innerHTML = `
+					<i class="ki-duotone ki-trash fs-5">
+						<span class="path1"></span>
+						<span class="path2"></span>
+						<span class="path3"></span>
+						<span class="path4"></span>
+						<span class="path5"></span>
+					</i>
+					Hapus
+				`;
+			hapusBtn.addEventListener('click', () => {
+				hapusMisi(inputMisiDiv);
+			});
+
+			inputColDiv.appendChild(inputMisi);
+
+			btnColDiv.appendChild(hapusBtn);
+
+			inputMisiDiv.appendChild(inputColDiv);
+			inputMisiDiv.appendChild(btnColDiv);
+
+			btn.insertAdjacentElement('beforebegin', inputMisiDiv);
+		}
+
+		// Fungsi untuk menghapus input misi
+		function hapusMisi(inputMisiDiv) {
+			inputMisiDiv.parentNode.removeChild(inputMisiDiv);
+		}
+	</script>
+
+<script>
+		const tambahForm = document.getElementById('kt_docs_formvalidation');
+		const tambahValidator = FormValidation.formValidation();
+
+		const tambahSubmitButton = document.getElementById('kt_docs_formvalidation_submit');
+		tambahSubmitButton.addEventListener('click', function (e) {
+			e.preventDefault();
+
+			handleFormSubmission(tambahValidator, tambahSubmitButton, 'modalTambah');
+		});
+
+		function handleFormSubmission(validator, submitButton, modalId) {
+			if (validator) {
+				validator.validate().then(function (status) {
+					console.log('validated!');
+
+					if (status == 'Valid') {
+						submitButton.setAttribute('data-kt-indicator', 'on');
+						submitButton.disabled = true;
+
+						setTimeout(function () {
+							const dataBerhasilDitambahkan = true;
+
+							if (dataBerhasilDitambahkan) {
+								submitButton.removeAttribute('data-kt-indicator');
+								submitButton.disabled = false;
+
+								Swal.fire({
+									text: "BERHASIL!",
+									icon: "success",
+									showConfirmButton: false,
+									timer: 1300
+								}).then(function () {
+									$(`#${modalId}`).modal('hide');
+									tambahForm.submit();
+								});
+							} else {
+								console.log('Gagal menambahkan data!');
+							}
+						}, 2000);
+					}
+				});
+			}
+		}
 	</script>
 
 	<script>
-		document.getElementById('kt_docs_formvalidation_submit').addEventListener('click', function () {
-			var misi = document.getElementById('isi_misi').value;
+		document.addEventListener('DOMContentLoaded', () => {
+    const tambahMisiBtn = document.querySelector('.tambah-misi');
+    tambahMisiBtn.addEventListener('click', () => {
+        tambahMisi();
+    });
 
-			var data = {
-				misi: misi
-			};
+    const formMisi = document.getElementById('formMisi');
+    formMisi.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const dataJSON = konversiKeJSON();
+        simpanData(dataJSON);
+    });
+});
 
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', '<?= BASEURL; ?>AdminVisiMisi/tambah', true);
-			xhr.setRequestHeader('Content-Type', 'application/json');
-			xhr.onreadystatechange = function () {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						const tambahForm = document.getElementById('kt_docs_formvalidation');
-						const tambahValidator = FormValidation.formValidation();
 
-						const tambahSubmitButton = document.getElementById('kt_docs_formvalidation_submit');
-						tambahSubmitButton.addEventListener('click', function (e) {
-							e.preventDefault();
+function konversiKeJSON() {
+    const inputMisiDivs = document.querySelectorAll('.input-misi');
+    const misiArray = [];
 
-							handleFormSubmission(tambahValidator, tambahSubmitButton, 'modalTambah');
-						});
+    inputMisiDivs.forEach(div => {
+        const inputMisi = div.querySelector('input[name="isi_misi"]');
+        const misiValue = inputMisi.value.trim();
 
-						function handleFormSubmission(validator, submitButton, modalId) {
-							if (validator) {
-								validator.validate().then(function (status) {
-									console.log('validated!');
+        if (misiValue !== '') {
+            misiArray.push(misiValue);
+        }
+    });
 
-									if (status == 'Valid') {
-										submitButton.setAttribute('data-kt-indicator', 'on');
-										submitButton.disabled = true;
+    return JSON.stringify(misiArray);
+}
 
-										setTimeout(function () {
-											submitButton.removeAttribute('data-kt-indicator');
-											submitButton.disabled = false;
+function simpanData(dataJSON) {
+	const BASEURL = window.location.href;
 
-											Swal.fire({
-												text: "BERHASIL!",
-												icon: "success",
-												showConfirmButton: false,
-												timer: 1300
-											}).then(function () {
-												$(`#${modalId}`).modal('hide');
-											});
-										}, 2000);
-									}
-								});
-							}
-						}
-					} else {
-						alert('Terjadi kesalahan saat menyimpan data.');
-					}
-					document.getElementById('kt_docs_formvalidation_submit').disabled = false;
-					document.querySelector('.indicator-progress').style.display = 'none';
-					document.querySelector('.indicator-label').style.display = 'inline';
-				}
-			};
-			xhr.send(JSON.stringify(data));
-		});
+    fetch(BASEURL + 'tambah', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: dataJSON,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Data berhasil disimpan:', data);
+        // Tambahkan logika atau respons yang sesuai di sini
+    })
+    .catch(error => {
+        console.error('Terjadi kesalahan:', error);
+        // Tambahkan penanganan kesalahan yang sesuai di sini
+    });
+}
+
 	</script>
 
 	<!--end::Javascript-->

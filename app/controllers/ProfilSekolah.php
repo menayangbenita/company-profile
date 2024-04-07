@@ -2,11 +2,12 @@
 
 class profilSekolah extends Controller
 {
+    public $model_name = "Admin";
+
     public function index()
     {
         $data['judul'] = 'Profil Sekolah';
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['profil'] = $this->model("$this->model_name", 'ProfilSekolah_model')->getMaxId();
 
         $this->view('templates-user/header', $data);
         $this->view('profilSekolah', $data);

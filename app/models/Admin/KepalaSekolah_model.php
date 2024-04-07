@@ -5,11 +5,18 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class VisiMisi_model
+class KepalaSekolah_model
 {
-    private $table = 'visi_misi'; 
+    private $table = 'kepala_sekolah'; 
+    private $tablee = 'kepala_sekolah_terdahulu'; 
     private $fields = [
-        'isi_visi'
+        'nama',
+        'nip',
+        'tanggal_lahir',
+        'tmt_cpns',
+        'tmt_pns',
+        'jabatan_sekarang',
+        'periode'
     ];
 
     private $user;
@@ -24,6 +31,12 @@ class VisiMisi_model
     public function getAllData()
     {
         $this->db->query("SELECT * FROM {$this->table}");
+        return $this->db->fetchAll();
+    }
+
+    public function getAllTerdahulu()
+    {
+        $this->db->query("SELECT * FROM {$this->tablee}");
         return $this->db->fetchAll();
     }
 
@@ -54,8 +67,8 @@ class VisiMisi_model
 
     public function uploadImage()
     {
-        $targetDir = 'images/datafoto/'; // direktori tempat menyimpan file upload
-        $temp = $_FILES['foto']['name'];
+        $targetDir = 'img/datafoto/'; // direktori tempat menyimpan file upload
+        $temp = $_FILES['gambar']['name'];
         $imageFileType = explode('.', $temp);
         $imageFileType = strtolower(end($imageFileType));
 
@@ -73,7 +86,7 @@ class VisiMisi_model
 
 
         // validasi ukuran file
-        if ($_FILES["foto"]["size"] > 1000000) {
+        if ($_FILES["gambar"]["size"] > 1000000) {
             echo
             '
                 <script>
@@ -85,7 +98,7 @@ class VisiMisi_model
 
         try {
             // simpan file upload ke direktori
-            move_uploaded_file($_FILES['foto']['tmp_name'], $targetFile);
+            move_uploaded_file($_FILES['gambar']['tmp_name'], $targetFile);
         } catch (IOExceptionInterface $e) {
             echo $e->getMessage();
         }
@@ -93,17 +106,40 @@ class VisiMisi_model
         return $fileName;
     }
 
-
     public function tambahData($data)
     {
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi_visi, :isi_misi)"
+            (null, :gambar, :nama, :nip, :tanggal_lahir, :tmt_cpns, :tmt_pns, :jabatan_sekarang, :periode)"
         );
+        
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
+        }
 
-        $this->db->bind(':isi_visi', $data['isi_visi']);
-        $this->db->bind(':isi_misi', json_encode($data['isi_misi']));
+        $this->db->bind('gambar', $foto);
+        foreach ($this->fields as $field) {
+            $this->db->bind($field, $data[$field]);
+        }
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function tambahDataTerdahulu($data)
+    {
+        $this->db->query(
+            "INSERT INTO {$this->tablee}
+                VALUES 
+            (null, :dari, :sampai, :nama, :keterangan)"
+        );
+        
+        $this->db->bind('dari', $data['dari']);
+        $this->db->bind('sampai', $data['sampai']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('keterangan', $data['keterangan']);
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -111,20 +147,14 @@ class VisiMisi_model
 
     public function hapusData($id)
     {
-        $this->db->query(
-            "UPDATE {$this->table}  
-                SET 
-                deleted_at = CURRENT_TIMESTAMP,
-                deleted_by = :deleted_by,
-                is_deleted = 1,
-                is_restored = 0
-            WHERE id = :id"
-        );
-
-        $this->db->bind('deleted_by', $this->user);
-        $this->db->bind("id", $id);
+        $query = "DELETE FROM {$this->tablee} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
 
         $this->db->execute();
+
         return $this->db->rowCount();
     }
 
@@ -134,39 +164,17 @@ class VisiMisi_model
         $this->db->query(
             "UPDATE {$this->table}
                 SET 
-                foto = :foto,
-                nama_lengkap = :nama_lengkap,
-                jenis_kelamin = :jenis_kelamin,
-                tempat_lahir = :tempat_lahir,
-                tanggal_lahir = :tanggal_lahir,
-                alamat_lengkap = :alamat_lengkap,
-                pendidikan_terakhir = :pendidikan_terakhir,
-                jurusan_pendidikan_terakhir = :jurusan_pendidikan_terakhir,
-                nomor_hp = :nomor_hp,
-                kategori = :kategori,
-                mapel_yg_diampu = :mapel_yg_diampu,
-                kategori_mapel = :kategori_mapel,
-                nip = :nip,
-                status_sertifikasi = :status_sertifikasi,
-                keahlian_ganda = :keahlian_ganda,
-                status_pernikahan = :status_pernikahan,
-                modified_at = CURRENT_TIMESTAMP,
-                modified_by = :modified_by
+                nama = :nama,
+                dari = :dari,
+                sampai = :sampai,
+                keterangan = :keterangan
             WHERE id = :id"
         );
 
-
-        if ($_FILES["foto"]["error"] === 4) {
-            $foto = $data['fotoLama'];
-        } else {
-            $foto = $this->uploadImage();
-        }
-
-        $this->db->bind('foto', $foto);
-        foreach ($this->fields as $field) {
-            $this->db->bind($field, $data[$field]);
-        }
-        $this->db->bind('modified_by', $this->user);
+        $this->db->bind('dari', $data['dari']);
+        $this->db->bind('sampai', $data['sampai']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('keterangan', $data['keterangan']);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();
