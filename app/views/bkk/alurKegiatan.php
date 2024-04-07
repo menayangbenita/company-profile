@@ -23,16 +23,17 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= About Us Section ======= -->
+
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>Alur Kegiatan BKK</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
+                    <?= $data['AlurBkk']['isi'] ?><br>
                     </p>
                     <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>/img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
+                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['AlurBkk']['foto'] ?>"class="img-fluid rounded-4" alt="">
                     </div>
                 </div>
 

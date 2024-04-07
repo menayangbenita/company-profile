@@ -33,21 +33,28 @@
 													</div>
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-														<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
-															<div class="row mb-5 fv-row">
-																<label for="teksinovasibkk" class="col-sm-2 col-form-label required">Teks</label>
-																<div class="col-sm-10">
-																	<input type="text" class="form-control" id="teksinovasibkk"  name="teksinovasibkk"  value="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
-																</div>
-															</div>
-															<div class="row mb-5 fv-row">
-																<label for="linkgdriveinovasibkk" class="col-sm-2 col-form-label required">Link Google Drive</label>
-																<div class="col-sm-10">
-																	<input type="url" class="form-control" id="linkgdriveinovasibkk" name="linkgdriveinovasibkk" value="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula">
-																	<div class="form-text">Inputkan link file dari google drive (pastikan akses file sudah dipublik)</div>
-																</div>
-															</div>
+									<div class="d-flex flex-column content-justify-center flex-row-fluid">
+									<form id="kt_docs_formvalidation" class="form" method="post"
+										action="<?= BASEURL; ?>BkkInovasiProgram/tambah" autocomplete="off">
+										<div class="row mb-5 fv-row">
+											<label for="teksstrukturbkk"
+												class="col-sm-2 col-form-label required">Teks</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="isi" name="isi"
+													placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
+											</div>
+										</div>
+
+										<div class="row mb-5 fv-row">
+											<label for="linkgdriveorganisasibkk"
+												class="col-sm-2 col-form-label required">Link Google Drive</label>
+											<div class="col-sm-10">
+												<input type="url" class="form-control" id="link" name="link"
+													placeholder="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula">
+												<div class="form-text">Inputkan link file dari google drive (pastikan
+													akses file sudah dipublik)</div>
+											</div>
+										</div>
 															<button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary float-end">
 																<span class="indicator-label">
 																	Simpan Perubahan

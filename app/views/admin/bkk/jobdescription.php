@@ -34,17 +34,17 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-														<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
+														<form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>BkkJobdescription/tambah" method="post" autocomplete="off">
 															<div class="row mb-5 fv-row">
 																<label for="teksjobdes" class="col-sm-2 col-form-label required">Teks</label>
 																<div class="col-sm-10">
-																	<input type="text" class="form-control" id="teksjobdes"  name="teksjobdes"  value="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
+																	<input type="text" class="form-control" id="isi"  name="isi"  placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit :">
 																</div>
 															</div>
 															<div class="row mb-5 fv-row">
 																<label for="linkgdrivejobdes" class="col-sm-2 col-form-label required">Link Google Drive</label>
 																<div class="col-sm-10">
-																	<input type="url" class="form-control" id="linkgdrivejobdes" name="linkgdrivejobdes" value="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula">
+																	<input type="url" class="form-control" id="link" name="link" placeholder="Sed vestibulum ante quis justo accumsan, vel congue justo vehicula.com">
 																	<div class="form-text">Inputkan link file dari google drive (pastikan akses file sudah dipublik)</div>
 																</div>
 															</div>
@@ -69,11 +69,40 @@
 						</div>
 						<!--end::Content wrapper-->
 
+                        <script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
+
+		<!--Vendors Javascript(used for this page only)-->
+		<script src="<?= BASEURL; ?>admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		<script src="<?= BASEURL; ?>admin/plugins/custom/datatables/datatables.bundle.js"></script>
+
+		<!--Custom Javascript(used for this page only)-->
+		<script src="<?= BASEURL; ?>admin/js/widgets.bundle.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/widgets.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/apps/chat/chat.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/create-app.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
+		<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
+		<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
+
                         <script>
             const tambahForm = document.getElementById('kt_docs_formvalidation');
             const tambahValidator = FormValidation.formValidation();
         
-            // Submit button handler
             const tambahSubmitButton = document.getElementById('kt_docs_formvalidation_submit');
             tambahSubmitButton.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -82,29 +111,37 @@
             });
         
             function handleFormSubmission(validator, submitButton, modalId) {
-                if (validator) {
-                    validator.validate().then(function (status) {
-                        console.log('validated!');
-        
-                        if (status == 'Valid') {
-                            submitButton.setAttribute('data-kt-indicator', 'on');
-                            submitButton.disabled = true;
-        
-                            setTimeout(function () {
-                                submitButton.removeAttribute('data-kt-indicator');
-                                submitButton.disabled = false;
-        
-                                Swal.fire({
-                                    text: "BERHASIL!",
-                                    icon: "success",
-                                    showConfirmButton: false,
-                                    timer: 1300
-                                }).then(function () {
-                                    $(`#${modalId}`).modal('hide');
-                                });
-                            }, 2000);
-                        }
-                    });
-                }
+    if (validator) {
+        validator.validate().then(function (status) {
+            console.log('validated!');
+
+            if (status == 'Valid') {
+                submitButton.setAttribute('data-kt-indicator', 'on');
+                submitButton.disabled = true;
+
+                setTimeout(function () {
+                    const dataBerhasilDitambahkan = true;
+
+                    if (dataBerhasilDitambahkan) {
+                        submitButton.removeAttribute('data-kt-indicator');
+                        submitButton.disabled = false;
+
+                        Swal.fire({
+                            text: "BERHASIL!",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1300
+                        }).then(function () {
+                            $(`#${modalId}`).modal('hide'); 
+                            tambahForm.submit(); 
+                        });
+                    } else {
+                        console.log('Gagal menambahkan data!');
+                    }
+                }, 2000);
             }
+        });
+    }
+}
+
         </script>

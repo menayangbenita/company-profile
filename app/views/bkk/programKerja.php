@@ -24,23 +24,23 @@
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-            <div class="row gy-4">
-                <div class="col-lg-8 content mb-5">
-                    <h3>Program Kerja BKK</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit : <br>
-                        <a class="text-primary text-decoration-underline" target="_blank"
-                            href="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/view?usp=sharing">Sed
-                            vestibulum ante quis justo accumsan, vel congue justo vehicula</a>
-                    </p>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                        <div class="pdf-container rounded-2">
-                            <iframe src="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/preview"
-                                width="100%" height=""></iframe>
-                        </div>
-                    </div>
+  <div class="container" data-aos="fade-up">
+    <div class="row gy-4">
+        <div class="col-lg-8 content mb-5">
+            <h3>Program Kerja BKK</h3>
+            <p>
+                <?= $data['Proker']['isi'] ?><br>
+                <a class="text-primary text-decoration-underline" target="_blank" href="<?= $data['Proker']['link'] ?>"><?= $data['Proker']['link'] ?></a>
+            </p>
+            <div class="pe-lg-3 mb-3 position-relative">
+                <div class="pdf-container rounded-2">
+                    <iframe src="<?= $data['Proker']['link'] ?>" width="100%" height=""></iframe>
                 </div>
+            </div>
+        </div>
+
+
+
 
                 <div class="col-lg-4 position-relative align-self-start">
                     <h5 class="text-lg-end mb-4"><span

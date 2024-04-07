@@ -34,11 +34,12 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-														<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
+														<form id="kt_docs_formvalidation" class="form"  method="post"
+										action="<?= BASEURL; ?>BkkvisiMisi/tambah" autocomplete="off">
 															<div class="row mb-5 fv-row">
 																<label for="visibkk" class="col-sm-2 col-form-label">Visi</label>
 																<div class="col-sm-10">
-																	<textarea name="visibkk" id="visibkk" class="form-control" data-kt-autosize="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?</textarea>
+																	<textarea name="visibkk" id="visibkk" class="form-control" data-kt-autosize="true" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?"></textarea>
 																</div>
 															</div>
 															<div class="row mb-5 fv-row">

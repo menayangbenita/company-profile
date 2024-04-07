@@ -2,9 +2,13 @@
 
 class visiMisiBkk extends Controller
 {
+    public $model_name = "Bkk";
+
     public function index()
     {
         $data['judul'] = 'Visi & Misi BKK';
+        $data['BkkVisiMisi'] = $this->model("$this->model_name", 'VisiMisiBkk_model')->getMaxId();
+
 
         // $data['user'] = $this->user; @ if already using jwt
 

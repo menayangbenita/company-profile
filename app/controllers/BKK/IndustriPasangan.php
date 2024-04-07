@@ -1,10 +1,13 @@
 <?php
 
-class industriPasangan extends Controller
+class IndustriPasangan extends Controller
 {
+    public $model_name = "Bkk";
+
     public function index()
     {
         $data['judul'] = 'Industri Pasangan';
+        $data['Industri'] = $this->model("$this->model_name", 'IndustriPasangan_model')->getMaxId();
 
         // $data['user'] = $this->user; @ if already using jwt
 
