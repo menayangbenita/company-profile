@@ -28,12 +28,12 @@
         <div class="col-lg-8 content mb-5">
             <h3>Struktur Organisasi BKK</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit : <br>
-                <a class="text-primary text-decoration-underline" target="_blank" href="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/view?usp=sharing">Sed vestibulum ante quis justo accumsan, vel congue justo vehicula</a>
+                <?= $data['organisasi']['isi'] ?><br>
+                <a class="text-primary text-decoration-underline" target="_blank" href="<?= $data['organisasi']['link'] ?>"><?= $data['organisasi']['link'] ?></a>
             </p>
             <div class="pe-lg-3 mb-3 position-relative">
                 <div class="pdf-container rounded-2">
-                    <iframe src="https://drive.google.com/file/d/1gjkLqu01OLWZqBA9niPBEx3lN5LKRd2Q/preview" width="100%" height=""></iframe>
+                    <iframe src="<?= $data['organisasi']['link'] ?>" width="100%" height=""></iframe>
                 </div>
             </div>
         </div>

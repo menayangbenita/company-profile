@@ -44,13 +44,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach ($data['prestasi'] as $prestasi) : ?>
                                                 <tr>
-                                                    <td>Budiono</td>
-                                                    <td>Olahraga</td>
-                                                    <td>Nasional</td>
-                                                    <td>1</td>
-                                                    <td>2024</td>
+                                                    <td><?= $prestasi['nama']; ?></td>
+                                                    <td><?= $prestasi['jenis']; ?></td>
+                                                    <td><?= $prestasi['skala']; ?></td>
+                                                    <td><?= $prestasi['juara']; ?></td>
+                                                    <td><?= $prestasi['tahun']; ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>

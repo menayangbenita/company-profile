@@ -150,53 +150,6 @@
 
         </script>
         <!--delete row-->
-        <script>
-            $(document).ready(function () {
-                $('[data-kt-permissions-table-filter="delete_row"]').on('click', function () {
-                    const row = $(this).closest('tr');
-                    const itemName = row.find('td:eq(1)').text();
-
-                    Swal.fire({
-                        text: "Apakah Anda yakin untuk menghapus '" + itemName + "' ?",
-                        icon: "warning",
-                        showCancelButton: true,
-                        buttonsStyling: false,
-                        confirmButtonText: "Ya, hapus!",
-                        cancelButtonText: "Batalkan",
-                        customClass: {
-                            confirmButton: "btn fw-bold btn-danger",
-                            cancelButton: "btn fw-bold btn-active-light-primary"
-                        }
-                    }).then((result) => {
-                        if (result.value) {
-                            Swal.fire({
-                                text: "Data '" + itemName + "' berhasil di hapus!",
-                                icon: "success",
-                                buttonsStyling: false,
-                                showConfirmButton: false,
-                                timer: 900,
-                                customClass: {
-                                    confirmButton: "btn fw-bold btn-primary"
-                                }
-                            }).then(() => {
-                                row.remove();
-                            });
-                        } else if (result.dismiss === "cancel") {
-                            Swal.fire({
-                                text: "Data '" + itemName + " ' tidak dihapus.",
-                                icon: "error",
-                                buttonsStyling: false,
-                                showConfirmButton: false,
-                                timer: 900,
-                                customClass: {
-                                    confirmButton: "btn fw-bold btn-primary"
-                                }
-                            });
-                        }
-                    });
-                });
-            });
-        </script>
 
 	</body>
 </html>

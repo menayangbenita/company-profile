@@ -5,12 +5,12 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class Organisasi_model
+class ProfilSekolah_model
 {
-    private $table = 'struktur_organisasi_bkk'; 
+    private $table = 'profil_sekolah'; 
     private $fields = [
-        'isi',
-        'link'
+        'video',
+        'isi'
     ];
 
     private $user;
@@ -55,8 +55,8 @@ class Organisasi_model
 
     public function uploadImage()
     {
-        $targetDir = 'images/datafoto/'; // direktori tempat menyimpan file upload
-        $temp = $_FILES['foto']['name'];
+        $targetDir = 'img/datafoto/'; // direktori tempat menyimpan file upload
+        $temp = $_FILES['thumbnail']['name'];
         $imageFileType = explode('.', $temp);
         $imageFileType = strtolower(end($imageFileType));
 
@@ -74,7 +74,7 @@ class Organisasi_model
 
 
         // validasi ukuran file
-        if ($_FILES["foto"]["size"] > 1000000) {
+        if ($_FILES["thumbnail"]["size"] > 1000000) {
             echo
             '
                 <script>
@@ -86,7 +86,7 @@ class Organisasi_model
 
         try {
             // simpan file upload ke direktori
-            move_uploaded_file($_FILES['foto']['tmp_name'], $targetFile);
+            move_uploaded_file($_FILES['thumbnail']['tmp_name'], $targetFile);
         } catch (IOExceptionInterface $e) {
             echo $e->getMessage();
         }
@@ -100,9 +100,15 @@ class Organisasi_model
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi, :link)"
+            (null, :video, :isi, :thumbnail)"
         );
         
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
+        }
+
+        $this->db->bind('thumbnail', $foto);
         foreach ($this->fields as $field) {
             $this->db->bind($field, $data[$field]);
         }

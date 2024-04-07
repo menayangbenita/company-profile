@@ -2,6 +2,8 @@
 
 class visiMisi extends Controller
 {
+    private $model_name = "Admin";
+
     public function index()
     {
         $data['judul'] = 'Visi & Misi';
