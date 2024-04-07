@@ -34,21 +34,21 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-                                                        <form action="">
+													<form method="post" action="<?= BASEURL; ?>AdiwiyataAlurKegiatan/tambah" enctype="multipart/form-data">
 															<div class="row mb-5 fv-row">
 																<label for="teksakuradiwiyata" class="col-sm-2 col-form-label">Teks</label>
 																<div class="col-sm-10">
-																	<textarea name="teksakuradiwiyata" id="teksakuradiwiyata" class="form-control" data-kt-autosize="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?</textarea>
+																	<textarea name="isi" id="isi" class="form-control" data-kt-autosize="true" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?"></textarea>
 																</div>
 															</div>
 															<div class="row mb-5 fv-row">
 																<label for="linkgdriveorganisasiadiwiyata" class="col-sm-2 col-form-label required">Gambar Alur Kegiatan Adiwiyata</label>
 																<div class="col-sm-10">
 																	<div class="overlay my-2">
-																		<img id="selectedImage" class="w-100 card-rounded" src="assets/media/stock/1600x800/img-1.jpg" alt="" />
+																	<img id="selectedImage" class="w-100 card-rounded" src="" alt="" />
 																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-                                                                            <input type="file" id="fileInput" accept=".jpg, .png, .jpeg" style="display: none;" onchange="previewImage(event)">
-                                                                            <a href="#" class="btn btn-primary" onclick="document.getElementById('fileInput').click(); return false;">Upload Gambar</a>
+                                                                            <input type="file" name="foto" id="fileInput" accept=".jpg, .png, .jpeg" style="display: none;" onchange="previewImage(event)">
+																			<a href="#" class="btn btn-primary" onclick="document.getElementById('fileInput').click(); return false;">Upload Gambar</a>
                                                                         </div>
 																	</div>
 																	<div class="form-text">Inputkan file dengan jenis .jpg .png</div>

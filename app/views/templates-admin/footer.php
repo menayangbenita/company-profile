@@ -77,6 +77,7 @@
                 .catch(error => {
                     console.error(error);
                 });
+                
         </script>
 		<script>
 			function previewImage(event) {
