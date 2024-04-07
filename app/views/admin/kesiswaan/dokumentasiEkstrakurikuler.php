@@ -34,10 +34,10 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-                                                        <form action="">
+													<form method="post" action="<?= BASEURL; ?>EkstrakurikulerDokumentasi/tambah" enctype="multipart/form-data">
                                                             <div class="row" data-bs-theme="light">
 																<div class="col-sm-12">
-																	<textarea name="kt_docs_ckeditor_classic" id="kt_docs_ckeditor_classic">
+																<textarea name="isi" id="kt_docs_ckeditor_classic">
 																	</textarea>
 																</div>
 															</div>
@@ -151,7 +151,7 @@
 									<div class="row mb-3 fv-row">
 										<label for="galeriesktra" class="col-sm-2 col-form-label required">Gambar</label>
 										<div class="col-sm-10">
-											<input type="file" class="form-control" accept=".jpeg , .jpg, .png" id="galeriesktra" name="required">
+											<input type="file" class="form-control" accept=".jpeg , .jpg, .png" id="foto" name="foto">
                                             <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
 										</div>
 									</div>

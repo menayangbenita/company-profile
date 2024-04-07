@@ -31,11 +31,7 @@
             <div class="col-lg-8 content mb-5">
                 <h3>Dokumentasi Ekstrakurikuler</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laboriosam iure nobis
-                    facere, delectus sit sunt officiis voluptatibus et, quis mollitia architecto nostrum, libero
-                    eos aperiam vel recusandae voluptate vero cupiditate dignissimos optio quas doloribus
-                    explicabo? Tempora nesciunt dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Neque, placeat:
+                <?= $data['DokumEkstra']['isi'] ?>
                 </p>
                 <!-- ======= Gallery Section ======= -->
                 <div id="gallery" class="gallery mt-0 pt-0">

@@ -34,10 +34,11 @@
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
 													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-                                                        <form action="">
+													<form method="post" action="<?= BASEURL; ?>AdminGls/tambah" enctype="multipart/form-data">
+
                                                             <div class="row" data-bs-theme="light">
 																<div class="col-sm-12">
-																	<textarea name="kt_docs_ckeditor_classic" id="kt_docs_ckeditor_classic">
+																	<textarea name="isi" id="kt_docs_ckeditor_classic">
 																	</textarea>
 																</div>
 															</div>

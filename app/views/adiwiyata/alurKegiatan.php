@@ -31,10 +31,10 @@
                 <div class="col-lg-8 content mb-5">
                     <h3>Alur Kegiatan Adiwiyata</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
+                    <?= $data['AlurAdiwiyata']['isi'] ?>
                     </p>
                     <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
+                    <img src="<?= BASEURL; ?>img/datafoto/<?= $data['AlurAdiwiyata']['foto'] ?>"class="img-fluid rounded-4" alt="">
                     </div>
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
