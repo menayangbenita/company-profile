@@ -30,34 +30,7 @@
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>GLS (Gerkan Literasi Sekolah)</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laboriosam iure nobis
-                        facere, delectus sit sunt officiis voluptatibus et, quis mollitia architecto nostrum, libero
-                        eos aperiam vel recusandae voluptate vero cupiditate dignissimos optio quas doloribus
-                        explicabo? Tempora nesciunt dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Neque, placeat:
-                    </p>
-                    <div class="mb-5">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                        </p>
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                        </p>
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                        </div>
-                    </div>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, neque: <br>
-                        <a class="text-primary text-decoration-underline" target="_blank" href="">Sed vestibulum ante
-                            quis justo accumsan, vel congue justo vehicula</a>
-                    </p>
+                    <?= $data['gls']['isi'] ?>
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
                     <h5 class="text-lg-end mb-4"><span

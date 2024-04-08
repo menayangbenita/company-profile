@@ -65,10 +65,38 @@
 		<!--end::Javascript-->
 
         <!--CKEditor Build Bundles:: Only include the relevant bundles accordingly-->
-        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
+        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckfinder.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.snow.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.js"></script>
 
         <!--begin::Custom Javascript(used for this page only)-->
-        <script>
+		<script>
+			DecoupledEditor
+	.create( document.querySelector( '.editor' ), {
+		// Editor configuration.
+	} )
+	.then( editor => {
+		window.editor = editor;
+
+		// Set a custom container for the toolbar.
+		document.querySelector( '.document-editor__toolbar' ).appendChild( editor.ui.view.toolbar.element );
+		document.querySelector( '.ck-toolbar' ).classList.add( 'ck-reset_all' );
+	} )
+	.catch( handleSampleError );
+
+function handleSampleError( error ) {
+	const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+	const message = [
+		'Oops, something went wrong!',
+		`Please, report the following error on ${ issueUrl } with the build id "q8j611lqmg98-lzyrxibt40ui" and the error stack trace:`
+	].join( '\n' );
+
+	console.error( message );
+	console.error( error );
+}
+
             ClassicEditor
                 .create(document.querySelector('#kt_docs_ckeditor_classic'))
                 .then(editor => {
@@ -78,6 +106,14 @@
                     console.error(error);
                 });
         </script>
+		<script>
+			CKEDITOR.replace('kt_docs_ckeditor_classic', {
+				filebrowserBrowseURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/ckfinder.html',
+				filebrowserUploadURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+				height: '400px'
+			})
+		</script>
+
 		<script>
 			function previewImage(event) {
 				var reader = new FileReader();
