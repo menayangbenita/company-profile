@@ -99,7 +99,7 @@
 																	<span class="path2"></span>
 																</i>
 															</a>
-															<a href="<?= BASEURL; ?>AdminGuru/hapus/<?= $prestasi['id'] ?>"
+															<a href="<?= BASEURL; ?>AdminPrestasi/hapus/<?= $prestasi['id'] ?>"
 																class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
 																type="button" class="btn btn-primary"
 																data-kt-permissions-table-filter="delete_row">

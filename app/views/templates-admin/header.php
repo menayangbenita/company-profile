@@ -382,9 +382,8 @@
 													<span class="menu-title">Waka Bidang Kesiswaan</span>
 												</a>
 											</div>
-											<div class="menu-item"
+											<div class="menu-item">
 												<a class="menu-link" href="<?= BASEURL; ?>ManajemenKurikulum">
-												<a class="menu-link" href="wakaKurikulum.html">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
