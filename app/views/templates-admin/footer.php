@@ -102,9 +102,8 @@ function handleSampleError( error ) {
                 .catch(error => {
                     console.error(error);
                 });
-        </script> -->
-		
 
+        </script> -->
 
 		<script>
 			function previewImage(event) {

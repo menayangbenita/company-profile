@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<!--end::Toolbar-->
-
+    
 		<!--begin::Content-->
 		<div id="kt_app_content" class="app-content flex-column-fluid">
 			<div id="kt_app_content_container" class="app-container container-fluid">
@@ -152,7 +152,7 @@
 	</div>
 	<!--end::Content wrapper-->
 
-	<!--modal-->
+<!--modal-->
 	<div class="modal fade" tabindex="-1" id="modalTambah">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">

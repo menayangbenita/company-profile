@@ -8,9 +8,7 @@ class gerakanLiterasiSekolah extends Controller
     {
         $data['judul'] = 'Gerakan Literasi Sekolah';
         $data['gls'] = $this->model("$this->model_name", 'Gls_model')->getMaxId();
-
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['user'] = $this->user;
 
         $this->view('templates-user/header', $data);
         $this->view('kesiswaan/gls', $data);

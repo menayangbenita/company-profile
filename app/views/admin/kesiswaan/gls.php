@@ -50,7 +50,8 @@
 												</div>
 											</div>
 										</div>
-								</div>
+                  </div>
+                 </div>
 							</div>
 							<div class="card-footer">
 								<button type="submit" class="btn btn-primary float-end">Simpan Perubahan</button>
