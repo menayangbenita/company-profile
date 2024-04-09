@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <!--begin::Main-->
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
     <!--begin::Content wrapper-->
@@ -43,7 +45,7 @@
                                             <label for="Nama Kepala Sekolah"
                                                 class="col-sm-2 col-form-label required">Nama</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" id="nama" name="nama"
+                                                <input class="form-control" name="nama"
                                                     placeholder="John Doe"></input>
                                             </div>
                                         </div>
@@ -125,35 +127,42 @@
                                     <table class="table table-bordered align-middle" id="table">
                                         <thead class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
                                             <tr>
-                                                <th class="pe-3">No.</th>
-                                                <th class="pe-3">Gambar</th>
+                                                <th class="pe-3" style="display: none;">ID</th>
+                                                <th class="pe-3">Logo</th>
                                                 <th class="pe-3">Nama Industri</th>
                                                 <th class="pe-3 text-center">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-700">
+                                            <?php foreach ($data['logo'] as $logo) : ?>
                                             <tr>
-                                                <td>1.</td>
+                                                <td style="display: none;">
+                                                    <span class="logo-id">
+                                                        <?= $logo['id']; ?>
+                                                    </span>
+												</td>
                                                 <td class="w-lg-200px">
-                                                    <img src="<?= BASEURL; ?>admin/media/stock/1600x800/img-1.jpg"
+                                                    <img src="<?= BASEURL; ?>img/datafoto/<?= $logo['foto']; ?>"
                                                         class="img-fluid">
                                                 </td>
-                                                <td>PT. Sentosa</td>
+                                                <td><?= $logo['nama']; ?></td>
                                                 <td class="text-center text-nowrap">
-                                                    <button type="button"
-                                                        class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-outline-primary btn-sm"
-                                                        data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse"
-                                                        data-bs-placement="bottom" title="Edit">
+                                                    <a href="<?= BASEURL; ?>ManajemenHumas/ubah/<?= $logo['id'] ?>"
+                                                        data-id="<?= $logo['id']; ?>"
+                                                        class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-danger btn-sm tampilModalUbah"
+                                                        type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modalTambahindus">
                                                         <i class="ki-duotone ki-pencil fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                         </i>
-                                                    </button>
-                                                    <button
+                                                    </a>
+                                                    <a href="<?= BASEURL; ?>ManajemenHumas/hapus/<?= $logo['id'] ?>"
                                                         class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
-                                                        data-kt-permissions-table-filter="delete_row"
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                        title="Hapus">
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-custom-class="tooltip-inverse"
+                                                        data-bs-placement="bottom" title="Hapus"
+                                                        data-kt-permissions-table-filter="delete_row">
                                                         <i class="ki-duotone ki-trash fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -161,9 +170,10 @@
                                                             <span class="path4"></span>
                                                             <span class="path5"></span>
                                                         </i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                             </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -175,8 +185,7 @@
                         <div class="card-header pt-2 mb-5">
                             <div class="card-title d-flex flex-column">
                                 <div class="card-title d-flex flex-column">
-                                    <span class="text-uppercase fw-bold pb-0 fs-3">Unggah Gambar dokumentasi
-                                        eksrakurikuler</span>
+                                    <span class="text-uppercase fw-bold pb-0 fs-3">Unggah Gambar Dokumentasi Humas</span>
                                 </div>
                             </div>
                             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
@@ -191,24 +200,29 @@
                                     <table class="table table-bordered align-middle" id="table">
                                         <thead class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
                                             <tr>
-                                                <th class="pe-3">No.</th>
+                                                <th class="pe-3" style="display: none;">ID</th>
                                                 <th class="pe-3">Gambar</th>
                                                 <th class="pe-3 text-center">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-700">
+                                            <?php foreach ($data['galeri'] as $galeri) : ?>
                                             <tr>
-                                                <td>1.</td>
+                                                <td style="display: none;">
+                                                    <span class="galeri-id">
+                                                        <?= $galeri['id']; ?>
+                                                    </span>
+												</td>
                                                 <td class="text-center">
                                                     <div class="d-flex align-items-center">
                                                         <div class="">
                                                             <!--begin::Overlay-->
                                                             <a class="d-block overlay" data-fslightbox="lightbox-basic"
-                                                                href="<?= BASEURL; ?>admin/media/stock/900x600/23.jpg">
+                                                                href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>">
                                                                 <!--begin::Image-->
                                                                 <div class="symbol symbol-50px">
                                                                     <img
-                                                                        src="<?= BASEURL; ?>admin/media/stock/900x600/23.jpg">
+                                                                        src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>">
                                                                 </div>
                                                                 <!--end::Image-->
 
@@ -224,20 +238,11 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center text-nowrap">
-                                                    <button type="button"
-                                                        class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-outline-primary btn-sm"
-                                                        data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse"
-                                                        data-bs-placement="bottom" title="Edit">
-                                                        <i class="ki-duotone ki-pencil fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </button>
-                                                    <button
+                                                    <a href="<?= BASEURL; ?>ManajemenHumas/hapusGaleri/<?= $galeri['id'] ?>"
                                                         class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
-                                                        data-kt-permissions-table-filter="delete_row"
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                        title="Hapus">
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-custom-class="tooltip-inverse"
+                                                        data-bs-placement="bottom" title="Hapus">
                                                         <i class="ki-duotone ki-trash fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
@@ -245,9 +250,10 @@
                                                             <span class="path4"></span>
                                                             <span class="path5"></span>
                                                         </i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                             </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -263,12 +269,13 @@
 </div>
 <!--end::Content wrapper-->
 
+
 <!--modal-->
 <div class="modal fade" tabindex="-1" id="modalTambah">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Gambar</h5>
+                <h5 class="modal-title">TAMBAH DATA DOKUMENTASI HUMAS</h5>
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                     aria-label="Close">
@@ -277,7 +284,7 @@
                 <!--end::Close-->
             </div>
 
-            <form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
+            <form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>ManajemenHumas/tambahGaleri" method="post" enctype="multipart/form-data" autocomplete="off">
                 <div class="modal-body">
                     <div class="row mb-3">
                         <div class="col-md-12">
@@ -286,70 +293,24 @@
                                 <label for="galeriesktra" class="col-sm-2 col-form-label required">Gambar</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" accept=".jpeg , .jpg, .png"
-                                        id="galeriesktra" name="required">
+                                        id="galeriesktra" name="foto">
                                     <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
-            <div class="modal-footer">
-                <button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary">
-                    <span class="indicator-label">
-                        Tambah
-                    </span>
-                    <span class="indicator-progress">
-                        Harap menunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--modal end-->
-
-<!--modal-->
-<div class="modal fade" tabindex="-1" id="modalTambah">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tambah Gambar</h5>
-                <!--begin::Close-->
-                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                    aria-label="Close">
-                    <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
-                </div>
-                <!--end::Close-->
-            </div>
-
-            <form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <!--begin::Input group-->
-                            <div class="row mb-3 fv-row">
-                                <label for="galeriesktra" class="col-sm-2 col-form-label required">Gambar</label>
-                                <div class="col-sm-10">
-                                    <input type="file" class="form-control" accept=".jpeg , .jpg, .png"
-                                        id="galeriesktra" name="required">
-                                    <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary">
+                        <span class="indicator-label">
+                            Tambah
+                        </span>
+                        <span class="indicator-progress">
+                            Harap menunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
                 </div>
             </form>
-            <div class="modal-footer">
-                <button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary">
-                    <span class="indicator-label">
-                        Tambah
-                    </span>
-                    <span class="indicator-progress">
-                        Harap menunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                    </span>
-                </button>
-            </div>
         </div>
     </div>
 </div>
@@ -358,10 +319,12 @@
 <div class="modal fade" tabindex="-1" id="modalTambahindus">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form action="<?= BASEURL; ?>ManajemenHumas/tambahindustri" method="post" id="kt_docs_formvalidation"
+            <form action="<?= BASEURL; ?>ManajemenHumas/tambahIndustri" method="post" enctype="multipart/form-data" id="kt_docs_formvalidation"
                 class="form">
+                <input type="hidden" name="id" id="id">
+                <input type="hidden" name="fotoLama" id="fotoLama">
                 <div class="modal-header">
-                    <h5 class="modal-title">TAMBAH DATA INDUSTRI YANG TELAH BEKERJA SAMA</h5>
+                    <h5 class="modal-title" id="modalLabelIndus">TAMBAH DATA INDUSTRI YANG TELAH BEKERJA SAMA</h5>
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
@@ -378,7 +341,7 @@
                                 <label for="gambarlogoindus" class="col-sm-3 col-form-label required">Gambar</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" accept=".jpeg , .jpg, .png"
-                                        id="logo" name="logo">
+                                        id="foto" name="foto">
                                     <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
                                 </div>
                             </div>
@@ -390,7 +353,7 @@
                             <div class="row mb-3 fv-row">
                                 <label for="namaindus" class="col-sm-3 col-form-label required">Nama Industri</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="nama" name="nama">
+                                    <input type="text" class="form-control" id="namaa" name="nama">
                                 </div>
                             </div>
                         </div>
@@ -500,7 +463,7 @@
             e.preventDefault();
             const link = $(this).attr('href');
             const row = $(this).closest('tr');
-            const item = row.find('td:eq(1)').text();
+            const item = row.find('td:eq(2)').text();
             const itemId = row.find('td:eq(0)').text();
 
             Swal.fire({
@@ -516,7 +479,7 @@
                 }
             }).then((result) => {
                 if (result.value) {
-                    const deleteUrl = "<?= BASEURL; ?>AdminPrestasi/hapus/" + itemId;
+                    const deleteUrl = "<?= BASEURL; ?>ManajemenHumas/hapusIndus/" + itemId;
                     window.location.href = deleteUrl;
                 } else if (result.dismiss === "cancel") {
                     Swal.fire({
@@ -540,38 +503,33 @@
     $(document).ready(function () {
         const BASEURL = window.location.href;
         $('.tombolTambahData').on('click', function () {
-            $('#modalLabel').html('TAMBAH DATA PRESTASI')
+            $('#modalLabelIndus').html('TAMBAH DATA INDUSTRI YANG TELAH BEKERJA SAMA')
             $('.modal-footer button[type=submit]').html('Tambah Data');
 
-            $('#nama').val('');
-            $('#jenis').val('');
-            $('#skala').val('');
-            $('#juara').val('');
-            $('#tahun').val('');
+            $('#namaa').val('');
+            $('#foto').val('');
             $('#id').val('');
 
         });
 
         $(".tampilModalUbah").click(function () {
             $("#modal").addClass("edit");
-            $("#modalLabel").html("UBAH DATA PRESTASI");
+            $("#modalLabelIndus").html("UBAH DATA INDUSTRI YANG TELAH BEKERJA SAMA");
             $(".modal-footer button[type=submit]").html("Ubah Data");
-            $(".modal-content form").attr("action", `${BASEURL}/ubah`);
+            $(".modal-content form").attr("action", `${BASEURL}/ubahIndus`);
 
             const id = $(this).data("id");
 
             $.ajax({
-                url: `${BASEURL}/getUbah`,
+                url: `${BASEURL}/getUbahIndus`,
                 data: { id: id },
                 method: "post",
                 dataType: "json",
                 success: function (data) {
-                    $('#nama').val(data.nama);
-                    $('#jenis').val(data.jenis);
-                    $('#skala').val(data.skala);
-                    $('#juara').val(data.juara);
-                    $('#tahun').val(data.tahun);
+                    $('#namaa').val(data.nama);
+                    $('#fotoLama').val(data.foto);
                     $('#id').val(data.id);
+                    console.log(data);
                 },
             })
         });
