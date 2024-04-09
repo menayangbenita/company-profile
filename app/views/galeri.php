@@ -33,139 +33,27 @@
                         <div class="col-lg-12 d-flex justify-content-center">
                             <ul id="portfolio-flters">
                                 <li data-filter="*" class="filter-active">Semua</li>
-                                <li data-filter=".filter-keg-guru">Kegiatan Guru</li>
-                                <li data-filter=".filter-seni-lomba">Seni & Lomba</li>
-                                <li data-filter=".filter-konseling-pembinaan">Konseling & Pembinaan</li>
+                                <?php foreach ($data['kategori'] as $kategori) : ?>
+                                <li data-filter=".<?= $kategori['kategori'] ?>"><?= str_replace(['-', 'dan'], [' ', '&'], $kategori['kategori']) ?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
                     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-keg-guru">
+                        <?php foreach ($data['galeri'] as $galeri) : ?>
+                        <div class="col-lg-4 col-md-6 portfolio-item <?= $galeri['kategori'] ?>">
                             <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                                <img src="<?= BASEURL; ?>img/datafoto/<?= $galeri['gambar'] ?>" class="img-fluid" alt="<?= $galeri['keterangan'] ?>">
                                 <div class="portfolio-info">
-                                    <p>Kegiatan Guru</p>
+                                    <p><?= str_replace(['-', 'dan'], [' ', '&'], $galeri['kategori']) ?></p>
                                     <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                      elit."><i class="bi bi-plus"></i></a>
+                                        <a href="<?= BASEURL; ?>img/datafoto/<?= $galeri['gambar'] ?>" data-gallery="portfolioGallery"
+                                            class="portfolio-lightbox" title="<?= $galeri['keterangan'] ?>"><i class="bi bi-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-konseling-pembinaan">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Konseling & Pembinaan</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-keg-guru">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Kegiatan Guru</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-seni-lomba">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Seni & Lomba</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-konseling-pembinaan">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Konseling & Pembinaan</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-keg-guru">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Kegiatan Guru</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-seni-lomba">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Seni & Lomba</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-seni-lomba">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Seni & Lomba</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-konseling-pembinaan">
-                            <div class="portfolio-wrap">
-                                <img src="<?= BASEURL; ?>img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <p>Konseling & Pembinaan</p>
-                                    <div class="portfolio-links">
-                                        <a href="<?= BASEURL; ?>img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="Lorem ipsum dolor sit amet, consecte adipiscing
-                    elit."><i class="bi bi-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
