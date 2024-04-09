@@ -2,7 +2,7 @@
 
 class EkstrakurikulerDokumentasi extends Controller
 {
-    public $model_name = "Kesiswaan";
+    private $model_name = "Kesiswaan";
 
     public function index()
     {
@@ -27,4 +27,17 @@ class EkstrakurikulerDokumentasi extends Controller
             exit;
         }
     }
+    public function tambah()
+    {
+        if ($this->model("$this->model_name", 'DokumentasiEkstra_model')->tambahData($_POST) > 0) {
+            Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
+            header('Location: ' . BASEURL . 'EkstrakurikulerDokumentasi');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
+            header('Location: ' . BASEURL . 'EkstrakurikulerDokumentasi');
+            exit;
+        }
+    }
+
 }

@@ -2,14 +2,13 @@
 
 class dokumentasiEkstrakurikuler extends Controller
 {
-    public $model_name = "Kesiswaan";
-
+    private $model_name = "Kesiswaan";
+  
     public function index()
     {
         $data['judul'] = 'Dokumentasi Ekstrakurikuler';
         $data['dokum'] = $this->model("$this->model_name", 'DokumEkstra_model')->getAllData();
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['user'] = $this->user;
 
         $this->view('templates-user/header', $data);
         $this->view('kesiswaan/dokumentasi', $data);
