@@ -30,11 +30,11 @@
                     <div>
                         <h3>Kepala Sekolah</h3>
                         <h6 class="fw-bolder mt-3"><?= $data['kepsek']['nama'] ?> (<?= $data['kepsek']['periode'] ?>)</h6>
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/datafoto/<?= $data['kepsek']['gambar'] ?>" class="img-fluid rounded-4" alt="">
+                        <div class="mb-3 position-relative w-100">
+                            <img src="<?= BASEURL; ?>img/datafoto/<?= $data['kepsek']['gambar'] ?>" class="img-fluid rounded-4 w-100" alt="">
                         </div>
-                        <div class="table-responsive mt-3">
-                            <table class="table table-bordered">
+                        <div class="table-responsive w-100 mt-3">
+                            <table class="table table-bordered w-100">
                                 <tbody>
                                     <tr>
                                         <th>Nama</th>

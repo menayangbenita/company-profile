@@ -44,12 +44,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach ($data['guru'] as $guru) : ?>
                                                 <tr>
-                                                    <td>Drs. Burhanudin.</td>
-                                                    <td>19601201 198303 1 019</td>
-                                                    <td>PNS</td>
-                                                    <td>Simdig & PKK</td>
+                                                    <td><?= $guru['nama'] ?></td>
+                                                    <td><?= $guru['nip'] ?></td>
+                                                    <td><?= $guru['status'] ?></td>
+                                                    <td><?= $guru['mata_pelajaran'] ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>

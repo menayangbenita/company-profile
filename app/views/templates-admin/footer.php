@@ -65,13 +65,10 @@
 		<!--end::Javascript-->
 
         <!--CKEditor Build Bundles:: Only include the relevant bundles accordingly-->
-        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
+        <!-- <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script> -->
         <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckfinder.js"></script>
-		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.snow.css" rel="stylesheet" />
-		<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.js"></script>
-
         <!--begin::Custom Javascript(used for this page only)-->
-		<script>
+		<!-- <script>
 			DecoupledEditor
 	.create( document.querySelector( '.editor' ), {
 		// Editor configuration.
@@ -105,14 +102,9 @@ function handleSampleError( error ) {
                 .catch(error => {
                     console.error(error);
                 });
-        </script>
-		<script>
-			CKEDITOR.replace('kt_docs_ckeditor_classic', {
-				filebrowserBrowseURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/ckfinder.html',
-				filebrowserUploadURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-				height: '400px'
-			})
-		</script>
+        </script> -->
+		
+
 
 		<script>
 			function previewImage(event) {

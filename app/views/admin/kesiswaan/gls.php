@@ -44,30 +44,89 @@
 												</div>
 												<div class="row row-editor">
 													<div class="editor-container">
-														<div class="editor">
-															<textarea name="isi" id="isi" cols="30" rows="10">
-																
-															</textarea>
-														</div>
+														<textarea class="editor" name="isi">
+														</textarea>
 													</div>
 												</div>
 											</div>
 										</div>
-										</div>
 								</div>
-								<div class="card-footer">
-									<button type="submit" class="btn btn-primary float-end">Simpan Perubahan</button>
-									</form>
-								</div>
+							</div>
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary float-end">Simpan Perubahan</button>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!--end::Content-->
 		</div>
-		<!--end::Content wrapper-->
+		<!--end::Content-->
+	</div>
+	<!--end::Content wrapper-->
 
-		<!--begin::Custom Javascript(used for this page only)-->
+	<!--begin::Custom Javascript(used for this page only)-->
 
-		<!--end::Javascript-->
+	<!--end::Javascript-->
+
+	<!-- Include CKEditor JS file -->
+	<!-- <script src="https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.js"></script>
+
+	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
+	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckfinder.js"></script> -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+
+
+	<!-- Custom JavaScript -->
+	<!-- <script>
+		CKEDITOR.replace('.editor', {
+			filebrowserBrowseURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/ckfinder.html',
+			filebrowserUploadURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			height: '400px'
+		});
+	</script>
+	<script>
+		// Inisialisasi CKEditor pada elemen dengan id 'isi'
+		DecoupledEditor
+			.create(document.querySelector('.editor'), {
+				// Editor configuration.
+			})
+			.then(editor => {
+				window.editor = editor;
+
+				// Set a custom container for the toolbar.
+				document.querySelector('.document-editor__toolbar').appendChild(editor.ui.view.toolbar.element);
+				document.querySelector('.ck-toolbar').classList.add('ck-reset_all');
+			})
+			.catch(handleSampleError);
+
+		function handleSampleError(error) {
+			const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+			const message = [
+				'Oops, something went wrong!',
+				`Please, report the following error on ${issueUrl} with the build id "q8j611lqmg98-lzyrxibt40ui" and the error stack trace:`
+			].join('\n');
+
+			console.error(message);
+			console.error(error);
+		} -->
+
+		<script>
+    ClassicEditor
+        .create( document.querySelector( '.editor' ), {
+			ckfinder: {
+				uploadUrl: '<?= BASEURL;?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+			}
+		})
+		.then(editor => {
+			console.log(editor);
+		})
+        .catch( error => {
+            console.error( error );
+        } );
+		
+</script>
+
+
+	</script>
