@@ -32,8 +32,8 @@
                     <p>
                         <?= $data['profil']['isi'] ?>
                     </p>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['profil']['thumbnail'] ?>" class="img-fluid rounded-4" alt="">
+                    <div class="pe-lg-3 w-100 mb-3 position-relative">
+                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['profil']['thumbnail'] ?>" class="img-fluid rounded-4 w-100" alt="">
                         <a href="<?= $data['profil']['video'] ?>" class="glightbox play-btn"></a>
                     </div>
                     <!-- <p>

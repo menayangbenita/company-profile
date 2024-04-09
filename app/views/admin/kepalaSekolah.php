@@ -319,7 +319,7 @@
 	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
 	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
 	<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
-	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build/ckeditor.js"></script>
 
 
 	<script>

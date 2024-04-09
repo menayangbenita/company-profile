@@ -2,11 +2,12 @@
 
 class guru extends Controller
 {
+    public $model_name = "Admin";
+
     public function index()
     {
         $data['judul'] = 'Guru';
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['guru'] = $this->model("$this->model_name", 'Guru_model')->getAllData();
 
         $this->view('templates-user/header', $data);
         $this->view('guru', $data);

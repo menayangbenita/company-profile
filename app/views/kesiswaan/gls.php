@@ -30,10 +30,8 @@
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>GLS (Gerkan Literasi Sekolah)</h3>
-                    <p>
-                    <?= $data['Gls']['isi'] ?>
-                    </p>
-                    
+                    <?= $data['gls']['isi'] ?>
+                </div>
                 <div class="col-lg-4 position-relative align-self-start">
                     <h5 class="text-lg-end mb-4"><span
                             class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>

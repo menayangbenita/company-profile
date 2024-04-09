@@ -65,10 +65,35 @@
 		<!--end::Javascript-->
 
         <!--CKEditor Build Bundles:: Only include the relevant bundles accordingly-->
-        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
-
+        <!-- <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script> -->
+        <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckfinder.js"></script>
         <!--begin::Custom Javascript(used for this page only)-->
-        <script>
+		<!-- <script>
+			DecoupledEditor
+	.create( document.querySelector( '.editor' ), {
+		// Editor configuration.
+	} )
+	.then( editor => {
+		window.editor = editor;
+
+		// Set a custom container for the toolbar.
+		document.querySelector( '.document-editor__toolbar' ).appendChild( editor.ui.view.toolbar.element );
+		document.querySelector( '.ck-toolbar' ).classList.add( 'ck-reset_all' );
+	} )
+	.catch( handleSampleError );
+
+function handleSampleError( error ) {
+	const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+	const message = [
+		'Oops, something went wrong!',
+		`Please, report the following error on ${ issueUrl } with the build id "q8j611lqmg98-lzyrxibt40ui" and the error stack trace:`
+	].join( '\n' );
+
+	console.error( message );
+	console.error( error );
+}
+
             ClassicEditor
                 .create(document.querySelector('#kt_docs_ckeditor_classic'))
                 .then(editor => {
@@ -77,8 +102,9 @@
                 .catch(error => {
                     console.error(error);
                 });
-                
-        </script>
+
+        </script> -->
+
 		<script>
 			function previewImage(event) {
 				var reader = new FileReader();

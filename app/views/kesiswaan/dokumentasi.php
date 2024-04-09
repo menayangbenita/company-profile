@@ -38,46 +38,13 @@
                     <div class="container ms-0 ps-0">
                         <div class="gallery-slider swiper">
                             <div class="swiper-wrapper align-items-center">
+                                <?php foreach ($data['dokum'] as $dokum) : ?>
                                 <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
+                                        href="<?= BASEURL; ?>img/datafoto/<?= $dokum['foto']; ?>"><img
+                                            src="<?= BASEURL; ?>img/datafoto/<?= $dokum['foto']; ?>" class="img-fluid rounded-2"
                                             alt=""></a>
                                 </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                            src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                            alt=""></a>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>

@@ -7,10 +7,8 @@ class gerakanLiterasiSekolah extends Controller
     public function index()
     {
         $data['judul'] = 'Gerakan Literasi Sekolah';
-        $data['Gls'] = $this->model("$this->model_name", 'Gls_model')->getMaxId();
-
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['gls'] = $this->model("$this->model_name", 'Gls_model')->getMaxId();
+        $data['user'] = $this->user;
 
         $this->view('templates-user/header', $data);
         $this->view('kesiswaan/gls', $data);

@@ -56,6 +56,7 @@
 										<table class="table table-bordered align-middle" id="table">
 											<thead class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
 												<tr>
+													<th class="pe-3" style="display: none;">ID</th>
 													<th class="pe-3">Nama</th>
 													<th class="pe-3">Jenis</th>
 													<th class="pe-3">Skala</th>
@@ -65,37 +66,53 @@
 												</tr>
 											</thead>
 											<tbody class="fw-semibold text-gray-700">
-												<?php foreach ($data['prestasi'] as $prestasi) : ?>
-												<tr>
-													<td><?= $prestasi['nama']; ?></td>
-													<td><?= $prestasi['jenis']; ?></td>
-													<td><?= $prestasi['skala']; ?></td>
-													<td><?= $prestasi['juara']; ?></td>
-													<td><?= $prestasi['tahun']; ?></td>
-													<td class="text-center text-nowrap">
-														<a
-															href="<?= BASEURL; ?>AdminPrestasi/ubah/<?= $prestasi['id'] ?>" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-danger btn-sm tampilModalUbah"
-															type="button" class="btn btn-primary" data-bs-toggle="modal" data-id="<?= $prestasi['id']; ?>"
-															data-bs-target="#modaltambah">
-															<i class="ki-duotone ki-pencil fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>
-														</a>
-														<a href="#"
-															class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
-															type="button" class="btn btn-primary"
-															data-kt-permissions-table-filter="delete_row">
-															<i class="ki-duotone ki-trash fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-																<span class="path5"></span>
-															</i>
-														</a>
-													</td>
-												</tr>
+												<?php foreach ($data['prestasi'] as $prestasi): ?>
+													<tr>
+														<td style="display: none;">
+															<span class="prestasi-id">
+																<?= $prestasi['id']; ?>
+															</span>
+														</td>
+														<td>
+															<?= $prestasi['nama']; ?>
+														</td>
+														<td>
+															<?= $prestasi['jenis']; ?>
+														</td>
+														<td>
+															<?= $prestasi['skala']; ?>
+														</td>
+														<td>
+															<?= $prestasi['juara']; ?>
+														</td>
+														<td>
+															<?= $prestasi['tahun']; ?>
+														</td>
+														<td class="text-center text-nowrap">
+															<a href="<?= BASEURL; ?>AdminPrestasi/ubah/<?= $prestasi['id'] ?>"
+																class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-danger btn-sm tampilModalUbah"
+																type="button" class="btn btn-primary" data-bs-toggle="modal"
+																data-id="<?= $prestasi['id']; ?>"
+																data-bs-target="#modaltambah">
+																<i class="ki-duotone ki-pencil fs-2">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																</i>
+															</a>
+															<a href="<?= BASEURL; ?>AdminGuru/hapus/<?= $prestasi['id'] ?>"
+																class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
+																type="button" class="btn btn-primary"
+																data-kt-permissions-table-filter="delete_row">
+																<i class="ki-duotone ki-trash fs-2">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																	<span class="path4"></span>
+																	<span class="path5"></span>
+																</i>
+															</a>
+														</td>
+													</tr>
 												<?php endforeach; ?>
 											</tbody>
 										</table>
@@ -117,7 +134,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="<?= BASEURL; ?>AdminPrestasi/tambah" method="post">
-				<input type="hidden" name="id" id="id">
+					<input type="hidden" name="id" id="id">
 					<div class="modal-header">
 						<h5 class="modal-title" id="modalLabel">TAMBAH DATA KEPALA SEKOLAH PENDAHULU</h5>
 						<!--begin::Close-->
@@ -202,7 +219,7 @@
 	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/new-target.js"></script>
 	<script src="<?= BASEURL; ?>admin/js/custom/utilities/modals/users-search.js"></script>
 	<script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
-	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
 
 
 	<script>
@@ -252,45 +269,45 @@
 	</script>
 
 	<script>
-            $(document).ready(function () {
-    $('[data-kt-permissions-table-filter="delete_row"]').on('click', function (e) {
-        e.preventDefault(); // Mencegah aksi default dari link
-        const link = $(this).attr('href');
-        const row = $(this).closest('tr');
-        const itemName = row.find('td:eq(1)').text();
+		$(document).ready(function () {
+			$('[data-kt-permissions-table-filter="delete_row"]').on('click', function (e) {
+				e.preventDefault();
+				const link = $(this).attr('href');
+				const row = $(this).closest('tr');
+				const item = row.find('td:eq(1)').text();
+				const itemId = row.find('td:eq(0)').text();
 
-        Swal.fire({
-            text: "Apakah Anda yakin untuk menghapus " + itemName + "?",
-            icon: "warning",
-            showCancelButton: true,
-            buttonsStyling: false,
-            confirmButtonText: "Ya, hapus!",
-            cancelButtonText: "Batalkan",
-            customClass: {
-                confirmButton: "btn fw-bold btn-danger",
-                cancelButton: "btn fw-bold btn-active-light-primary"
-            }
-        }).then((result) => {
-            if (result.value) {
-                const deleteUrl = "<?= BASEURL; ?>AdminPrestasi/hapus/<?= $prestasi['id'] ?>";
-        		window.location.href = deleteUrl;
-            } else if (result.dismiss === "cancel") {
-                Swal.fire({
-                    text: "Data " + itemName + " tidak dihapus.",
-                    icon: "error",
-                    buttonsStyling: false,
-                    showConfirmButton: false,
-                    timer: 900,
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-primary"
-                    }
-                });
-            }
-        });
-    });
-});
-
-        </script>
+				Swal.fire({
+					text: "Apakah Anda yakin untuk menghapus data " + item + "?",
+					icon: "warning",
+					showCancelButton: true,
+					buttonsStyling: false,
+					confirmButtonText: "Ya, hapus!",
+					cancelButtonText: "Batalkan",
+					customClass: {
+						confirmButton: "btn fw-bold btn-danger",
+						cancelButton: "btn fw-bold btn-active-light-primary"
+					}
+				}).then((result) => {
+					if (result.value) {
+						const deleteUrl = "<?= BASEURL; ?>AdminPrestasi/hapus/" + itemId;
+						window.location.href = deleteUrl;
+					} else if (result.dismiss === "cancel") {
+						Swal.fire({
+							text: "Data tidak dihapus.",
+							icon: "error",
+							buttonsStyling: false,
+							showConfirmButton: false,
+							timer: 900,
+							customClass: {
+								confirmButton: "btn fw-bold btn-primary"
+							}
+						});
+					}
+				});
+			});
+		});
+	</script>
 
 
 	<script>
@@ -313,7 +330,7 @@
 				$("#modal").addClass("edit");
 				$("#modalLabel").html("UBAH DATA PRESTASI");
 				$(".modal-footer button[type=submit]").html("Ubah Data");
-				$(".modal-body form").attr("action", `${BASEURL}/ubah`);
+				$(".modal-content form").attr("action", `${BASEURL}/ubah`);
 
 				const id = $(this).data("id");
 
