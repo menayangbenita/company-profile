@@ -8,7 +8,8 @@ use Ramsey\Uuid\Uuid;
 class Humas_model
 {
     private $table = 'waka_humas'; 
-    private $tablee = 'kepala_sekolah_terdahulu'; 
+    private $tablee = 'logo_industri'; 
+    private $tableee = 'galeri_humas'; 
     private $fields = [
         'nama',
         'isi'
@@ -29,9 +30,15 @@ class Humas_model
         return $this->db->fetchAll();
     }
 
-    public function getAllTerdahulu()
+    public function getAllIndustri()
     {
         $this->db->query("SELECT * FROM {$this->tablee}");
+        return $this->db->fetchAll();
+    }
+
+    public function getAllDokum()
+    {
+        $this->db->query("SELECT * FROM {$this->tableee} ORDER BY id DESC LIMIT 10");
         return $this->db->fetchAll();
     }
 
@@ -49,7 +56,7 @@ class Humas_model
 
     public function getDataById($id)
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE id = :id"); // : = menghindari sql injection
+        $this->db->query("SELECT * FROM {$this->tablee} WHERE id = :id"); // : = menghindari sql injection
         $this->db->bind("id", $id);
         return $this->db->fetch();
     }
@@ -123,24 +130,46 @@ class Humas_model
         return $this->db->rowCount();
     }
 
-    public function tambahDataTerdahulu($data)
+    public function tambahDataIndustri($data)
     {
         $this->db->query(
             "INSERT INTO {$this->tablee}
                 VALUES 
-            (null, :dari, :sampai, :nama, :keterangan)"
+            (null, :nama, :foto)"
         );
         
-        $this->db->bind('dari', $data['dari']);
-        $this->db->bind('sampai', $data['sampai']);
-        $this->db->bind('nama', $data['nama']);
-        $this->db->bind('keterangan', $data['keterangan']);
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
+        }
+
+        $this->db->bind('foto', $foto);
+        $this->db->bind('nama',  $data['nama']);
 
         $this->db->execute();
         return $this->db->rowCount();
     }
 
-    public function hapusData($id)
+    public function tambahDataGaleri($data)
+    {
+        $this->db->query(
+            "INSERT INTO {$this->tableee}
+                VALUES 
+            (null, :foto)"
+        );
+        
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
+        }
+
+        $this->db->bind('foto', $foto);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataIndus($id)
     {
         $query = "DELETE FROM {$this->tablee} 
                     WHERE id = :id";
@@ -153,23 +182,36 @@ class Humas_model
         return $this->db->rowCount();
     }
 
+    public function hapusDataGaleri($id)
+    {
+        $query = "DELETE FROM {$this->tableee} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function ubahData($data)
     {
-        $data['user'] = "Admin";
-        $this->db->query(
-            "UPDATE {$this->table}
-                SET 
-                nama = :nama,
-                dari = :dari,
-                sampai = :sampai,
-                keterangan = :keterangan
-            WHERE id = :id"
-        );
+        $query =    "UPDATE {$this->tablee}
+                        SET 
+                        nama = :nama,
+                        foto = :foto
+                    WHERE id = :id";
 
-        $this->db->bind('dari', $data['dari']);
-        $this->db->bind('sampai', $data['sampai']);
+        $this->db->query($query);
+        if ($_FILES["foto"]["error"] === 4) {
+            $foto = $data['fotoLama'];
+        } else {
+            $foto = $this->uploadImage();
+        }
+
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('foto', $foto);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();
@@ -178,7 +220,7 @@ class Humas_model
 
     public function getJmlData()
     {
-        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE `status` = 1");
+        $this->db->query("SELECT COUNT(*) AS jumlah FROM {$this->tablee}");
         return $this->db->fetch();
     }
 }

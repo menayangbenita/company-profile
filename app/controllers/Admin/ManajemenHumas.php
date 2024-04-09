@@ -7,6 +7,8 @@ class ManajemenHumas extends Controller
     public function index()
     {
         $data['judul'] = 'Waka Humas';
+        $data['logo'] = $this->model("$this->model_name", 'Humas_model')->getAllIndustri();
+        $data['galeri'] = $this->model("$this->model_name", 'Humas_model')->getAllDokum();
         $data['user'] = $this->user; 
 
         $this->view('templates-admin/header', $data);
@@ -36,6 +38,63 @@ class ManajemenHumas extends Controller
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
             header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        }
+    }
+
+    public function tambahGaleri()
+    {
+        if ($this->model("$this->model_name", 'Humas_model')->tambahDataGaleri($_POST) > 0) {
+            Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        }
+    }
+    
+    public function hapusIndus($id)
+    {
+        if ($this->model("$this->model_name", 'Humas_model')->hapusDataIndus($id) > 0) {
+            Flasher::setFlash('BERHASIL', 'Dihapus', 'success');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Dihapus', 'danger');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        }
+    }
+    
+    public function hapusGaleri($id)
+    {
+        if ($this->model("$this->model_name", 'Humas_model')->hapusDataGaleri($id) > 0) {
+            Flasher::setFlash('BERHASIL', 'Dihapus', 'success');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Dihapus', 'danger');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        }
+    }
+
+    public function getUbahIndus()
+    {
+        echo json_encode($this->model("$this->model_name", 'Humas_model')->getDataById($_POST['id']));
+    }
+
+    public function ubahIndus()
+    {
+        if ($this->model("$this->model_name", 'Humas_model')->ubahData($_POST) > 0) {
+            Flasher::setFlash('BERHASIL', 'Diubah', 'success');
+            header('Location: ' . BASEURL . 'ManajemenHumas');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Diubah', 'danger');
+            header('Location: ' . BASEURL . 'WakaHumas');
             exit;
         }
     }

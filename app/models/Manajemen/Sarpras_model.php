@@ -5,10 +5,13 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class Gls_model
+class Sarpras_model
 {
-    private $table = 'literasi'; 
+    private $table = 'waka_sarpras'; 
+    private $tablee = 'sarpras'; 
+    private $tableee = 'galeri_sarpras'; 
     private $fields = [
+        'nama',
         'isi'
     ];
 
@@ -27,21 +30,33 @@ class Gls_model
         return $this->db->fetchAll();
     }
 
+    public function getAllSarpras()
+    {
+        $this->db->query("SELECT * FROM {$this->tablee}");
+        return $this->db->fetchAll();
+    }
+
+    public function getAllDokum()
+    {
+        $this->db->query("SELECT * FROM {$this->tableee} ORDER BY id DESC LIMIT 10");
+        return $this->db->fetchAll();
+    }
+
     public function getAllExistData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE status = 1");
+        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 1");
         return $this->db->fetchAll();
     }
 
     public function getAllDeletedData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE status = 0");
+        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 0");
         return $this->db->fetchAll();
     }
 
     public function getDataById($id)
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE id = :id"); // : = menghindari sql injection
+        $this->db->query("SELECT * FROM {$this->tablee} WHERE id = :id"); // : = menghindari sql injection
         $this->db->bind("id", $id);
         return $this->db->fetch();
     }
@@ -54,7 +69,7 @@ class Gls_model
 
     public function uploadImage()
     {
-        $targetDir = 'images/datafoto/'; // direktori tempat menyimpan file upload
+        $targetDir = 'img/datafoto/'; // direktori tempat menyimpan file upload
         $temp = $_FILES['foto']['name'];
         $imageFileType = explode('.', $temp);
         $imageFileType = strtolower(end($imageFileType));
@@ -93,81 +108,106 @@ class Gls_model
         return $fileName;
     }
 
-
     public function tambahData($data)
     {
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi)"
+            (null, :nama, :foto, :isi)"
         );
         
-        foreach ($this->fields as $field) {
-            $this->db->bind($field, $data[$field]);
-        }
-
-        $this->db->execute();
-        return $this->db->rowCount();
-    }
-
-    public function hapusData($id)
-    {
-        $this->db->query(
-            "UPDATE {$this->table}  
-                SET 
-                deleted_at = CURRENT_TIMESTAMP,
-                deleted_by = :deleted_by,
-                is_deleted = 1,
-                is_restored = 0
-            WHERE id = :id"
-        );
-
-        $this->db->bind('deleted_by', $this->user);
-        $this->db->bind("id", $id);
-
-        $this->db->execute();
-        return $this->db->rowCount();
-    }
-
-    public function ubahData($data)
-    {
-        $data['user'] = "Admin";
-        $this->db->query(
-            "UPDATE {$this->table}
-                SET 
-                foto = :foto,
-                nama_lengkap = :nama_lengkap,
-                jenis_kelamin = :jenis_kelamin,
-                tempat_lahir = :tempat_lahir,
-                tanggal_lahir = :tanggal_lahir,
-                alamat_lengkap = :alamat_lengkap,
-                pendidikan_terakhir = :pendidikan_terakhir,
-                jurusan_pendidikan_terakhir = :jurusan_pendidikan_terakhir,
-                nomor_hp = :nomor_hp,
-                kategori = :kategori,
-                mapel_yg_diampu = :mapel_yg_diampu,
-                kategori_mapel = :kategori_mapel,
-                nip = :nip,
-                status_sertifikasi = :status_sertifikasi,
-                keahlian_ganda = :keahlian_ganda,
-                status_pernikahan = :status_pernikahan,
-                modified_at = CURRENT_TIMESTAMP,
-                modified_by = :modified_by
-            WHERE id = :id"
-        );
-
-
-        if ($_FILES["foto"]["error"] === 4) {
-            $foto = $data['fotoLama'];
-        } else {
-            $foto = $this->uploadImage();
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
         }
 
         $this->db->bind('foto', $foto);
         foreach ($this->fields as $field) {
             $this->db->bind($field, $data[$field]);
         }
-        $this->db->bind('modified_by', $this->user);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function tambahDataSarpras($data)
+    {
+        $this->db->query(
+            "INSERT INTO {$this->tablee}
+                VALUES 
+            (null, :nama, :jumlah, :keterangan)"
+        );
+
+        $this->db->bind('nama',  $data['nama']);
+        $this->db->bind('jumlah',  $data['jumlah']);
+        $this->db->bind('keterangan',  $data['keterangan']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function tambahDataGaleri($data)
+    {
+        $this->db->query(
+            "INSERT INTO {$this->tableee}
+                VALUES 
+            (null, :foto)"
+        );
+        
+        $foto = $this->uploadImage();
+        if (!$foto) {
+            return false;
+        }
+
+        $this->db->bind('foto', $foto);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataIndus($id)
+    {
+        $query = "DELETE FROM {$this->tablee} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataGaleri($id)
+    {
+        $query = "DELETE FROM {$this->tableee} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function ubahData($data)
+    {
+        $query =    "UPDATE {$this->tablee}
+                        SET 
+                        nama = :nama,
+                        foto = :foto
+                    WHERE id = :id";
+
+        $this->db->query($query);
+        if ($_FILES["foto"]["error"] === 4) {
+            $foto = $data['fotoLama'];
+        } else {
+            $foto = $this->uploadImage();
+        }
+
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('foto', $foto);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();
@@ -176,7 +216,7 @@ class Gls_model
 
     public function getJmlData()
     {
-        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE status = 1");
+        $this->db->query("SELECT COUNT(*) AS jumlah FROM {$this->tablee}");
         return $this->db->fetch();
     }
 }

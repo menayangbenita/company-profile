@@ -2,7 +2,8 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" style="background-image: url('<?= BASEURL; ?>img/SMKN8_2.JPG');">
+        <div class="page-header d-flex align-items-center"
+            style="background-image: url('<?= BASEURL; ?>img/SMKN8_2.JPG');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -28,93 +29,35 @@
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>Wakil Kepala Sekolah Bidang Humas</h3>
-                    <h6 class="fw-bolder mt-3"><?= $data['waka']['nama'] ?></h6>
+                    <h6 class="fw-bolder mt-3">
+                        <?= $data['waka']['nama'] ?>
+                    </h6>
                     <div class="pe-lg-3 w-100 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['waka']['foto'] ?>" class="img-fluid rounded-4 w-100" alt="">
+                        <img src="<?= BASEURL; ?>img/datafoto/<?= $data['waka']['foto'] ?>"
+                            class="img-fluid rounded-4 w-100" alt="">
                     </div>
                     <p class="pe-lg-4">
                         <?= $data['waka']['isi'] ?>
                     </p>
                     <div>
-                        <p>Adapun berikut beberapa contoh kerjasama sekolah dengan lebih dari 200 industri / DUDIKA di
+                        <p>Adapun berikut beberapa contoh kerjasama sekolah dengan lebih dari <?= $data['indus']['jumlah'] ?> industri / DUDIKA di
                             seluruh wilayah Indonesia antara lain:</p>
                         <section id="service" class="services pt-0 mb-0 pb-0">
 
                             <div class="row gy-4">
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
+                                <?php foreach ($data['logo'] as $logo): ?>
+                                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="card">
+                                            <div class="card-img">
+                                                <img src="<?= BASEURL; ?>img/datafoto/<?= $logo['foto'] ?>" alt=""
+                                                    class="img-fluid">
+                                            </div>
+                                            <h3>
+                                                <?= $logo['nama'] ?>
+                                            </h3>
                                         </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-                                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="card">
-                                        <div class="card-img">
-                                            <img src="<?= BASEURL; ?>img/portfolio/portfolio-6.jpg" alt="" class="img-fluid">
-                                        </div>
-                                        <h3>PT. Lorem</h3>
-                                    </div>
-                                </div><!-- End Card Item -->
-
-
+                                    </div><!-- End Card Item -->
+                                <?php endforeach; ?>
                             </div>
 
                         </section><!-- End Services Section -->
@@ -125,71 +68,13 @@
                         <div class="container ms-0 ps-0">
                             <div class="gallery-slider swiper">
                                 <div class="swiper-wrapper align-items-center">
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
+                                    <?php foreach ($data['galeri'] as $galeri): ?>
+                                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                                href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"><img
+                                                    src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"
+                                                    class="img-fluid rounded-2" alt=""></a>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
