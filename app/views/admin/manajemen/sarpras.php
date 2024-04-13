@@ -147,7 +147,7 @@
                                                             data-id="<?= $sarpras['id']; ?>"
                                                             class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-danger btn-sm tampilModalUbah"
                                                             type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#modalTambahindus">
+                                                            data-bs-target="#modalTambahdata">
                                                             <i class="ki-duotone ki-pencil fs-2">
                                                                 <span class="path1"></span>
                                                                 <span class="path2"></span>
@@ -198,24 +198,29 @@
                                         <table class="table table-bordered align-middle" id="table">
                                             <thead class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
                                                 <tr>
-                                                    <th class="pe-3">No.</th>
+                                                    <th class="pe-3" style="display: none;">No.</th>
                                                     <th class="pe-3">Gambar</th>
                                                     <th class="pe-3 text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-gray-700">
+                                            <?php foreach ($data['galeri'] as $galeri) : ?>
                                                 <tr>
-                                                    <td>1.</td>
+                                                    <td style="display: none;">
+                                                        <span class="galeri-id">
+                                                            <?= $galeri['id']; ?>
+                                                        </span>
+                                                    </td>
                                                     <td class="text-center">
                                                         <div class="d-flex align-items-center">
                                                             <div class="">
                                                                 <!--begin::Overlay-->
                                                                 <a class="d-block overlay"
                                                                     data-fslightbox="lightbox-basic"
-                                                                    href="assets/media/stock/900x600/23.jpg">
+                                                                    href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto']; ?>">
                                                                     <!--begin::Image-->
                                                                     <div class="symbol symbol-50px">
-                                                                        <img src="assets/media/stock/900x600/23.jpg">
+                                                                        <img src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto']; ?>">
                                                                     </div>
                                                                     <!--end::Image-->
 
@@ -231,19 +236,8 @@
                                                         </div>
                                                     </td>
                                                     <td class="text-center text-nowrap">
-                                                        <button type="button"
-                                                            class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-outline-primary btn-sm"
-                                                            data-bs-toggle="tooltip"
-                                                            data-bs-custom-class="tooltip-inverse"
-                                                            data-bs-placement="bottom" title="Edit">
-                                                            <i class="ki-duotone ki-pencil fs-2">
-                                                                <span class="path1"></span>
-                                                                <span class="path2"></span>
-                                                            </i>
-                                                        </button>
-                                                        <button
+                                                        <a href="<?= BASEURL; ?>ManajemenSarpras/hapusGaleri/<?= $galeri['id'] ?>"
                                                             class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
-                                                            data-kt-permissions-table-filter="delete_row"
                                                             data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                             title="Hapus">
                                                             <i class="ki-duotone ki-trash fs-2">
@@ -253,9 +247,10 @@
                                                                 <span class="path4"></span>
                                                                 <span class="path5"></span>
                                                             </i>
-                                                        </button>
+                                                        </a>
                                                     </td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -272,57 +267,58 @@
     <!--end::Content wrapper-->
 
     
-        <!--modal-->
-		<div class="modal fade" tabindex="-1" id="modalTambah">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Tambah Gambar</h5>
-						<!--begin::Close-->
-						<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-							<i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
-						</div>
-						<!--end::Close-->
-					</div>
+   <!--modal-->
+<div class="modal fade" tabindex="-1" id="modalTambah">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">TAMBAH DATA DOKUMENTASI SARPRAS</h5>
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
 
-					<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
-						<div class="modal-body">
-							<div class="row mb-3">
-								<div class="col-md-12">
-									<!--begin::Input group-->
-									<div class="row mb-3 fv-row">
-										<label for="galeriesktra" class="col-sm-2 col-form-label required">Gambar</label>
-										<div class="col-sm-10">
-											<input type="file" class="form-control" accept=".jpeg , .jpg, .png" id="galeriesktra" name="required">
-                                            <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-					<div class="modal-footer">
-						<button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary">
-							<span class="indicator-label">
-								Tambah
-							</span>
-							<span class="indicator-progress">
-								Harap menunggu... <span
-									class="spinner-border spinner-border-sm align-middle ms-2"></span>
-							</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--modal end-->
+            <form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>ManajemenSarpras/tambahGaleri" method="post" enctype="multipart/form-data" autocomplete="off">
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <!--begin::Input group-->
+                            <div class="row mb-3 fv-row">
+                                <label for="galeriesktra" class="col-sm-2 col-form-label required">Gambar</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" accept=".jpeg , .jpg, .png"
+                                        id="galeriesktra" name="foto">
+                                    <div class="form-text">Inputkan file dengan jenis .jpg .png</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary">
+                        <span class="indicator-label">
+                            Tambah
+                        </span>
+                        <span class="indicator-progress">
+                            Harap menunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--modal end-->
 
         <!--modal-->
 		<div class="modal fade" tabindex="-1" id="modalTambahdata">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">TAMBAH DATA SARANA & PRASARANA</h5>
+						<h5 class="modal-title" id="modalLabelSarpras">TAMBAH DATA SARANA & PRASARANA</h5>
 						<!--begin::Close-->
 						<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
 							<i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
@@ -331,6 +327,7 @@
 					</div>
 
 					<form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>ManajemenSarpras/tambahSarpras" method="post" autocomplete="off">
+                    <input type="hidden" name="id" id="id">
 						<div class="modal-body">
 							<div class="row mb-3">
 								<div class="col-md-12">
@@ -462,7 +459,7 @@
             e.preventDefault();
             const link = $(this).attr('href');
             const row = $(this).closest('tr');
-            const item = row.find('td:eq(2)').text();
+            const item = row.find('td:eq(1)').text();
             const itemId = row.find('td:eq(0)').text();
 
             Swal.fire({
@@ -478,7 +475,7 @@
                 }
             }).then((result) => {
                 if (result.value) {
-                    const deleteUrl = "<?= BASEURL; ?>ManajemenHumas/hapusIndus/" + itemId;
+                    const deleteUrl = "<?= BASEURL; ?>ManajemenSarpras/hapusSarpras/" + itemId;
                     window.location.href = deleteUrl;
                 } else if (result.dismiss === "cancel") {
                     Swal.fire({

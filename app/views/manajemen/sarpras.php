@@ -28,26 +28,12 @@
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>Wakil Kepala Sekolah Bidang Sarana & Prasarana</h3>
-                    <h6 class="fw-bolder mt-3">Triyudi Yudawan, S.Pd</h6>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>/img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
+                    <h6 class="fw-bolder mt-3"><?= $data['waka']['nama'] ?></h6>
+                    <div class="pe-lg-3 w-100 mb-3 position-relative">
+                        <img src="<?= BASEURL; ?>/img/datafoto/<?= $data['waka']['foto'] ?>" class="img-fluid rounded-4 w-100" alt="">
                     </div>
                     <p class="pe-lg-4">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam itaque similique qui at iure
-                        omnis fugiat
-                        laborum facilis voluptatum ipsum! Nesciunt fugit nam mollitia sunt accusamus animi asperiores
-                        saepe atque,
-                        repudiandae beatae aut doloremque excepturi tempore vel error autem sequi iure culpa accusantium
-                        magni
-                        molestias est assumenda non necessitatibus! Unde nam repudiandae tempora sunt laborum sed
-                        cupiditate
-                        veritatis dolore quae. Laboriosam magnam odio autem. Ut illo adipisci necessitatibus aliquam
-                        corporis
-                        repellendus accusantium velit, totam reprehenderit praesentium esse enim repudiandae.
-                        Voluptatibus minima,
-                        expedita porro rerum iusto enim quaerat necessitatibus perferendis illo dignissimos perspiciatis
-                        eaque.
-                        Tempore, vitae iure necessitatibus quam at adipisci.
+                        <?= $data['waka']['isi'] ?>
                     </p>
 
                     <div class="mt-5">
@@ -67,12 +53,15 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php $i = 1; ?>
+                                                <?php foreach ($data['sarpras'] as $sarpras) : ?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Ruang Kelas</td>
-                                                        <td>38</td>
-                                                        <td>Ruangan Teori</td>
+                                                        <td><?= $i++ ?></td>
+                                                        <td><?= $sarpras['nama'] ?></td>
+                                                        <td><?= $sarpras['jumlah'] ?></td>
+                                                        <td><?= $sarpras['keterangan'] ?></td>
                                                     </tr>
+                                                <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -88,46 +77,13 @@
                         <div class="container ms-0 ps-0">
                             <div class="gallery-slider swiper">
                                 <div class="swiper-wrapper align-items-center">
+                                <?php foreach ($data['galeri'] as $galeri) : ?>
                                     <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
+                                            href="<?= BASEURL; ?>/img/datafoto/<?= $galeri['foto'] ?>"><img
+                                                src="<?= BASEURL; ?>/img/datafoto/<?= $galeri['foto'] ?>" class="img-fluid rounded-2"
                                                 alt=""></a>
                                     </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                            href="<?= BASEURL; ?>/img/warehousing-service.jpg"><img
-                                                src="<?= BASEURL; ?>/img/warehousing-service.jpg" class="img-fluid rounded-2"
-                                                alt=""></a>
-                                    </div>
+                                <?php endforeach; ?>
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>

@@ -2,11 +2,14 @@
 
 class rpl extends Controller
 {
+    private $model_name = "KK";
+
     public function index()
     {
         $data['judul'] = 'RPL';
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['keterangan'] = $this->model("$this->model_name", 'Rpl_model')->getMaxId();
+        $data['kk'] = $this->model("$this->model_name", 'Rpl_model')->getAllKk();
+        $data['dpk'] = $this->model("$this->model_name", 'Rpl_model')->getAllDpk();
 
         $this->view('templates-user/header', $data);
         $this->view('kompetensikeahlian/rpl', $data);

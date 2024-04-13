@@ -193,21 +193,18 @@ class Sarpras_model
 
     public function ubahData($data)
     {
-        $query =    "UPDATE {$this->tablee}
-                        SET 
-                        nama = :nama,
-                        foto = :foto
-                    WHERE id = :id";
-
-        $this->db->query($query);
-        if ($_FILES["foto"]["error"] === 4) {
-            $foto = $data['fotoLama'];
-        } else {
-            $foto = $this->uploadImage();
-        }
+        $this->db->query(
+            "UPDATE {$this->tablee}
+                SET 
+                nama = :nama,
+                jumlah = :jumlah,
+                keterangan = :keterangan
+            WHERE id = :id"
+        );
 
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('foto', $foto);
+        $this->db->bind('jumlah', $data['jumlah']);
+        $this->db->bind('keterangan', $data['keterangan']);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();

@@ -32,45 +32,37 @@
                     <h3>Enetrotika</h3>
                     <div class="border-start border-secondary border-2 pe-lg-5">
                         <p class="ms-3">
-                            <i>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam itaque similique qui at
-                                iure omnis
-                                fugiat laborum facilis voluptatum ipsum! Nesciunt fugit nam mollitia sunt accusamus
-                                animi asperiores
-                                saepe atque, repudiandae beatae aut doloremque excepturi tempore vel error autem sequi
-                                iure culpa
-                                accusantium magni molestias est assumenda non necessitatibus! Unde nam repudiandae
-                                tempora sunt
-                                laborum sed cupiditate veritatis dolore quae. Laboriosam magnam odio autem.</i>
+                            <i><?= $data['keterangan']['keterangan'] ?></i>
                         </p>
                     </div>
                     <div>
                         <h3 class="mt-5 mb-2">Dasar Program Keahlian</h3>
                         <div class="row">
-                            <ul class="col-lg-4 ms-2 my-0">
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                            </ul>
-                            <ul class="col-lg-4 ms-2 my-0">
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                            </ul>
+                            <?php $dpkk = array_chunk($data['dpk'], 3); ?>
+                            <?php foreach ($dpkk as $dpkkk) : ?>
+                                <div class="col-lg-4">
+                                    <ul class="ms-2 my-0">
+                                        <?php foreach ($dpkkk as $item) : ?>
+                                            <li><i class="bi bi-arrow-right-short"></i><?= $item['dpk'] ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div>
                         <h3 class="mt-5 mb-2">Kompetensi Keahlian</h3>
                         <div class="row">
-                            <ul class="col-lg-4 ms-2 my-0">
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                            </ul>
-                            <ul class="col-lg-4 ms-2 my-0">
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                                <li><i class="bi bi-arrow-right-short"></i> Ullamco laboris.</li>
-                            </ul>
+                            <?php $kk = array_chunk($data['kk'], 3); ?>
+                            <?php foreach ($kk as $kkk) : ?>
+                                <div class="col-lg-4">
+                                    <ul class="ms-2 my-0">
+                                        <?php foreach ($kkk as $item) : ?>
+                                            <li><i class="bi bi-arrow-right-short"></i><?= $item['kk'] ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

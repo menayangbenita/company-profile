@@ -5,12 +5,13 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class VisiMisi_model
+class Tkj_model
 {
-    private $table = 'visi'; 
-    private $tablee = 'misi'; 
+    private $table = 'tkj'; 
+    private $tablee = 'dpk_tkj'; 
+    private $tableee = 'kk_tkj'; 
     private $fields = [
-        'isi_visi'
+        'keterangan'
     ];
 
     private $user;
@@ -28,9 +29,15 @@ class VisiMisi_model
         return $this->db->fetchAll();
     }
 
-    public function getAllMisi()
+    public function getAllDpk()
     {
         $this->db->query("SELECT * FROM {$this->tablee}");
+        return $this->db->fetchAll();
+    }
+
+    public function getAllKk()
+    {
+        $this->db->query("SELECT * FROM {$this->tableee}");
         return $this->db->fetchAll();
     }
 
@@ -46,9 +53,16 @@ class VisiMisi_model
         return $this->db->fetchAll();
     }
 
-    public function getDataById($id)
+    public function getDataByDpk($id)
     {
         $this->db->query("SELECT * FROM {$this->tablee} WHERE id = :id"); // : = menghindari sql injection
+        $this->db->bind("id", $id);
+        return $this->db->fetch();
+    }
+
+    public function getDataByKk($id)
+    {
+        $this->db->query("SELECT * FROM {$this->tableee} WHERE id = :id"); // : = menghindari sql injection
         $this->db->bind("id", $id);
         return $this->db->fetch();
     }
@@ -105,30 +119,44 @@ class VisiMisi_model
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi_visi)"
+            (null, :keterangan)"
         );
 
-        $this->db->bind(':isi_visi', $data['isi_visi']);
+        $this->db->bind(':keterangan', $data['keterangan']);
 
         $this->db->execute();
         return $this->db->rowCount();
     }
 
-    public function tambahDataMisi($data)
+    public function tambahDataDpk($data)
     {
         $this->db->query(
             "INSERT INTO {$this->tablee}
                 VALUES 
-            (null, :misi)"
+            (null, :dpk)"
         );
 
-        $this->db->bind(':misi', $data['misi']);
+        $this->db->bind(':dpk', $data['dpk']);
 
         $this->db->execute();
         return $this->db->rowCount();
     }
 
-    public function hapusData($id)
+    public function tambahDataKk($data)
+    {
+        $this->db->query(
+            "INSERT INTO {$this->tableee}
+                VALUES 
+            (null, :kk)"
+        );
+
+        $this->db->bind(':kk', $data['kk']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataDpk($id)
     {
         $query = "DELETE FROM {$this->tablee} 
         WHERE id = :id";
@@ -141,16 +169,45 @@ class VisiMisi_model
         return $this->db->rowCount();
     }
 
-    public function ubahData($data)
+    public function hapusDataKk($id)
+    {
+        $query = "DELETE FROM {$this->tableee} 
+        WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataDpk($data)
     {
         $this->db->query(
             "UPDATE {$this->tablee}
                 SET 
-                misi = :misi
+                dpk = :dpk
             WHERE id = :id"
         );
 
-        $this->db->bind('misi', $data['misi']);
+        $this->db->bind('dpk', $data['dpk']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataKk($data)
+    {
+        $this->db->query(
+            "UPDATE {$this->tableee}
+                SET 
+                kk = :kk
+            WHERE id = :id"
+        );
+
+        $this->db->bind('kk', $data['kk']);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();
