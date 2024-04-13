@@ -7,6 +7,7 @@ class ManajemenSarpras extends Controller
     public function index()
     {
         $data['judul'] = 'Waka Sarpras';
+        $data['galeri'] = $this->model("$this->model_name", 'Sarpras_model')->getAllDokum();
         $data['sarpras'] = $this->model("$this->model_name", 'Sarpras_model')->getAllSarpras();
         $data['user'] = $this->user; 
 
@@ -23,7 +24,7 @@ class ManajemenSarpras extends Controller
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
-            header('Location: ' . BASEURL . 'WakaSarpras');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
             exit;
         }
     }
@@ -36,7 +37,20 @@ class ManajemenSarpras extends Controller
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
-            header('Location: ' . BASEURL . 'WakaSarpras');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
+            exit;
+        }
+    }
+    
+    public function tambahGaleri()
+    {
+        if ($this->model("$this->model_name", 'Sarpras_model')->tambahDataGaleri($_POST) > 0) {
+            Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
             exit;
         }
     }
@@ -45,11 +59,24 @@ class ManajemenSarpras extends Controller
     {
         if ($this->model("$this->model_name", 'Sarpras_model')->hapusDataIndus($id) > 0) {
             Flasher::setFlash('BERHASIL', 'Dihapus', 'success');
-            header('Location: ' . BASEURL . 'ManajemenHumas');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Dihapus', 'danger');
-            header('Location: ' . BASEURL . 'ManajemenHumas');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
+            exit;
+        }
+    }
+        
+    public function hapusGaleri($id)
+    {
+        if ($this->model("$this->model_name", 'Sarpras_model')->hapusDataGaleri($id) > 0) {
+            Flasher::setFlash('BERHASIL', 'Dihapus', 'success');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Dihapus', 'danger');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
             exit;
         }
     }
@@ -63,11 +90,11 @@ class ManajemenSarpras extends Controller
     {
         if ($this->model("$this->model_name", 'Sarpras_model')->ubahData($_POST) > 0) {
             Flasher::setFlash('BERHASIL', 'Diubah', 'success');
-            header('Location: ' . BASEURL . 'ManajemenHumas');
+            header('Location: ' . BASEURL . 'ManajemenSarpras');
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Diubah', 'danger');
-            header('Location: ' . BASEURL . 'WakaHumas');
+            header('Location: ' . BASEURL . 'ManajamenSarpras');
             exit;
         }
     }

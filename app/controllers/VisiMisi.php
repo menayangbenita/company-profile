@@ -7,6 +7,8 @@ class visiMisi extends Controller
     public function index()
     {
         $data['judul'] = 'Visi & Misi';
+        $data['misi'] = $this->model("$this->model_name", 'VisiMisi_model')->getAllMisi();
+        $data['visi'] = $this->model("$this->model_name", 'VisiMisi_model')->getMaxId();
 
         // $data['user'] = $this->user; @ if already using jwt
 
