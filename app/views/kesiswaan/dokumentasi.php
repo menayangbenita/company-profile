@@ -31,28 +31,36 @@
             <div class="col-lg-8 content mb-5">
                 <h3>Dokumentasi Ekstrakurikuler</h3>
                 <p>
-                <?= $data['DokumEkstra']['isi'] ?>
+                <?= $data['dokum']['isi'] ?>
                 </p>
-                <!-- ======= Gallery Section ======= -->
-                <div id="gallery" class="gallery mt-0 pt-0">
-                    <div class="container ms-0 ps-0">
-                        <div class="gallery-slider swiper">
-                            <div class="swiper-wrapper align-items-center">
-                                <?php foreach ($data['dokum'] as $dokum) : ?>
-                                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                        href="<?= BASEURL; ?>img/datafoto/<?= $dokum['foto']; ?>"><img
-                                            src="<?= BASEURL; ?>img/datafoto/<?= $dokum['foto']; ?>" class="img-fluid rounded-2"
-                                            alt=""></a>
+                <div class="pe-lg-3 mb-3 position-relative">
+                            <!-- ======= Gallery Section ======= -->
+                    <div id="gallery" class="gallery mt-0 pt-0">
+                        <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
+                        <div class="container ms-0 ps-0">
+                            <div class="gallery-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
+                                    <?php foreach ($data['galeri'] as $galeri): ?>
+                                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                                href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"><img
+                                                    src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"
+                                                    class="img-fluid rounded-2" alt=""></a>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
-                                <?php endforeach; ?>
+                                <div class="swiper-pagination"></div>
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
-
+                    </div><!-- End Gallery Section -->
+               
+                        </div>
                     </div>
-                </div><!-- End Gallery Section -->
-
-            </div>
+                    <div class="mb-5">
+                        <div class="pe-lg-3 mb-3 position-relative">
+                            
+                        </div>
+                    </div>
+                </div>
             <div class="col-lg-4 position-relative align-self-start">
                 <h5 class="text-lg-end mb-4"><span
                         class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>

@@ -31,45 +31,11 @@
             <div class="col-lg-8 content mb-5">
                 <h3>Organisasi Adiwiyata</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laboriosam iure nobis
-                    facere, delectus sit sunt officiis voluptatibus et, quis mollitia architecto nostrum, libero
-                    eos aperiam vel recusandae voluptate vero cupiditate dignissimos optio quas doloribus
-                    explicabo? Tempora nesciunt dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Neque, placeat:
+                <?= $data['OrganisasiAdiwiyata']['isi'] ?>
+
                 </p>
-                <div class="table-responsive my-3">
-                    <table class="table table-bordered">
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="mb-5">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                    </p>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                    </div>
-                </div>
-                <div class="mb-5">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                    </p>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                        <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                    </div>
-                </div>
-            </div>
+                
+            
             <div class="col-lg-4 position-relative align-self-start">
                 <h5 class="text-lg-end mb-4"><span
                         class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>

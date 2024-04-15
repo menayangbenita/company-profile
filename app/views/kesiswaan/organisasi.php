@@ -31,189 +31,35 @@
                 <div class="col-lg-8 content mb-5">
                     <h3>Organisasi</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laboriosam iure nobis
-                        facere, delectus sit sunt officiis voluptatibus et, quis mollitia architecto nostrum, libero
-                        eos aperiam vel recusandae voluptate vero cupiditate dignissimos optio quas doloribus
-                        explicabo? Tempora nesciunt dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Neque, placeat:
-                    </p>
-                    <div class="table-responsive my-3">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            </tr>
-                            <tr>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            </tr>
-                            <tr>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            </tr>
-                            <tr>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="mb-5">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                        </p>
+                    <?= $data['organisasi']['isi'] ?>
+
+</p>
+                   
                         <div class="pe-lg-3 mb-3 position-relative">
                             <!-- ======= Gallery Section ======= -->
-                            <div id="gallery" class="gallery mt-0 pt-0">
-                                <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
-                                <div class="container ms-0 ps-0">
-                                    <div class="gallery-slider swiper">
-                                        <div class="swiper-wrapper align-items-center">
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
+                    <div id="gallery" class="gallery mt-0 pt-0">
+                        <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
+                        <div class="container ms-0 ps-0">
+                            <div class="gallery-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
+                                    <?php foreach ($data['galeri'] as $galeri): ?>
+                                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                                href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"><img
+                                                    src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"
+                                                    class="img-fluid rounded-2" alt=""></a>
                                         </div>
-                                        <div class="swiper-pagination"></div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
-                            </div><!-- End Gallery Section -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div><!-- End Gallery Section -->
+               
                         </div>
                     </div>
                     <div class="mb-5">
                         <div class="pe-lg-3 mb-3 position-relative">
-                            <!-- ======= Gallery Section ======= -->
-                            <div id="gallery" class="gallery mt-0 pt-0">
-                                <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
-                                <div class="container ms-0 ps-0">
-                                    <div class="gallery-slider swiper">
-                                        <div class="swiper-wrapper align-items-center">
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                    href="<?= BASEURL; ?>img/warehousing-service.jpg"><img
-                                                        src="<?= BASEURL; ?>img/warehousing-service.jpg"
-                                                        class="img-fluid rounded-2" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-pagination"></div>
-                                    </div>
-                                </div>
-                            </div><!-- End Gallery Section -->
+                            
                         </div>
                     </div>
                 </div>

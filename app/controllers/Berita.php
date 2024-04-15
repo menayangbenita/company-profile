@@ -2,9 +2,13 @@
 
 class berita extends Controller
 {
+    private $model_name = "Berita";
+
     public function index()
     {
         $data['judul'] = 'Berita';
+        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getLatestNews();
+
 
         // $data['user'] = $this->user; @ if already using jwt
 
@@ -16,6 +20,8 @@ class berita extends Controller
     public function berita()
     {
         $data['judul'] = 'Berita';
+        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getMaxId();
+
 
         // $data['user'] = $this->user; @ if already using jwt
 

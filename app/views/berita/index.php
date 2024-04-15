@@ -34,155 +34,23 @@
                         <a href="<?= BASEURL; ?>berita/berita">
                             <div class="card border-0 shadow-none mb-5">
                                 <div class="card-body p-0 pe-lg-5">
+                                <?php foreach ($data['berita'] as $berita): ?>
                                     <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
+                                        src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="">
                                     <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
+                                        <h3 class="mb-3" id="judul"><?= $berita['judul'] ?></h3>
                                     </a>
                                     <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
                                             class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
+                                    <p class="mb-3"><?= $berita['isi'] ?></p>
                                     <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
                                             class="bi bi-arrow-up-right-circle"></i></a>
                                 </div>
                             </div>
                         </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/asset-img-kepsek.png" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul">Lorem, ipsum dolor.</h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                                        nemo optio nulla quasi pariatur inventore, ducimus suscipit impedit harum
-                                        magni eum incidunt. Deleniti harum dicta ipsam, cumque qui magni
-                                        tempora?....</p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
-                                </div>
-                            </div>
-                        </a>
+                        <?php endforeach; ?>
+
+
                     </div>
                     <div class="row">
                         <nav aria-label="Page navigation example mt-0">

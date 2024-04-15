@@ -7,7 +7,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12 text-center">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+                        <h2><?= $data['berita']['judul'] ?></h2>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="container">
                 <ol>
                     <li><a href="<?= BASEURL; ?>L; ?>">BERITA</a></li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li><?= $data['berita']['judul'] ?></li>
                 </ol>
             </div>
         </nav>
@@ -27,45 +27,16 @@
         <div class="container pe-lg-4" data-aos="fade-up">
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
-                    <p class="fs-1 fw-bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p class="fs-1 fw-bold"><?= $data['berita']['judul'] ?></p>
                     <h6 class="fw-bold my-5 text-muted"><span class="me-4"> 24 MARET 2024 </span>|<span class="ms-4">
                             SMKN 8 MALANG </span></h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil eum fugit consequuntur
-                        perferendis expedita. Id earum ducimus non iure placeat!</p>
-                    <div class="mb-5">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, placeat:
-                        </p>
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quaerat, a fugiat dolore
-                            nisi ullam eaque rem tempora cupiditate adipisci quod fugit cumque fuga illo illum neque
-                            earum tenetur iste optio! Praesentium distinctio commodi vero sunt sit quibusdam. Magnam
-                            nihil distinctio eveniet reiciendis sed quae veniam dolor recusandae corporis beatae?
-                        </p>
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <img src="<?= BASEURL; ?>img/asset-img-kepsek.png" class="img-fluid rounded-4" alt="">
-                        </div>
-                    </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi veritatis alias distinctio. Eius
-                        ratione iure facilis, provident debitis unde asperiores fugiat reiciendis voluptas velit, ipsa
-                        error dicta saepe quaerat voluptates impedit nostrum natus dignissimos veritatis ipsum? Tempore,
-                        perspiciatis. Itaque similique molestiae harum exercitationem officiis commodi, consequatur,
-                        nulla facilis delectus hic, quos dignissimos vitae. Architecto ducimus adipisci, vitae quod
-                        corrupti repellat debitis nesciunt ea tempora blanditiis vero velit, quae similique repudiandae
-                        eligendi excepturi nostrum quos quasi consequatur praesentium placeat tempore? Similique
-                        quisquam laudantium recusandae illum omnis. Quaerat totam magni quis aperiam, ex beatae error
-                        vitae commodi ad? Eius quos facere vitae!
+                    <?= $data['berita']['isi'] ?>
                     </p>
 
                     <div class="row mt-5">
-                        <h6 class="fw-bold">Lorem Ipsum:</h6>
-                        <p>Consectetur adipisicing elit. Qui, explicabo.</p>
+                        <h6 class="fw-bold">Author:</h6>
+                        <p><?= $data['berita']['author'] ?></p>
                     </div>
                 </div>
 
