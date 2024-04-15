@@ -33,16 +33,24 @@
 													</div>
 												</div>
 												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-                                                        <form action="">
-                                                            <div class="row" data-bs-theme="light">
-																<div class="col-sm-12">
-																	<textarea name="kt_docs_ckeditor_classic" id="kt_docs_ckeditor_classic">
-																	</textarea>
-																</div>
-															</div>
+								<div class="d-flex flex-column content-justify-center flex-row-fluid">
+									<form action="<?= BASEURL; ?>AdiwiyataOrganisasi/tambah" method="post">
+										<div class="row" data-bs-theme="light">
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="document-editor__toolbar"></div>
+												</div>
+												<div class="row row-editor">
+													<div class="editor-container">
+														<textarea class="editor" name="isi">
+														</textarea>
 													</div>
 												</div>
+											</div>
+										</div>
+                  </div>
+                 </div>
+							</div>
                                                 <div class="card-footer">
                                                     <button class="btn btn-primary float-end">Simpan Perubahan</button>
                                                     </form>
@@ -57,14 +65,20 @@
 						<!--end::Content wrapper-->
 
                         <!--begin::Custom Javascript(used for this page only)-->
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#kt_docs_ckeditor_classic'))
-                .then(editor => {
-                    console.log(editor);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
+						<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+						<script>
+    ClassicEditor
+        .create( document.querySelector( '.editor' ), {
+			ckfinder: {
+				uploadUrl: '<?= BASEURL;?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+			}
+		})
+		.then(editor => {
+			console.log(editor);
+		})
+        .catch( error => {
+            console.error( error );
+        } );
+		
+</script>
 		<!--end::Javascript-->

@@ -54,7 +54,7 @@
                                                                 id="table">
                                                                 <thead  class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
                                                                     <tr>
-                                                                        <th class="pe-3">No.</th>
+                                                                    <th class="pe-3" style="display: none;">ID</th>
                                                                         <th class="pe-3">Judul Berita</th>
                                                                         <th class="pe-3">Author</th>
                                                                         <th class="pe-3">Tanggal publikasi</th>
@@ -63,10 +63,9 @@
                                                                 </thead>
                                                                 <tbody class="fw-semibold text-gray-700">
                                                                     <tr>
-                                                                        <td>1.</td>
-                                                                        <td>Lorem ipsum dolor sit amet.</td>
-                                                                        <td>Raib</td>
-                                                                        <td>24 - 3 - 2024</td>
+                                                                        <td><?= $data['berita']['judul'] ?></td>
+                                                                        <td><?= $data['berita']['author'] ?></td>
+                                                                        <td><?= $data['berita']['tanggal_publikasi'] ?></td>
                                                                         <td class="text-center text-nowrap">
                                                                             <a href="<?= BASEURL; ?>BeritaEdit" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Edit Berita">
                                                                                 <i class="ki-duotone ki-pencil fs-2">

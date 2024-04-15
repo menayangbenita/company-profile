@@ -1,16 +1,15 @@
 <?php
 
-class organisasiKesiswaan extends Controller
+class OrganisasiKesiswaan extends Controller
 {
     private $model_name = "Kesiswaan";
 
     public function index()
     {
-        $data['judul'] = 'Organisasi Kesiswaan';
+        $data['judul'] = 'Organisasi';
         $data['organisasi'] = $this->model("$this->model_name", 'Organisasi_model')->getMaxId();
-
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['isi'] = $this->model("$this->model_name", 'Organisasi_model')->getAllIsi();
+        $data['galeri'] = $this->model("$this->model_name", 'Organisasi_model')->getAllDokum();
 
         $this->view('templates-user/header', $data);
         $this->view('kesiswaan/organisasi', $data);
