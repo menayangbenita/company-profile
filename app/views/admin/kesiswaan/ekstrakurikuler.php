@@ -32,48 +32,27 @@
 														<span class="text-uppercase fw-bold pb-0 fs-3">Perbarui Ekstrakurikuler</span>
 													</div>
 												</div>
-												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-													<div class="d-flex flex-column content-justify-center flex-row-fluid">
-														<form id="kt_docs_formvalidation" class="form" action="#" autocomplete="off">
-															<div class="row mb-5 fv-row">
-																<label for="teksekstrakurikuler" class="col-sm-2 col-form-label">Teks</label>
-																<div class="col-sm-10">
-																	<textarea name="teksekstrakurikuler" id="teksekstrakurikuler" class="form-control" data-kt-autosize="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, adipisci voluptates vitae doloribus placeat dolores nisi culpa corporis. Ad, quos?</textarea>
-																</div>
-															</div>
-															<div class="row mb-5 fv-row">
-																<label class="col-form-label col-md-2">Ekstrakurikuler</label>
-																<div class="col-sm-10">
-																	<div id="kt_docs_repeater_basic">
-																	<div class="form-group">
-																		<div data-repeater-list="kt_docs_repeater_basic">
-																			<div data-repeater-item>
-																				<div class="form-group row">
-																					<div class="col-9 col-md-10">
-																						<input type="text" id="misiadiwiyata" class="form-control mb-2" placeholder="Ketik ekstrakurikuler...." />
-																					</div>
-																					<div class="col-3 col-md-2">
-																						<a href="javascript:;" data-repeater-delete class="btn btn-outline btn-outline-danger btn-active-light-danger btn-sm mtb-2">
-																							<i class="ki-duotone ki-trash fs-5"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
-																							Hapus
-																						</a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
 
-																	<!--begin::Form group-->
-																	<div class="form-group mt-5">
-																		<a href="javascript:;" data-repeater-create class="btn btn btn-outline btn-outline-primary btn-active-light-primary btn-sm">
-																			<i class="ki-duotone ki-plus fs-3"></i>
-																			Tambah Ekstrakurikuler
-																		</a>
-																	</div>
-																	<!--end::Form group-->
-																</div>
-																</div>
-															</div>
+
+												<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+								<div class="d-flex flex-column content-justify-center flex-row-fluid">
+									<form action="<?= BASEURL; ?>AdminEkstrakurikuler/tambah" method="post">
+										<div class="row" data-bs-theme="light">
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="document-editor__toolbar"></div>
+												</div>
+												<div class="row row-editor">
+													<div class="editor-container">
+														<textarea class="editor" name="isi">
+														</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+                  </div>
+                 </div>
+							</div>
 																
 															<button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary float-end">
                                                                 <span class="indicator-label">
@@ -94,44 +73,20 @@
 							</div>
 							<!--end::Content-->
 						</div>
-						<!--end::Content wrapper-->
-<!-- <script src="<?= BASEURL; ?>admin/plugins/custom/formrepeater/formrepeater.bundle.js"></script> -->
-<script>
-    const tambahForm = document.getElementById('kt_docs_formvalidation');
-    const tambahValidator = FormValidation.formValidation();
-
-    // Submit button handler
-    const tambahSubmitButton = document.getElementById('kt_docs_formvalidation_submit');
-    tambahSubmitButton.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        handleFormSubmission(tambahValidator, tambahSubmitButton, 'modalTambah');
-    });
-
-    function handleFormSubmission(validator, submitButton, modalId) {
-        if (validator) {
-            validator.validate().then(function (status) {
-                console.log('validated!');
-
-                if (status == 'Valid') {
-                    submitButton.setAttribute('data-kt-indicator', 'on');
-                    submitButton.disabled = true;
-
-                    setTimeout(function () {
-                        submitButton.removeAttribute('data-kt-indicator');
-                        submitButton.disabled = false;
-
-                        Swal.fire({
-                            text: "BERHASIL!",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 1300
-                        }).then(function () {
-                            $(`#${modalId}`).modal('hide');
-                        });
-                    }, 2000);
-                }
-            });
-        }
-    }
+						<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+						<script>
+    ClassicEditor
+        .create( document.querySelector( '.editor' ), {
+			ckfinder: {
+				uploadUrl: '<?= BASEURL;?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+			}
+		})
+		.then(editor => {
+			console.log(editor);
+		})
+        .catch( error => {
+            console.error( error );
+        } );
+		
 </script>
+		<!--end::Javascript-->
