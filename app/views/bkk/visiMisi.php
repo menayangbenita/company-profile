@@ -26,23 +26,23 @@
 <section id="about" class="about">
   <div class="container" data-aos="fade-up">
 
-    <div class="row gy-4">
-      <div class="col-lg-8 content mb-5">
-        <h3>Visi</h3>
-        <div class="border-start border-secondary border-2 mb-5 pe-lg-5">
-          <p class="ms-3">
-            <i> <?= $data['BkkVisiMisi']['visi'] ?></i>
-          </p>
-        </div>
-        <div>
-        <?php foreach( $data['BkkVisiMisi'] as $BkkVisiMisi ) : ?>
-          <h3>Misi</h3>
-          <ul>
-            <li><i class="bi bi-arrow-right-short"></i><?= $BkkVisiMisi['misi']; ?></li>
-            <?php endforeach; ?>  
-          </ul>
-        </div>
-      </div>
+  <div class="row gy-4">
+                <div class="col-lg-8 content mb-5">
+                    <h3>Visi</h3>
+                    <div class="border-start border-secondary border-2 mb-5 pe-lg-5">
+                        <p class="ms-3">
+                            <i><?= $data['visi']['isi_visi'] ?></i>
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Misi</h3>
+                        <ul>
+                            <?php foreach ($data['misi'] as $misi) : ?>
+                            <li><i class="bi bi-arrow-right-short"></i><?= $misi['misi'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
       <div class="col-lg-4 position-relative align-self-start">
         <h5 class="text-lg-end mb-4"><span class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>
         <ul class="news list-unstyled">

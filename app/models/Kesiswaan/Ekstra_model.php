@@ -5,12 +5,11 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class VisiMisiBkk_model
+class Ekstra_model
 {
-    private $table = 'visi_bkk'; 
-    private $tablee = 'misi_bkk'; 
+    private $table = 'ekstrakurikuler'; 
     private $fields = [
-        'isi_visi'
+        'isi'
     ];
 
     private $user;
@@ -28,27 +27,21 @@ class VisiMisiBkk_model
         return $this->db->fetchAll();
     }
 
-    public function getAllMisi()
-    {
-        $this->db->query("SELECT * FROM {$this->tablee}");
-        return $this->db->fetchAll();
-    }
-
     public function getAllExistData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 1");
+        $this->db->query("SELECT * FROM {$this->table} WHERE status = 1");
         return $this->db->fetchAll();
     }
 
     public function getAllDeletedData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 0");
+        $this->db->query("SELECT * FROM {$this->table} WHERE status = 0");
         return $this->db->fetchAll();
     }
 
     public function getDataById($id)
     {
-        $this->db->query("SELECT * FROM {$this->tablee} WHERE id = :id"); // : = menghindari sql injection
+        $this->db->query("SELECT * FROM {$this->table} WHERE id = :id"); // : = menghindari sql injection
         $this->db->bind("id", $id);
         return $this->db->fetch();
     }
@@ -100,29 +93,18 @@ class VisiMisiBkk_model
         return $fileName;
     }
 
+
     public function tambahData($data)
     {
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi_visi)"
+            (null, :isi)"
         );
-
-        $this->db->bind(':isi_visi', $data['isi_visi']);
-
-        $this->db->execute();
-        return $this->db->rowCount();
-    }
-
-    public function tambahDataMisi($data)
-    {
-        $this->db->query(
-            "INSERT INTO {$this->tablee}
-                VALUES 
-            (null, :misi)"
-        );
-
-        $this->db->bind(':misi', $data['misi']);
+        
+        foreach ($this->fields as $field) {
+            $this->db->bind($field, $data[$field]);
+        }
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -130,27 +112,62 @@ class VisiMisiBkk_model
 
     public function hapusData($id)
     {
-        $query = "DELETE FROM {$this->tablee} 
-        WHERE id = :id";
+        $this->db->query(
+            "UPDATE {$this->table}  
+                SET 
+                deleted_at = CURRENT_TIMESTAMP,
+                deleted_by = :deleted_by,
+                is_deleted = 1,
+                is_restored = 0
+            WHERE id = :id"
+        );
 
-        $this->db->query($query);
-        $this->db->bind('id', $id);
+        $this->db->bind('deleted_by', $this->user);
+        $this->db->bind("id", $id);
 
         $this->db->execute();
-
         return $this->db->rowCount();
     }
 
     public function ubahData($data)
     {
+        $data['user'] = "Admin";
         $this->db->query(
-            "UPDATE {$this->tablee}
+            "UPDATE {$this->table}
                 SET 
-                misi = :misi
+                foto = :foto,
+                nama_lengkap = :nama_lengkap,
+                jenis_kelamin = :jenis_kelamin,
+                tempat_lahir = :tempat_lahir,
+                tanggal_lahir = :tanggal_lahir,
+                alamat_lengkap = :alamat_lengkap,
+                pendidikan_terakhir = :pendidikan_terakhir,
+                jurusan_pendidikan_terakhir = :jurusan_pendidikan_terakhir,
+                nomor_hp = :nomor_hp,
+                kategori = :kategori,
+                mapel_yg_diampu = :mapel_yg_diampu,
+                kategori_mapel = :kategori_mapel,
+                nip = :nip,
+                status_sertifikasi = :status_sertifikasi,
+                keahlian_ganda = :keahlian_ganda,
+                status_pernikahan = :status_pernikahan,
+                modified_at = CURRENT_TIMESTAMP,
+                modified_by = :modified_by
             WHERE id = :id"
         );
 
-        $this->db->bind('misi', $data['misi']);
+
+        if ($_FILES["foto"]["error"] === 4) {
+            $foto = $data['fotoLama'];
+        } else {
+            $foto = $this->uploadImage();
+        }
+
+        $this->db->bind('foto', $foto);
+        foreach ($this->fields as $field) {
+            $this->db->bind($field, $data[$field]);
+        }
+        $this->db->bind('modified_by', $this->user);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();
@@ -159,7 +176,7 @@ class VisiMisiBkk_model
 
     public function getJmlData()
     {
-        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE `status` = 1");
+        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE status = 1");
         return $this->db->fetch();
     }
 }

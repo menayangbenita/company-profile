@@ -5,10 +5,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class VisiMisiBkk_model
+class VisiMisiAdiwiyata_model
 {
-    private $table = 'visi_bkk'; 
-    private $tablee = 'misi_bkk'; 
+    private $table = 'visi_adiwiyata'; 
+    private $tablee = 'misi_adiwiyata'; 
     private $fields = [
         'isi_visi'
     ];

@@ -31,25 +31,10 @@
             <div class="col-lg-8 content mb-5">
                 <h3>Ekstrakurikuler</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laboriosam iure nobis
-                    facere, delectus sit sunt officiis voluptatibus et, quis mollitia architecto nostrum, libero
-                    eos aperiam vel recusandae voluptate vero cupiditate dignissimos optio quas doloribus
-                    explicabo? Tempora nesciunt dolorem est. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Neque, placeat:
+                <?= $data['ekstra']['isi'] ?>
+
                 </p>
-                <div>
-                    <div class="row">
-                        <ul class="ms-2 my-0">
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                            <li><i class="bi bi-arrow-right-short fs-4"></i> Ullamco laboris.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+               
             <div class="col-lg-4 position-relative align-self-start">
                 <h5 class="text-lg-end mb-4"><span
                         class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>
