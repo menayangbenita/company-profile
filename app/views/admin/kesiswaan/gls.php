@@ -35,8 +35,8 @@
 								</div>
 							</div>
 							<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-								<div class="d-flex flex-column content-justify-center flex-row-fluid">
-									<form action="<?= BASEURL; ?>AdminGls/tambah" method="post">
+								<form action="<?= BASEURL; ?>AdminGls/tambah" method="post">
+									<div class="d-flex flex-column content-justify-center flex-row-fluid">
 										<div class="row" data-bs-theme="light">
 											<div class="col-sm-12">
 												<div class="row">
@@ -50,36 +50,35 @@
 												</div>
 											</div>
 										</div>
-                  </div>
-                 </div>
+									</div>
 							</div>
-							<div class="card-footer">
-								<button type="submit" class="btn btn-primary float-end">Simpan Perubahan</button>
-								</form>
-							</div>
+						<div class="card-footer">
+							<button type="submit" class="btn btn-primary float-end mb-0">Simpan Perubahan</button>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--end::Content-->
 	</div>
-	<!--end::Content wrapper-->
+	<!--end::Content-->
+</div>
+<!--end::Content wrapper-->
 
-	<!--begin::Custom Javascript(used for this page only)-->
+<!--begin::Custom Javascript(used for this page only)-->
 
-	<!--end::Javascript-->
+<!--end::Javascript-->
 
-	<!-- Include CKEditor JS file -->
-	<!-- <script src="https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.js"></script>
+<!-- Include CKEditor JS file -->
+<!-- <script src="https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.js"></script>
 
 	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
 	<script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/ckfinder.js"></script> -->
-	<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
 
 
-	<!-- Custom JavaScript -->
-	<!-- <script>
+<!-- Custom JavaScript -->
+<!-- <script>
 		CKEDITOR.replace('.editor', {
 			filebrowserBrowseURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/ckfinder.html',
 			filebrowserUploadURL: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
@@ -113,21 +112,21 @@
 			console.error(error);
 		} -->
 
-		<script>
-    ClassicEditor
-        .create( document.querySelector( '.editor' ), {
+<script>
+	ClassicEditor
+		.create(document.querySelector('.editor'), {
 			ckfinder: {
-				uploadUrl: '<?= BASEURL;?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+				uploadUrl: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
 			}
 		})
 		.then(editor => {
 			console.log(editor);
 		})
-        .catch( error => {
-            console.error( error );
-        } );
-		
+		.catch(error => {
+			console.error(error);
+		});
+
 </script>
 
 
-	</script>
+</script>

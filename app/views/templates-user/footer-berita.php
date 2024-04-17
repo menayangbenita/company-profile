@@ -1,31 +1,3 @@
-<div class="col-lg-4 position-relative align-self-start">
-                    <h5 class="text-lg-end mb-4"><span
-                            class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>
-                    <ul class="news list-unstyled">
-                        <?php foreach ($data['berita'] as $berita) : ?>
-                        <li>
-                            <a href="<?= BASEURL;?>Berita/<?= $berita['id'] ?>" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span><?= $berita['tanggal_publikasi'] ?></span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect"><?= $berita['judul'] ?></span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ MORE</span><i
-                                            class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Us Section -->
-
-</main><!-- End #main -->
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
 

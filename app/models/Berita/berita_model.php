@@ -30,6 +30,13 @@ class Berita_model
         return $this->db->fetchAll();
     }
 
+    public function getAllNews()
+    {
+        $this->db->query("SELECT * FROM {$this->table} ORDER BY tanggal_publikasi DESC");
+        return $this->db->fetchAll(); 
+    }
+
+
     public function getAllExistData()
     {
         $this->db->query("SELECT * FROM {$this->table} WHERE status = 1");
@@ -56,8 +63,8 @@ class Berita_model
     }
     public function getLatestNews()
     {
-        $this->db->query("SELECT * FROM {$this->table} ORDER BY tanggal_publikasi DESC LIMIT 8");
-        return $this->db->fetch(); 
+        $this->db->query("SELECT * FROM {$this->table} ORDER BY tanggal_publikasi DESC LIMIT 5");
+        return $this->db->fetchAll(); 
     }
 
     public function uploadImage()
@@ -113,8 +120,8 @@ class Berita_model
         if (!$foto) {
             return false;
         }
+
         $this->db->bind('foto', $foto);
-        
         foreach ($this->fields as $field) {
             $this->db->bind($field, $data[$field]);
         }

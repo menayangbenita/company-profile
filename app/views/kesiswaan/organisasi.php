@@ -26,132 +26,32 @@
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
-
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <h3>Organisasi</h3>
                     <p>
-                    <?= $data['organisasi']['isi'] ?>
-
-</p>
-                   
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            <!-- ======= Gallery Section ======= -->
-                    <div id="gallery" class="gallery mt-0 pt-0">
-                        <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
-                        <div class="container ms-0 ps-0">
-                            <div class="gallery-slider swiper">
-                                <div class="swiper-wrapper align-items-center">
-                                    <?php foreach ($data['galeri'] as $galeri): ?>
-                                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
-                                                href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"><img
-                                                    src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"
-                                                    class="img-fluid rounded-2" alt=""></a>
-                                        </div>
-                                    <?php endforeach; ?>
+                        <?= $data['organisasi']['isi'] ?>
+                    </p>
+                    <div class="pe-lg-3 mb-3 position-relative">
+                        <!-- ======= Gallery Section ======= -->
+                        <div id="gallery" class="gallery mt-0 pt-0">
+                            <h3 class="mt-5 mb-lg-0 pb-lg-0">Galeri</h3>
+                            <div class="container ms-0 ps-0">
+                                <div class="gallery-slider swiper">
+                                    <div class="swiper-wrapper align-items-center">
+                                        <?php foreach ($data['galeri'] as $galeri): ?>
+                                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                                    href="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"><img
+                                                        src="<?= BASEURL; ?>img/datafoto/<?= $galeri['foto'] ?>"
+                                                        class="img-fluid rounded-2" alt=""></a>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
                                 </div>
-                                <div class="swiper-pagination"></div>
                             </div>
-                        </div>
-                    </div><!-- End Gallery Section -->
-               
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <div class="pe-lg-3 mb-3 position-relative">
-                            
-                        </div>
+                        </div><!-- End Gallery Section -->
                     </div>
                 </div>
-                <div class="col-lg-4 position-relative align-self-start">
-                    <h5 class="text-lg-end mb-4"><span
-                            class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>
-                    <ul class="news list-unstyled">
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit. Sed vestibulum ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit. Sed vestibulum ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet. Sed
-                                        vestibulum
-                                        ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Us Section -->
-
-</main><!-- End #main -->
+                
+            

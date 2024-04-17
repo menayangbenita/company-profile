@@ -54,7 +54,8 @@
                                                                 id="table">
                                                                 <thead  class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
                                                                     <tr>
-                                                                    <th class="pe-3" style="display: none;">ID</th>
+                                                                        <th class="pe-3">No</th>
+                                                                        <th class="pe-3" style="display: none;">ID</th>
                                                                         <th class="pe-3">Judul Berita</th>
                                                                         <th class="pe-3">Author</th>
                                                                         <th class="pe-3">Tanggal publikasi</th>
@@ -62,12 +63,16 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody class="fw-semibold text-gray-700">
+                                                                    <?php $i = 1; ?>
+                                                                    <?php foreach ($data['berita'] as $berita) : ?>
                                                                     <tr>
-                                                                        <td><?= $data['berita']['judul'] ?></td>
-                                                                        <td><?= $data['berita']['author'] ?></td>
-                                                                        <td><?= $data['berita']['tanggal_publikasi'] ?></td>
+                                                                        <td><?= $i++ ?></td>
+                                                                        <td style="display: none;"><?= $berita['id'] ?></td>
+                                                                        <td><?= $berita['judul'] ?></td>
+                                                                        <td><?= $berita['author'] ?></td>
+                                                                        <td><?= $berita['tanggal_publikasi'] ?></td>
                                                                         <td class="text-center text-nowrap">
-                                                                            <a href="<?= BASEURL; ?>BeritaEdit" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Edit Berita">
+                                                                            <a href="<?= BASEURL; ?>BeritaEdit/<?= $berita['id'] ?>" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Edit Berita">
                                                                                 <i class="ki-duotone ki-pencil fs-2">
                                                                                     <span class="path1"></span>
                                                                                     <span class="path2"></span>
@@ -84,6 +89,7 @@
                                                                             </button>
                                                                         </td>
                                                                     </tr>
+                                                                    <?php endforeach; ?>
                                                                 </tbody>
                                                             </table>
                                                         </div>

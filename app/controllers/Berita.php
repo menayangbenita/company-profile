@@ -7,23 +7,19 @@ class berita extends Controller
     public function index()
     {
         $data['judul'] = 'Berita';
-        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getLatestNews();
-
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getAllNews();
+        $data['baru'] = $this->model("$this->model_name", 'Berita_model')->getLatestNews();
 
         $this->view('templates-user/header', $data);
         $this->view('berita/index', $data);
-        $this->view('templates-user/footer', $data);
+        $this->view('templates-user/footer-berita', $data);
     }
 
-    public function berita()
+    public function berita($id)
     {
         $data['judul'] = 'Berita';
-        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getMaxId();
-
-
-        // $data['user'] = $this->user; @ if already using jwt
+        $data['isiberita'] = $this->model("$this->model_name", 'Berita_model')->getDataById($id);
+        $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getLatestNews();
 
         $this->view('templates-user/header', $data);
         $this->view('berita/berita', $data);

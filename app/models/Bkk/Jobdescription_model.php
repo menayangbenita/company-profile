@@ -47,6 +47,12 @@ class Jobdescription_model
         return $this->db->fetch();
     }
 
+    public function getMaxId()
+    {
+        $this->db->query("SELECT * FROM {$this->table} WHERE id = (SELECT MAX(id) FROM {$this->table})");
+        return $this->db->fetch(); 
+    }
+
     public function uploadImage()
     {
         $targetDir = 'images/datafoto/'; // direktori tempat menyimpan file upload

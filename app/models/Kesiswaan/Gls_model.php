@@ -5,12 +5,11 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Ramsey\Uuid\Uuid;
 
-class SharingPraktik_model
+class Gls_model
 {
-    private $table = 'sharing_praktik'; 
+    private $table = 'literasi'; 
     private $fields = [
-        'isi',
-        'link'
+        'isi'
     ];
 
     private $user;
@@ -19,7 +18,7 @@ class SharingPraktik_model
     public function __construct()
     {
         $this->db = new Database(DB_NAME); 
-        $this->user = Cookie::get_jwt()->name;
+        // $this->user = Cookie::get_jwt()->name;
     }
 
     public function getAllData()
@@ -30,13 +29,13 @@ class SharingPraktik_model
 
     public function getAllExistData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 1");
+        $this->db->query("SELECT * FROM {$this->table} WHERE status = 1");
         return $this->db->fetchAll();
     }
 
     public function getAllDeletedData()
     {
-        $this->db->query("SELECT * FROM {$this->table} WHERE `status` = 0");
+        $this->db->query("SELECT * FROM {$this->table} WHERE status = 0");
         return $this->db->fetchAll();
     }
 
@@ -46,7 +45,7 @@ class SharingPraktik_model
         $this->db->bind("id", $id);
         return $this->db->fetch();
     }
-    
+
     public function getMaxId()
     {
         $this->db->query("SELECT * FROM {$this->table} WHERE id = (SELECT MAX(id) FROM {$this->table})");
@@ -100,7 +99,7 @@ class SharingPraktik_model
         $this->db->query(
             "INSERT INTO {$this->table}
                 VALUES 
-            (null, :isi, :link)"
+            (null, :isi)"
         );
         
         foreach ($this->fields as $field) {
@@ -177,7 +176,7 @@ class SharingPraktik_model
 
     public function getJmlData()
     {
-        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE `status` = 1");
+        $this->db->query("SELECT COUNT(*) AS count FROM {$this->table} WHERE status = 1");
         return $this->db->fetch();
     }
 }

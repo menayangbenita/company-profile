@@ -31,26 +31,27 @@
                 <div class="col-lg-8 content mb-5">
                     <div id="berita" class="row">
                         <p id="tidak-ada-berita" style="display:none;">Tidak ada berita</p>
-                        <a href="<?= BASEURL; ?>berita/berita">
-                            <div class="card border-0 shadow-none mb-5">
-                                <div class="card-body p-0 pe-lg-5">
-                                <?php foreach ($data['berita'] as $berita): ?>
-                                    <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
-                                        src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="">
-                                    <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
-                                        <h3 class="mb-3" id="judul"><?= $berita['judul'] ?></h3>
-                                    </a>
-                                    <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
-                                            class="ms-4"> SMKN 8 MALANG </span></h6>
-                                    <p class="mb-3"><?= $berita['isi'] ?></p>
-                                    <a href="<?= BASEURL; ?>berita/berita" class="fw-bold">READ MORE <i
-                                            class="bi bi-arrow-up-right-circle"></i></a>
+                        <?php foreach ($data['berita'] as $berita): ?>
+                            <a href="<?= BASEURL; ?>berita/berita/<?= $berita['id'] ?>">
+                                <div class="card border-0 shadow-none mb-5">
+                                    <div class="card-body p-0 pe-lg-5">
+                                        <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
+                                            style="object-fit: cover;"
+                                            src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="">
+                                        <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
+                                            <h3 class="mb-3" id="judul"><?= $berita['judul'] ?></h3>
+                                        </a>
+                                        <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
+                                                class="ms-4"> SMKN 8 MALANG </span></h6>
+                                        <p class="mb-3">
+                                            <?= strlen($berita['isi']) > 200 ? substr($berita['isi'], 0, 200) . '...' : $berita['isi'] ?>
+                                        </p>
+                                        <a href="<?= BASEURL; ?>berita/berita/<?= $berita['id'] ?>" class="fw-bold">READ MORE <i
+                                                class="bi bi-arrow-up-right-circle"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         <?php endforeach; ?>
-
-
                     </div>
                     <div class="row">
                         <nav aria-label="Page navigation example mt-0">
@@ -82,86 +83,24 @@
                     <h5 class="text-lg-end mb-4"><span
                             class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>
                     <ul class="news list-unstyled">
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
+                        <?php foreach ($data['baru'] as $baru): ?>
+                            <li>
+                                <a href="<?= BASEURL; ?>berita/berita/<?= $baru['id'] ?>" class="d-flex">
+                                    <img src="<?= BASEURL; ?>img/datafoto/<?= $baru['foto'] ?>" alt=""
+                                        class="img-fluid me-3">
+                                    <div>
+                                        <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
+                                                8</span> <span class="mx-1">&bullet;</span>
+                                            <span><?= $baru['tanggal_publikasi'] ?></span>
+                                        </div>
+                                        <span class="news-title fw-medium hover-effect"><?= $baru['judul'] ?></span>
+                                        <p class="news-link fw-bold mt-1"><span
+                                                class="border-bottom border-secondary me-1">READ MORE</span><i
+                                                class="bi bi-arrow-right"></i></p>
                                     </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit. Sed vestibulum ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet,
-                                        consecte adipiscing
-                                        elit. Sed vestibulum ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex">
-                                <img src="<?= BASEURL; ?>img/asset-img.png" alt="" class="img-fluid me-3">
-                                <div>
-                                    <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
-                                            8</span> <span class="mx-1">&bullet;</span> <span>March 25, 2024</span>
-                                    </div>
-                                    <span class="news-title fw-medium hover-effect">Lorem ipsum dolor sit amet. Sed
-                                        vestibulum
-                                        ante.</span>
-                                    <p class="news-link fw-bold mt-1"><span
-                                            class="border-bottom border-secondary me-1">READ
-                                            MORE</span><i class="bi bi-arrow-right"></i></p>
-                                </div>
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
