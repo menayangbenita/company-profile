@@ -61,9 +61,16 @@ class Berita_model
         $this->db->query("SELECT * FROM {$this->table} WHERE id = (SELECT MAX(id) FROM {$this->table})");
         return $this->db->fetch(); 
     }
+    
     public function getLatestNews()
     {
         $this->db->query("SELECT * FROM {$this->table} ORDER BY tanggal_publikasi DESC LIMIT 5");
+        return $this->db->fetchAll(); 
+    }
+
+    public function getLatesttNews()
+    {
+        $this->db->query("SELECT * FROM {$this->table} ORDER BY tanggal_publikasi DESC LIMIT 4");
         return $this->db->fetchAll(); 
     }
 
