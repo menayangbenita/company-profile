@@ -7,8 +7,12 @@ class Dashboard extends Controller
         $data['judul'] = 'Dashboard';
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/index', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/index', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL . 'Forbidden');
+        }
     }
 }
