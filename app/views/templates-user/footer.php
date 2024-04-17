@@ -4,7 +4,7 @@
                     <ul class="news list-unstyled">
                         <?php foreach ($data['berita'] as $berita) : ?>
                         <li>
-                            <a href="<?= BASEURL;?>Berita/<?= $berita['id'] ?>" class="d-flex">
+                            <a href="<?= BASEURL;?>Berita/berita/<?= $berita['id'] ?>" class="d-flex">
                                 <img src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="" class="img-fluid me-3">
                                 <div>
                                     <div class="news-info d-block text-secondary"><span class="date">Berita SMKN
