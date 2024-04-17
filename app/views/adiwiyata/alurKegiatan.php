@@ -33,8 +33,8 @@
                     <p>
                     <?= $data['AlurAdiwiyata']['isi'] ?>
                     </p>
-                    <div class="pe-lg-3 mb-3 position-relative">
-                    <img src="<?= BASEURL; ?>img/datafoto/<?= $data['AlurAdiwiyata']['foto'] ?>"class="img-fluid rounded-4" alt="">
+                    <div class="pe-lg-3 mb-3 w-100 position-relative">
+                    <img src="<?= BASEURL; ?>img/datafoto/<?= $data['AlurAdiwiyata']['gambar'] ?>" class="img-fluid w-100 rounded-4" alt="">
                     </div>
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
