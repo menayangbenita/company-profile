@@ -55,14 +55,45 @@ class AdminGaleri extends Controller
         }
     }
 
+    public function hapusKategori($id)
+    {
+        if ($this->model("$this->model_name", 'Galeri_model')->hapusDataKategori($id) > 0) {
+            Flasher::setFlash('BERHASIL', 'Dihapus', 'success');
+            header('Location: ' . BASEURL . 'AdminGaleri');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Dihapus', 'danger');
+            header('Location: ' . BASEURL . 'AdminGaleri');
+            exit;
+        }
+    }
+
     public function getUbah()
     {
         echo json_encode($this->model("$this->model_name", 'Galeri_model')->getDataById($_POST['id']));
     }
 
+    public function getUbahKategori()
+    {
+        echo json_encode($this->model("$this->model_name", 'Galeri_model')->getDataByIdKategori($_POST['id']));
+    }
+
     public function ubah()
     {
         if ($this->model("$this->model_name", 'Galeri_model')->ubahData($_POST) > 0) {
+            Flasher::setFlash('BERHASIL', 'Diubah', 'success');
+            header('Location: ' . BASEURL . 'AdminGaleri');
+            exit;
+        } else {
+            Flasher::setFlash('GAGAL', 'Diubah', 'danger');
+            header('Location: ' . BASEURL . 'AdminGaleri');
+            exit;
+        }
+    }
+
+    public function ubahKategori()
+    {
+        if ($this->model("$this->model_name", 'Galeri_model')->ubahDataKategori($_POST) > 0) {
             Flasher::setFlash('BERHASIL', 'Diubah', 'success');
             header('Location: ' . BASEURL . 'AdminGaleri');
             exit;

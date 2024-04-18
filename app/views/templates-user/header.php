@@ -29,7 +29,9 @@
     <link href="<?= BASEURL; ?>vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?= BASEURL; ?>vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="<?= BASEURL; ?>vendor/aos/aos.css" rel="stylesheet">
-
+    <!--Global Stylesheets Bundle(mandatory for all pages)-->
+    <link href="<?= BASEURL; ?>plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= BASEURL; ?>css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!-- Template Main CSS File -->
     <link href="<?= BASEURL; ?>css/main.css" rel="stylesheet">
     <style>

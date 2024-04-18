@@ -3,7 +3,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
         <div class="page-header d-flex align-items-center"
-            style="background-image: url('<?= BASEURL; ?>img/SMKN8_2.JPG');">
+            style="background-image: url('<?= BASEURL; ?>img/datafoto/<?= $data['isiberita']['foto'] ?>');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12 text-center">

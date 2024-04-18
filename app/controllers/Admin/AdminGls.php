@@ -19,11 +19,11 @@ class AdminGls extends Controller
     {
         if ($this->model("$this->model_name", 'Gls_model')->tambahData($_POST) > 0) {
             Flasher::setFlash('BERHASIL', 'Ditambah', 'success');
-            header('Location: ' . BASEURL . '/AdminGls');
+            header('Location: ' . BASEURL . 'AdminGls');
             exit;
         } else {
             Flasher::setFlash('GAGAL', 'Ditambah', 'danger');
-            header('Location: ' . BASEURL . '/AdminGls');
+            header('Location: ' . BASEURL . 'AdminGls');
             exit;
         }
     }

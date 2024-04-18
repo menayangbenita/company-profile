@@ -4,7 +4,7 @@ class wakaSarpras extends Controller
 {
     private $model_name = "Manajemen";
     public $model_namee = "Berita";
-
+    public $model_nameee = "Admin";
 
     public function index()
     {
@@ -13,6 +13,7 @@ class wakaSarpras extends Controller
         $data['sarpras'] = $this->model("$this->model_name", 'Sarpras_model')->getAllSarpras();
         $data['waka'] = $this->model("$this->model_name", 'Sarpras_model')->getMaxId();
         $data['berita'] = $this->model("$this->model_namee", 'Berita_model')->getLatestNews();
+        $data['footer'] = $this->model("$this->model_nameee", 'Footer_model')->getMaxId();
 
         $this->view('templates-user/header', $data);
         $this->view('manajemen/sarpras', $data);

@@ -141,7 +141,7 @@
 							<div class="card-header pt-2 mb-5">
 								<div class="card-title d-flex flex-column">
 									<div class="card-title d-flex flex-column">
-										<span class="text-uppercase fw-bold pb-0 fs-3">Kelola Kompetensi Keahlian											Keahlian</span>
+										<span class="text-uppercase fw-bold pb-0 fs-3">Kelola Kompetensi Keahlian</span>
 									</div>
 								</div>
 								<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
@@ -272,7 +272,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalLabelSarpras">TAMBAH DATA DASAR PROGRAM KEAHLIAN</h5>
+					<h5 class="modal-title" id="modalLabelSarprass">TAMBAH DATA DASAR PROGRAM KEAHLIAN</h5>
 					<!--begin::Close-->
 					<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
 						aria-label="Close">
@@ -283,7 +283,7 @@
 
 				<form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>AdminEnetrotika/tambahDpk"
 					method="post" autocomplete="off">
-					<input type="hidden" name="id" id="id">
+					<input type="hidden" name="id" id="idd">
 					<div class="modal-body">
 						<div class="row mb-3">
 							<div class="col-md-12">
@@ -451,12 +451,11 @@
 			});
 
 			$(".tampilModalUbah").click(function () {
+				const id = $(this).data("id");
 				$("#modal").addClass("edit");
-				$("#modalLabelSarpras").html("UBAH DATA DASAR PROGRAM KEAHLIAN");
+				$("#modalLabelSarprass").html("UBAH DATA DASAR PROGRAM KEAHLIAN");
 				$(".modal-footer button[type=submit]").html("Ubah Data");
 				$(".modal-content form").attr("action", `${BASEURL}/ubahDpk`);
-
-				const id = $(this).data("id");
 
 				$.ajax({
 					url: `${BASEURL}/getUbahDpk`,
@@ -465,7 +464,7 @@
 					dataType: "json",
 					success: function (data) {
 						$('#dpk').val(data.dpk);
-						$('#id').val(data.id);
+						$('#idd').val(data.id);
 					},
 				})
 			});

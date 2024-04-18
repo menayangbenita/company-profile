@@ -44,10 +44,6 @@
                                 </div>
                                 <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modalTambahKategori">
-                                        Tambah Kategori Galeri
-                                    </button>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#modaltambah">
                                         Tambah Galeri
                                     </button>
@@ -121,6 +117,83 @@
                                                                 class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
                                                                 type="button" class="btn btn-primary"
                                                                 data-kt-permissions-table-filter="delete_row">
+                                                                <i class="ki-duotone ki-trash fs-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                    <span class="path3"></span>
+                                                                    <span class="path4"></span>
+                                                                    <span class="path5"></span>
+                                                                </i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-5 mb-xl-10">
+                            <div class="card-header pt-2 mb-5">
+                                <div class="card-title d-flex flex-column">
+                                    <!--begin::Search-->
+                                    <div class="d-flex align-items-center position-relative my-1">
+                                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                        <input type="text" table-search="search"
+                                            class="form-control form-control-solid w-250px ps-12"
+                                            placeholder="Cari..." />
+                                    </div>
+                                    <!--end::Search-->
+                                </div>
+                                <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalTambahKategori">
+                                        Tambah Kategori Galeri
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                                <div class="d-flex flex-column content-justify-center flex-row-fluid">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered align-middle" id="table">
+                                            <thead class="fw-bold fs-7 text-uppercase text-gray-900 text-nowrap">
+                                                <tr>
+                                                    <th class="pe-3 w-lg-225px" style="display: none;">ID</th>
+                                                    <th class="pe-3">Nama</th>
+                                                    <th class="pe-3 text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="fw-semibold text-gray-700">
+                                                <?php foreach ($data['kategori'] as $kategori): ?>
+                                                    <tr>
+                                                        <td style="display: none;">
+                                                            <span class="kategori-id">
+                                                                <?= $kategori['id']; ?>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <?= $kategori['kategori'] ?>
+                                                        </td>
+                                                        <td class="text-center text-nowrap">
+                                                            <a href="<?= BASEURL; ?>AdminGaleri/ubahKategori/<?= $kategori['id'] ?>"
+                                                                class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-danger btn-sm tampilModalUbahh"
+                                                                type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                                data-id="<?= $kategori['id']; ?>"
+                                                                data-bs-target="#modalTambahKategori">
+                                                                <i class="ki-duotone ki-pencil fs-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>
+                                                            </a>
+                                                            <a href="<?= BASEURL; ?>AdminGaleri/hapusKategori/<?= $kategori['id'] ?>"
+                                                                class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
+                                                                type="button" class="btn btn-primary">
                                                                 <i class="ki-duotone ki-trash fs-2">
                                                                     <span class="path1"></span>
                                                                     <span class="path2"></span>
@@ -248,8 +321,6 @@
     </div>
     <!--end::Modal-->
 
-
-
     <script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
     <script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
 
@@ -343,7 +414,7 @@
         $(document).ready(function () {
             const BASEURL = window.location.href;
             $('.tombolTambahData').on('click', function () {
-                $('#modalLabel').html('TAMBAH DATA PRESTASI')
+                $('#modalLabel').html('TAMBAH DATA GALERI')
                 $('.modal-footer button[type=submit]').html('Tambah Data');
 
                 $('#gambar').val('');
@@ -355,7 +426,7 @@
 
             $(".tampilModalUbah").click(function () {
                 $("#modal").addClass("edit");
-                $("#modalLabel").html("UBAH DATA PRESTASI");
+                $("#modalLabel").html("UBAH DATA GALERI");
                 $(".modal-footer button[type=submit]").html("Ubah Data");
                 $(".modal-content form").attr("action", `${BASEURL}/ubah`);
 
@@ -370,6 +441,43 @@
                         $('#fotoLama').val(data.gambar);
                         $('#kategori').val(data.kategori);
                         $('#keterangan').val(data.keterangan);
+                        $('#id').val(data.id);
+                    },
+                })
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const BASEURL = window.location.href;
+            $('.tombolTambahData').on('click', function () {
+                $('#modalLabel').html('TAMBAH DATA KATEGORI')
+                $('.modal-footer button[type=submit]').html('Tambah Data');
+
+                $('#gambar').val('');
+                $('#kategori').val('');
+                $('#keterangan').val('');
+                $('#id').val('');
+
+            });
+
+            $(".tampilModalUbahh").click(function () {
+                $("#modal").addClass("edit");
+                $("#modalLabel").html("UBAH DATA KATEGORI");
+                $(".modal-footer button[type=submit]").html("Ubah Data");
+                $(".modal-content form").attr("action", `${BASEURL}/ubahKategori`);
+
+                const id = $(this).data("id");
+
+                $.ajax({
+                    url: `${BASEURL}/getUbahKategori`,
+                    data: { id: id },
+                    method: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        $('#kategori').val(data.kategori);
                         $('#id').val(data.id);
                     },
                 })

@@ -60,6 +60,13 @@ class Galeri_model
         return $this->db->fetch();
     }
 
+    public function getDataByIdKategori($id)
+    {
+        $this->db->query("SELECT * FROM {$this->tablee} WHERE id = :id"); // : = menghindari sql injection
+        $this->db->bind("id", $id);
+        return $this->db->fetch();
+    }
+
     public function getMaxId()
     {
         $this->db->query("SELECT * FROM {$this->table} WHERE id = (SELECT MAX(id) FROM {$this->table})");
@@ -156,6 +163,19 @@ class Galeri_model
         return $this->db->rowCount();
     }
 
+    public function hapusDataKategori($id)
+    {
+        $query = "DELETE FROM {$this->tablee} 
+                    WHERE id = :id";
+        
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function ubahData($data)
     {
         $query =    "UPDATE {$this->table}
@@ -175,6 +195,20 @@ class Galeri_model
 
         $this->db->bind('kategori', $data['kategori']);
         $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataKategori($data)
+    {
+        $query =    "UPDATE {$this->tablee}
+                        SET 
+                        kategori = :kategori
+                    WHERE id = :id";
+
+        $this->db->bind('kategori', $data['kategori']);
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();

@@ -284,7 +284,7 @@
 
 				<form id="kt_docs_formvalidation" class="form" action="<?= BASEURL; ?>AdminElektronikIndustri/tambahDpk"
 					method="post" autocomplete="off">
-					<input type="hidden" name="id" id="id">
+					<input type="hidden" name="id" id="idd">
 					<div class="modal-body">
 						<div class="row mb-3">
 							<div class="col-md-12">
@@ -466,7 +466,7 @@
 					dataType: "json",
 					success: function (data) {
 						$('#dpk').val(data.dpk);
-						$('#id').val(data.id);
+						$('#idd').val(data.id);
 					},
 				})
 			});

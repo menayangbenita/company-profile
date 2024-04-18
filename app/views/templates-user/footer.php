@@ -26,6 +26,7 @@
     </section><!-- End About Us Section -->
 
 </main><!-- End #main -->
+<?php Flasher::flash(); ?>
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
 
@@ -34,9 +35,9 @@
             <div class="col-lg-3 col-md-12 footer-info">
                 <a href="<?= BASEURL; ?>" class="logo d-flex flex-column align-items-start">
                     <img class="mb-4" src="<?= BASEURL; ?>img/logo.png" alt="logo-smk-8" draggable="false">
-                    <span>SMKN 8 MALANG</span>
+                    <span><?= $data['footer']['nama'] ?></span>
                 </a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                <p><?= $data['footer']['teks'] ?></p>
             </div>
 
             <div class="col-lg-3 footer-links">
@@ -67,11 +68,9 @@
                 <h4 class="pb-0">Hubungi Kami</h4>
                 <hr>
                 <p>
-                    A108 Adam Street <br>
-                    New York, NY 535022<br>
-                    United States <br><br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br>
-                    <strong>Email:</strong> info@example.com<br>
+                    <?= $data['footer']['alamat'] ?><br>
+                    <strong>Phone:</strong> <?= $data['footer']['nomor'] ?><br>
+                    <strong>Email:</strong> <?= $data['footer']['email'] ?><br>
                 </p>
             </div>
 
@@ -92,10 +91,10 @@
             <div class="col-md-6">
                 <div class="float-end">
                     <div class="social-links d-flex mt-4">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        <a href="<?= $data['footer']['x'] ?>" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="<?= $data['footer']['fb'] ?>" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="<?= $data['footer']['ig'] ?>" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="<?= $data['footer']['li'] ?>" class="linkedin"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -107,6 +106,10 @@
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <div id="preloader"></div>
+
+<!--Global Javascript Bundle(mandatory for all pages)-->
+<script src="<?= BASEURL; ?>plugins/global/plugins.bundle.js"></script>
+		<script src="<?= BASEURL; ?>js/scripts.bundle.js"></script>
 
 <!-- Vendor JS Files -->
 <script src="<?= BASEURL; ?>vendor/glightbox/js/glightbox.min.js"></script>
@@ -122,6 +125,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
+
+<!--Vendors Javascript(used for this page only)-->
+<script src="<?= BASEURL; ?>plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+<script src="<?= BASEURL; ?>plugins/custom/datatables/datatables.bundle.js"></script>
+
+<!--Custom Javascript(used for this page only)-->
+<script src="<?= BASEURL; ?>js/widgets.bundle.js"></script>
+<script src="<?= BASEURL; ?>js/custom/widgets.js"></script>
+<script src="<?= BASEURL; ?>js/custom/apps/chat/chat.js"></script>
+<script src="<?= BASEURL; ?>js/custom/utilities/modals/upgrade-plan.js"></script>
+<script src="<?= BASEURL; ?>js/custom/utilities/modals/create-app.js"></script>
+<script src="<?= BASEURL; ?>js/custom/utilities/modals/new-target.js"></script>
+<script src="<?= BASEURL; ?>js/custom/utilities/modals/users-search.js"></script>
+<script src="<?= BASEURL; ?>plugins/custom/fslightbox/fslightbox.bundle.js"></script>
 <script>
     new DataTable('#table');
 </script>

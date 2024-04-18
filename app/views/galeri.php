@@ -56,4 +56,5 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
+<script src="<?= BASEURL; ?>vendor/aos/aos.js"></script>
                 

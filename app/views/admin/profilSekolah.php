@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <!--begin::Main-->
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 	<!--begin::Content wrapper-->
@@ -41,9 +43,15 @@
 										<div class="row mb-5 fv-row">
 											<label for="isi" class="col-sm-2 col-form-label required">Teks</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" id="isi" name="isi" rows="5"
-													placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit"></textarea>
-											</div>
+                                                <div class="row">
+                                                    <div class="document-editor__toolbar"></div>
+                                                </div>
+                                                <div class="row row-editor">
+                                                    <div class="editor-container">
+                                                        <textarea class="editor" id="isi" name="isi"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
 										</div>
 										<div class="row mb-5 fv-row">
 											<label for="linkgdriveorganisasibkk"
@@ -101,6 +109,7 @@
 		<!--end::Content-->
 	</div>
 	<!--end::Content wrapper-->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
 
 	<script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
 	<script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>
@@ -119,6 +128,8 @@
 	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
 	<script src="<?= BASEURL; ?>admin/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="<?= BASEURL; ?>admin/plugins/custom/ckeditor/build\ckeditor.js"></script>
+
 
 	<!--Custom Javascript(used for this page only)-->
 	<script src="<?= BASEURL; ?>admin/js/widgets.bundle.js"></script>
@@ -177,5 +188,19 @@
 			}
 		}
 	</script>
+<script>
+        ClassicEditor
+            .create(document.querySelector('.editor'), {
+                ckfinder: {
+                    uploadUrl: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                }
+            })
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
+    </script>
 	<!--end::Javascript-->

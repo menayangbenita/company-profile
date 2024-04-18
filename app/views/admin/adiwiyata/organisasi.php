@@ -35,8 +35,8 @@
 								</div>
 							</div>
 							<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
-								<form action="<?= BASEURL; ?>AdiwiyataOrganisasi/tambah" method="post">
 								<div class="d-flex flex-column content-justify-center flex-row-fluid">
+								<form action="<?= BASEURL; ?>AdiwiyataOrganisasi/tambah" method="post">
 										<div class="row" data-bs-theme="light">
 											<div class="col-sm-12">
 												<div class="row">
