@@ -72,21 +72,25 @@
                                                                         <td><?= $berita['author'] ?></td>
                                                                         <td><?= $berita['tanggal_publikasi'] ?></td>
                                                                         <td class="text-center text-nowrap">
-                                                                            <a href="<?= BASEURL; ?>BeritaEdit/<?= $berita['id'] ?>" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Edit Berita">
+                                                                            <a href="<?= BASEURL; ?>beritaEdit/<?= $berita['id'] ?>"
+																data-id="<?= $berita['id']; ?>" class="btn btn-icon btn btn-outline btn-outline-primary btn-active-light-primary btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Edit Berita">
                                                                                 <i class="ki-duotone ki-pencil fs-2">
                                                                                     <span class="path1"></span>
                                                                                     <span class="path2"></span>
                                                                                 </i>
                                                                             </a>
-                                                                            <button class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="bottom" title="Hapus" data-kt-permissions-table-filter="delete_row">
-                                                                                <i class="ki-duotone ki-trash fs-2">
-                                                                                    <span class="path1"></span>
-                                                                                    <span class="path2"></span>
-                                                                                    <span class="path3"></span>
-                                                                                    <span class="path4"></span>
-                                                                                    <span class="path5"></span>
-                                                                                </i>
-                                                                            </button>
+                                                                            <a href="<?= BASEURL; ?>adminBerita/hapus/<?= $berita['id'] ?>"
+																class="btn btn-icon btn btn-outline btn-outline-danger btn-active-light-danger btn-sm"
+																data-bs-toggle="tooltip" data-bs-placement="bottom"
+																title="Hapus">
+																<i class="ki-duotone ki-trash fs-2">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																	<span class="path4"></span>
+																	<span class="path5"></span>
+																</i>
+															</a>
                                                                         </td>
                                                                     </tr>
                                                                     <?php endforeach; ?>
@@ -104,3 +108,39 @@
 							<!--end::Content-->
 						</div>
 						<!--end::Content wrapper-->
+
+						<script>
+		$(document).ready(function () {
+			const BASEURL = window.location.href;
+			$('.tombolTambahData').on('click', function () {
+				$('#modalLabel').html('TAMBAH DATA KOMPETENSI KEAHLIAN')
+				$('.modal-footer button[type=submit]').html('Tambah Data');
+
+				$('#judul').val('');
+				$('#id').val('');
+
+			});
+
+			$(".tampilModalUbahh").click(function () {
+				$("#modal").addClass("edit");
+				$("#modalLabelSarpras").html("UBAH DATA KOMPETENSI KEAHLIAN");
+				$(".modal-footer button[type=submit]").html("Ubah Data");
+				$(".modal-content form").attr("action", `${BASEURL}/beritaEdit`);
+
+				const id = $(this).data("id");
+
+				$.ajax({
+					url: `${BASEURL}/getUbah`,
+					data: { id: id },
+					method: "post",
+					dataType: "json",
+					success: function (data) {
+						$('#judul').val(data.judul);
+						$('#id').val(data.id);
+					},
+				})
+			});
+
+		});
+	</script>
+                      

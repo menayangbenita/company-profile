@@ -136,70 +136,52 @@ class Berita_model
         $this->db->execute();
         return $this->db->rowCount();
     }
-
     public function hapusData($id)
     {
-        $this->db->query(
-            "UPDATE {$this->table}  
-                SET 
-                deleted_at = CURRENT_TIMESTAMP,
-                deleted_by = :deleted_by,
-                is_deleted = 1,
-                is_restored = 0
-            WHERE id = :id"
-        );
+        $query = "DELETE FROM {$this->table} 
+        WHERE id = :id";
 
-        $this->db->bind('deleted_by', $this->user);
-        $this->db->bind("id", $id);
+        $this->db->query($query);
+        $this->db->bind('id', $id);
 
         $this->db->execute();
+
         return $this->db->rowCount();
     }
 
     public function ubahData($data)
     {
-        $data['user'] = "Admin";
-        $this->db->query(
-            "UPDATE {$this->table}
-                SET 
-                foto = :foto,
-                nama_lengkap = :nama_lengkap,
-                jenis_kelamin = :jenis_kelamin,
-                tempat_lahir = :tempat_lahir,
-                tanggal_lahir = :tanggal_lahir,
-                alamat_lengkap = :alamat_lengkap,
-                pendidikan_terakhir = :pendidikan_terakhir,
-                jurusan_pendidikan_terakhir = :jurusan_pendidikan_terakhir,
-                nomor_hp = :nomor_hp,
-                kategori = :kategori,
-                mapel_yg_diampu = :mapel_yg_diampu,
-                kategori_mapel = :kategori_mapel,
-                nip = :nip,
-                status_sertifikasi = :status_sertifikasi,
-                keahlian_ganda = :keahlian_ganda,
-                status_pernikahan = :status_pernikahan,
-                modified_at = CURRENT_TIMESTAMP,
-                modified_by = :modified_by
-            WHERE id = :id"
-        );
-
-
-        if ($_FILES["foto"]["error"] === 4) {
+        // Validasi apakah file foto diunggah
+        if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 4) {
             $foto = $data['fotoLama'];
         } else {
             $foto = $this->uploadImage();
         }
-
+    
+        // Query update data
+        $this->db->query(
+            "UPDATE {$this->table}
+                SET 
+                judul = :judul,
+                author = :author,
+                isi = :isi,
+                foto = :foto,
+                tanggal_publikasi = :tanggal_publikasi
+            WHERE id = :id"
+        );
+    
+        // Bind parameter dan eksekusi query
+        $this->db->bind('judul', $data['judul']);
+        $this->db->bind('author', $data['author']);
+        $this->db->bind('isi', $data['isi']);
         $this->db->bind('foto', $foto);
-        foreach ($this->fields as $field) {
-            $this->db->bind($field, $data[$field]);
-        }
-        $this->db->bind('modified_by', $this->user);
+        $this->db->bind('tanggal_publikasi', $data['tanggal_publikasi']);
         $this->db->bind('id', $data['id']);
-
+    
         $this->db->execute();
         return $this->db->rowCount();
-    }
+    }    
+    
 
     public function getJmlData()
     {

@@ -187,7 +187,7 @@
                                     showConfirmButton: false,
                                     timer: 1300
                                 }).then(function () {
-                                    $(`#${modalId}`).modal('hide');
+                                    $(#${modalId}).modal('hide');
                                     tambahForm.submit();
                                 });
                             } else {
@@ -259,12 +259,12 @@
                 $("#modal").addClass("edit");
                 $("#modalLabelIndus").html("UBAH DATA INDUSTRI YANG TELAH BEKERJA SAMA");
                 $(".modal-footer button[type=submit]").html("Ubah Data");
-                $(".modal-content form").attr("action", `${BASEURL}/ubahIndus`);
+                $(".modal-content form").attr("action", ${BASEURL}/ubahIndus);
 
                 const id = $(this).data("id");
 
                 $.ajax({
-                    url: `${BASEURL}/getUbahIndus`,
+                    url: ${BASEURL}/getUbahIndus,
                     data: { id: id },
                     method: "post",
                     dataType: "json",

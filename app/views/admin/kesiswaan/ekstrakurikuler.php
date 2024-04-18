@@ -75,18 +75,18 @@
 <!--end::Content-->
 <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
 <script>
-	ClassicEditor
-		.create(document.querySelector('.editor'), {
-			ckfinder: {
-				uploadUrl: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-			}
-		})
-		.then(editor => {
-			console.log(editor);
-		})
-		.catch(error => {
-			console.error(error);
-		});
+		ClassicEditor
+			.create(document.querySelector('.editor'), {
+				ckfinder: {
+					uploadUrl: '<?= BASEURL; ?>admin/plugins/custom/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+				}
+			})
+			.then(editor => {
+				console.log(editor);
+			})
+			.catch(error => {
+				console.error(error);
+			});
 
-</script>
+	</script>
 <!--end::Javascript-->
