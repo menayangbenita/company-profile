@@ -28,7 +28,7 @@
             <div class="row gy-4">
                 <div class="col-lg-8 content mb-5">
                     <p class="fs-1 fw-bold"><?= $data['isiberita']['judul'] ?></p>
-                    <h6 class="fw-bold my-5 text-muted"><span class="me-4"> 24 MARET 2024 </span>|<span class="ms-4">
+                    <h6 class="fw-bold my-5 text-muted"><span class="me-4"> <?= $data['isiberita']['tanggal_publikasi'] ?> </span>|<span class="ms-4">
                             SMKN 8 MALANG </span></h6>
                     <p>
                     <?= $data['isiberita']['isi'] ?>

@@ -38,10 +38,10 @@
                                         <img class="object-fit-cover w-100 rounded-4 mb-3" height="280"
                                             style="object-fit: cover;"
                                             src="<?= BASEURL; ?>img/datafoto/<?= $berita['foto'] ?>" alt="">
-                                        <a class="text-dark" href="<?= BASEURL; ?>berita/berita">
+                                        <a class="text-dark" href="<?= BASEURL; ?>berita/berita/<?= $berita['id'] ?>">
                                             <h3 class="mb-3" id="judul"><?= $berita['judul'] ?></h3>
                                         </a>
-                                        <h6 class="fw-bold mb-3"><span class="me-4"> 24 MARET 2024 </span>|<span
+                                        <h6 class="fw-bold mb-3"><span class="me-4"> <?= $berita['tanggal_publikasi'] ?> </span>|<span
                                                 class="ms-4"> SMKN 8 MALANG </span></h6>
                                         <p class="mb-3">
                                             <?= strlen($berita['isi']) > 200 ? substr($berita['isi'], 0, 200) . '...' : $berita['isi'] ?>

@@ -36,8 +36,8 @@
 
 
 							<div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+								<div class="d-flex flex-column content-justify-center flex-row-fluid">
 								<form action="<?= BASEURL; ?>Bkkdokumentasi/tambah" method="post">
-									<div class="d-flex flex-column content-justify-center flex-row-fluid">
 										<div class="row" data-bs-theme="light">
 											<div class="col-sm-12">
 												<div class="row">
@@ -53,6 +53,8 @@
 										</div>
 									</div>
 							</div>
+
+							
 							<div class="card-footer">
 								<button id="kt_docs_formvalidation_submit" type="submit" class="btn btn-primary float-end">
 									<span class="indicator-label">
