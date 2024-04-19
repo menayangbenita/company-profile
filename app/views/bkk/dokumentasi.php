@@ -29,6 +29,6 @@
                 <div class="col-lg-8 content mb-5">
                     <h3>Dokumentasi BKK</h3>
                     <p><?= $data['dokumBKK']['isi'] ?></p>
-                    
+                </div>
 
                 
