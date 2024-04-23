@@ -34,7 +34,7 @@
 										dipublikasi</span>
 								</div>
 								<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-									<a class="btn btn-light-primary" href="berita.html">
+									<a class="btn btn-light-primary" href="<?= BASEURL; ?>AdminBerita">
 										<i class="ki-duotone ki-double-left fs-2">
 											<span class="path1"></span>
 											<span class="path2"></span>
