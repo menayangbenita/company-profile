@@ -88,7 +88,7 @@ class Sarpras_model
 
 
         // validasi ukuran file
-        if ($_FILES["foto"]["size"] > 1000000) {
+        if ($_FILES["foto"]["size"] > 1000000000) {
             echo
             '
                 <script>

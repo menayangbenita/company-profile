@@ -81,7 +81,7 @@ class Faq_model
 
 
         // validasi ukuran file
-        if ($_FILES["thumbnail"]["size"] > 1000000) {
+        if ($_FILES["thumbnail"]["size"] > 1000000000) {
             echo
             '
                 <script>

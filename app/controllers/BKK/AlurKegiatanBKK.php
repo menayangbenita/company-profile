@@ -4,7 +4,7 @@ class alurKegiatanBkk extends Controller
 {
     private $model_name= "Bkk";
     public $model_namee = "Berita";
-    public $model_nameee = "Berita";
+    public $model_nameee = "Admin";
 
     public function index()
     {
