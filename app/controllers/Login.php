@@ -31,8 +31,10 @@ class Login extends Controller
                     // Jika validasi berhasil, buat token JWT
                     $payload = [
                         'sub' => $user['id'],
-                        'name' => $user['username'],
+                        'username' => $user['username'],
                         'iat' => time(),
+                        'name' => $user['nama'], 
+                        'role' => $user['role'], 
                         'exp' =>  time() + (7 * 24 * 60 * 60) // Token berlaku selama 1 hari
                     ];
                     Cookie::create_jwt($payload, $payload['exp']);
@@ -42,7 +44,7 @@ class Login extends Controller
                 }
             } else {
                 Flasher::setFlash('GAGAL', 'Login', 'danger');
-                header("Location: " . BASEURL . "/login");
+                header("Location: " . BASEURL . "login");
             }
         }
     }

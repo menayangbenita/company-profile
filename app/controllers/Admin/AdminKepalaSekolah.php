@@ -8,11 +8,15 @@ class AdminKepalaSekolah extends Controller
     {
         $data['judul'] = 'Kepala Sekolah';
         $data['kepsek'] = $this->model("$this->model_name", 'KepalaSekolah_model')->getAllTerdahulu();
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/kepalaSekolah', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/kepalaSekolah', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()
@@ -41,7 +45,7 @@ class AdminKepalaSekolah extends Controller
         }
     }
 
-    
+
     public function hapus($id)
     {
         if ($this->model("$this->model_name", 'KepalaSekolah_model')->hapusData($id) > 0) {

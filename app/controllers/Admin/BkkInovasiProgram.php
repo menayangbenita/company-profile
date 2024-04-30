@@ -11,9 +11,13 @@ class BkkInovasiProgram extends Controller
         $data['Inovasi'] = $this->model("$this->model_name", 'InovasiProgram_model')->getAllData();
 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/inovasiProgram', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
    
     public function tambah()

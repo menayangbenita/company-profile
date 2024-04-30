@@ -7,12 +7,16 @@ class AdminFooter extends Controller
     public function index()
     {
         $data['judul'] = 'Edit Footer';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['footer'] = $this->model("$this->model_name", 'Footer_model')->getMaxId();
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/footer', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/footer', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

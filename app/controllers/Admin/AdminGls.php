@@ -7,13 +7,16 @@ class AdminGls extends Controller
     public function index()
     {
         $data['judul'] = 'Gerakan Literasi Sekolah';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['Gls'] = $this->model("$this->model_name", 'Gls_model')->getAllData();
 
-
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/kesiswaan/gls', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/kesiswaan/gls', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

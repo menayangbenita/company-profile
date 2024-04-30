@@ -9,11 +9,15 @@ class AdminOrganisasi extends Controller
         $data['judul'] = 'Organisasi';
         $data['isi'] = $this->model("$this->model_name", 'Organisasi_model')->getAllIsi();
         $data['galeri'] = $this->model("$this->model_name", 'Organisasi_model')->getAllDokum();
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/kesiswaan/organisasi', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/kesiswaan/organisasi', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
 
@@ -42,7 +46,7 @@ class AdminOrganisasi extends Controller
             exit;
         }
     }
-    
+
     public function hapusIndus($id)
     {
         if ($this->model("$this->model_name", 'Organisasi_model')->hapusDataIndus($id) > 0) {
@@ -55,7 +59,7 @@ class AdminOrganisasi extends Controller
             exit;
         }
     }
-    
+
     public function hapusGaleri($id)
     {
         if ($this->model("$this->model_name", 'Organisasi_model')->hapusDataGaleri($id) > 0) {

@@ -10,10 +10,13 @@ class AdminBerita extends Controller
         $data['user'] = $this->user;
         $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getAllData();
 
-
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/berita', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/berita', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function hapus($id)
     {
@@ -43,5 +46,5 @@ class AdminBerita extends Controller
             exit;
         }
     }
-    
+
 }

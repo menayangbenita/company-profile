@@ -92,6 +92,7 @@
 							</div>
 						</div>
 						<div class="app-navbar flex-shrink-0">
+							<?php if ($data['user']['role'] == 0) { ?>
 							<div class="app-navbar-item">
 								<div class="btn btn-icon btn-color-white btn-active-color-primary"
 									data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
@@ -159,6 +160,7 @@
 									</div>
 								</div>
 							</div>
+							<?php } ?>
 							<div class="app-navbar-item ms-1 ms-md-3">
 								<a href="#"
 									class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px"
@@ -246,14 +248,24 @@
 											</div>
 											<div class="d-flex flex-column">
 												<div class="fw-bold d-flex align-items-center fs-5">
-													<?= $data['user']['username']; ?>
-													<!-- <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Admin</span> -->
+													<?= $data['user']['nama']; ?>
+													<?php
+													if ($data['user']['role'] == 0) {
+														echo '<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Super Admin</span>';
+													} else {
+														echo '<span class="badge badge-light-warning fw-bold fs-8 px-2 py-1 ms-2">Admin</span>';
+													}
+													?>
 												</div>
-												<!-- <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">admin@gmail.com</a> -->
+												<a href="#"
+													class="fw-semibold text-muted text-hover-primary fs-7"><?= $data['user']['username']; ?></a>
 											</div>
 										</div>
 									</div>
 									<div class="separator my-2"></div>
+									<div class="menu-item px-5">
+										<a href="<?= BASEURL; ?>UbahProfil" class="menu-link px-5">Ubah Profil</a>
+									</div>
 									<div class="menu-item px-5">
 										<a href="<?= BASEURL; ?>logout" class="menu-link px-5">Sign Out</a>
 									</div>
@@ -311,6 +323,7 @@
 									</div>
 								</div>
 
+								<?php if ($data['user']['role'] == 0) { ?>
 								<!-- asta arkananta k8 -->
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
@@ -489,7 +502,7 @@
 										</div>
 									</div>
 								</div>
-
+								<?php } ?>
 								<!-- bkk -->
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
@@ -637,7 +650,7 @@
 										</div>
 									</div>
 								</div>
-
+								<?php if ($data['user']['role'] == 0) { ?>
 								<!-- adiwiyata -->
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
@@ -677,7 +690,7 @@
 										</div>
 									</div>
 								</div>
-
+								<?php } ?>
 								<!-- berita -->
 								<div data-kt-menu-trigger="click" class="menu-item">
 									<a href="<?= BASEURL; ?>adminBerita">
@@ -695,6 +708,28 @@
 										</span>
 									</a>
 								</div>
+								<?php
+								if ($data['user']['role'] == 0) {
+									echo '<!-- manage user -->
+									<div data-kt-menu-trigger="click" class="menu-item">
+										<a href="' . BASEURL . 'User">
+											<span class="menu-link">
+												<span class="menu-icon">
+													<i class="ki-duotone ki-user fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+														<span class="path4"></span>
+														<span class="path5"></span>
+													</i>
+												</span>
+												<span class="menu-title">Kelola User</span>
+											</span>
+										</a>
+									</div>';
+								}
+								?>
+								
 
 							</div>
 						</div>

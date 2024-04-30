@@ -9,10 +9,14 @@ class BkkVisiMisi extends Controller
         $data['misi'] = $this->model("$this->model_name", 'VisiMisiBkk_model')->getAllMisi();
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/visiMisi', $data);
 
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
    

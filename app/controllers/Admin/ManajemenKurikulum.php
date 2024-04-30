@@ -9,9 +9,13 @@ class ManajemenKurikulum extends Controller
         $data['judul'] = 'Waka Kurikulum';
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/manajemen/kurikulum', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     
     public function tambah()

@@ -7,12 +7,16 @@ class AdminSlider extends Controller
     public function index()
     {
         $data['judul'] = 'Edit Slider';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['slider'] = $this->model("$this->model_name", 'Slider_model')->getAllData();
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/slider', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/slider', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {
@@ -26,7 +30,7 @@ class AdminSlider extends Controller
             exit;
         }
     }
-    
+
     public function getUbah()
     {
         echo json_encode($this->model("$this->model_name", 'Slider_model')->getDataById($_POST['id']));

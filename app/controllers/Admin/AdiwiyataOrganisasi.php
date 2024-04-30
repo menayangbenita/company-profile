@@ -7,13 +7,16 @@ class AdiwiyataOrganisasi extends Controller
     public function index()
     {
         $data['judul'] = 'Organisasi Adiwiyata';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['organisasiadiwiyata'] = $this->model("$this->model_name", 'OrganisasiAdiwiyata_model')->getAllData();
 
-
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/adiwiyata/organisasi', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/adiwiyata/organisasi', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

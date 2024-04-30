@@ -7,13 +7,16 @@ class AdminEkstrakurikuler extends Controller
     public function index()
     {
         $data['judul'] = 'Ekstrakurikuler';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['esktra'] = $this->model("$this->model_name", 'Ekstra_model')->getAllData();
 
-
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/kesiswaan/Ekstrakurikuler', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/kesiswaan/Ekstrakurikuler', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

@@ -8,11 +8,15 @@ class AdminVisiMisi extends Controller
     {
         $data['judul'] = 'Visi & Misi';
         $data['misi'] = $this->model("$this->model_name", 'VisiMisi_model')->getAllMisi();
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/visiMisi', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/visiMisi', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()

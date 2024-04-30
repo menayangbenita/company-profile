@@ -9,11 +9,15 @@ class AdiwiyataVisiMisi extends Controller
         $data['judul'] = 'Visi & Misi Adiwiyata';
         $data['misi'] = $this->model("$this->model_name", 'VisiMisiAdiwiyata_model')->getAllMisi();
 
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/adiwiyata/visiMisi', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/adiwiyata/visiMisi', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

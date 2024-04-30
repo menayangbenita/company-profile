@@ -7,13 +7,16 @@ class AdiwiyataAlurKegiatan extends Controller
     public function index()
     {
         $data['judul'] = 'Dashboard';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['AlurAdiwiyata'] = $this->model("$this->model_name", 'AlurKegiatanAdiwiyata_model')->getAllData();
 
-
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/adiwiyata/alurKegiatan', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/adiwiyata/alurKegiatan', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

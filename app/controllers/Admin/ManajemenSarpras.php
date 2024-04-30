@@ -11,9 +11,13 @@ class ManajemenSarpras extends Controller
         $data['sarpras'] = $this->model("$this->model_name", 'Sarpras_model')->getAllSarpras();
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/manajemen/sarpras', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()

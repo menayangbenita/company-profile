@@ -107,6 +107,7 @@
             </div>
         </div>
     </div>
+    <?php Flasher::flash(); ?>
     <script>var hostUrl = "<?= BASEURL; ?>admin/";</script>
     <script src="<?= BASEURL; ?>admin/plugins/global/plugins.bundle.js"></script>
     <script src="<?= BASEURL; ?>admin/js/scripts.bundle.js"></script>

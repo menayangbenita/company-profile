@@ -9,9 +9,13 @@ class BkkJobdescription extends Controller
         $data['judul'] = 'Jobdescription';
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/jobdescription', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

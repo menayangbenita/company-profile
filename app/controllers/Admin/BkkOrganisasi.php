@@ -9,9 +9,13 @@ class BkkOrganisasi extends Controller
         $data['judul'] = 'Struktur Organisasi BKK';
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/strukturOrganisasi', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()

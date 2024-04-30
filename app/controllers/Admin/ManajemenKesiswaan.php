@@ -9,9 +9,13 @@ class ManajemenKesiswaan extends Controller
         $data['judul'] = 'Waka Kesiswaan';
         $data['user'] = $this->user; 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/manajemen/kesiswaan', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     
     public function tambah()

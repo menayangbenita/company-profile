@@ -11,9 +11,13 @@ class BkksharingPraktik extends Controller
         $data['Sharing'] = $this->model("$this->model_name", 'SharingPraktik_model')->getAllData();
 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/sharingPraktikBaik', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

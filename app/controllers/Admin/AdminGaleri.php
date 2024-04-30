@@ -9,11 +9,15 @@ class AdminGaleri extends Controller
         $data['judul'] = 'Profil Sekolah';
         $data['kategori'] = $this->model("$this->model_name", 'Galeri_model')->getAllKategori();
         $data['galeri'] = $this->model("$this->model_name", 'Galeri_model')->getAllData();
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/galeri', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/galeri', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()

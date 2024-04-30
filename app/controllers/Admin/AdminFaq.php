@@ -7,12 +7,16 @@ class AdminFaq extends Controller
     public function index()
     {
         $data['judul'] = 'Edit FAQ';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['faq'] = $this->model("$this->model_name", 'Faq_model')->getAllData();
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/faq', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/faq', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {
@@ -26,7 +30,7 @@ class AdminFaq extends Controller
             exit;
         }
     }
-    
+
     public function getUbah()
     {
         echo json_encode($this->model("$this->model_name", 'Faq_model')->getDataById($_POST['id']));

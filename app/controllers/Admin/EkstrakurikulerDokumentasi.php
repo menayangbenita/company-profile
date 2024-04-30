@@ -11,9 +11,13 @@ class EkstrakurikulerDokumentasi extends Controller
         $data['galeri'] = $this->model("$this->model_name", 'DokumentasiEkstra_model')->getAllDokum();
         $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/kesiswaan/dokumentasiEkstrakurikuler', $data);
-        $this->view('templates-admin/footer', $data);
+        $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     
 

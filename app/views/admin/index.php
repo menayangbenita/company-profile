@@ -30,7 +30,7 @@
 												<div class="card-body d-flex flex-column justify-content-between mt-9 bgi-no-repeat bgi-size-cover bgi-position-x-center pb-0" style="background-position: 100% 50%; background-image:url('<?= BASEURL; ?>admin/media/stock/900x600/42.png')">
 													<div class="mb-10">
 														<div class="fs-2hx fw-bold text-gray-800 text-center mb-13">
-															<span class="me-2">Selamat datang <?= $data['user']['username']; ?>!</span>
+															<span class="me-2">Selamat datang <?= $data['user']['nama']; ?>!</span>
 														</div>
 													</div>
 													<img class="mx-auto h-150px h-lg-200px theme-light-show" src="<?= BASEURL; ?>admin/media/illustrations/misc/upgrade.svg" alt="assetdashboard" draggable="false" />

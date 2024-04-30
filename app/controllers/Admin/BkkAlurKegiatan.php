@@ -10,9 +10,13 @@ class BkkAlurKegiatan extends Controller
         $data['AlurBkk'] = $this->model("$this->model_name", 'AlurKegiatanBkk_model')->getAllData();
 
 
-        $this->view('templates-admin/header', $data);
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
         $this->view('admin/bkk/alurKegiatan', $data);
         $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function tambah()
     {

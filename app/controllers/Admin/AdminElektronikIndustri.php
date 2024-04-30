@@ -9,14 +9,18 @@ class AdminElektronikIndustri extends Controller
         $data['judul'] = 'Elektronik Industri';
         $data['dpk'] = $this->model("$this->model_name", 'Ei_model')->getAllDpk();
         $data['kk'] = $this->model("$this->model_name", 'Ei_model')->getAllKk();
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/kk/ei', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/kk/ei', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
-    
+
     public function tambah()
     {
         if ($this->model("$this->model_name", 'Ei_model')->tambahData($_POST) > 0) {

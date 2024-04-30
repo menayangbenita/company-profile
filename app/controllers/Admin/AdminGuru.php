@@ -7,12 +7,16 @@ class AdminGuru extends Controller
     public function index()
     {
         $data['judul'] = 'Guru';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['guru'] = $this->model("$this->model_name", 'Guru_model')->getAllData();
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/guru', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/guru', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
 
     public function tambah()

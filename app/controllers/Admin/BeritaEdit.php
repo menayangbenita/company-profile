@@ -7,13 +7,17 @@ class BeritaEdit extends Controller
     public function index($id)
     {
         $data['judul'] = 'Edit Berita';
-        $data['user'] = $this->user; 
+        $data['user'] = $this->user;
         $data['berita'] = $this->model("$this->model_name", 'Berita_model')->getAllData();
         $data['isiberita'] = $this->model("$this->model_name", 'Berita_model')->getDataById($id);
 
-        $this->view('templates-admin/header', $data);
-        $this->view('admin/beritaEdit', $data);
-        $this->view('templates-admin/footer');
+        if ($data['user']) {
+            $this->view('templates-admin/header', $data);
+            $this->view('admin/beritaEdit', $data);
+            $this->view('templates-admin/footer');
+        } else {
+            header('Location: ' . BASEURL);
+        }
     }
     public function hapus($id)
     {
