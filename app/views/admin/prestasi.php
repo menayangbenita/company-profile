@@ -136,7 +136,7 @@
 				<form action="<?= BASEURL; ?>AdminPrestasi/tambah" method="post">
 					<input type="hidden" name="id" id="id">
 					<div class="modal-header">
-						<h5 class="modal-title" id="modalLabel">TAMBAH DATA KEPALA SEKOLAH PENDAHULU</h5>
+						<h5 class="modal-title" id="modalLabel">TAMBAH DATA PRESTASI</h5>
 						<!--begin::Close-->
 						<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
 							aria-label="Close">
