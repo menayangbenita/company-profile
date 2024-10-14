@@ -126,6 +126,11 @@
                             <li><a href="<?= BASEURL; ?>elektronikIndustri">Elektronik Industri</a></li>
                             <li><a href="<?= BASEURL; ?>tkj">TKJ</a></li>
                             <li><a href="<?= BASEURL; ?>rpl">RPL</a></li>
+                            <li><a href="<?= BASEURL; ?>KetuaMekatronika">Ketua Jurusan Mekatronika</a></li>
+                            <li><a href="<?= BASEURL; ?>KetuaElektronik">Ketua Jurusan Elektronik Industri</a></li>
+                            <li><a href="<?= BASEURL; ?>KetuaTkj">Ketua Jurusan TKJ</a></li>
+                            <li><a href="<?= BASEURL; ?>KetuaRpl">Ketua Jurusan RPL</a></li>
+
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>BKK</span> <i
@@ -158,6 +163,8 @@
                             <li><a href="<?= BASEURL; ?>organisasiAdiwiyata">Organisasi Adiwiyata</a></li>
                             <li><a href="<?= BASEURL; ?>visiMisiAdiwiyata">Visi & Misi Adiwiyata</a></li>
                             <li><a href="<?= BASEURL; ?>alurKegiatanAdiwiyata">Alur Kegiatan Adiwiyata</a></li>
+                            <li><a href="<?= BASEURL; ?>BeritaAdiwiyata">Berita Adiwiyata</a></li>
+
                         </ul>
                     </li>
                     <li><a href="<?= BASEURL; ?>berita">Berita</a></li>

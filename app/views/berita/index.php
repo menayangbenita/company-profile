@@ -71,14 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 position-relative align-self-start">
-                    <div class="input-group mb-3 border-bottom pb-3 border-2">
-                        <input type="text" id="keyword" class="form-control rounded-2 me-2"
-                            placeholder="Cari berita di sini...." aria-label="Cari berita di sini...."
-                            aria-describedby="button-addon2">
-                        <button class="btn btn-primary px-4 py-2 rounded-2" type="button" id="button-addon2"
-                            onclick="cariBerita()"
-                            style="background-color: #346F77; border-color: #346F77;">CARI</button>
-                    </div>
+    
 
                     <h5 class="text-lg-end mb-4"><span
                             class="mb-3 fw-bolder border-bottom border-secondary">Terbaru</span></h5>

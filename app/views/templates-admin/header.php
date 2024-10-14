@@ -500,6 +500,38 @@
 												<span class="menu-title">RPL</span>
 											</a>
 										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="<?= BASEURL; ?>AdminKetuaMekatronika">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Ketua Program Mekatronika</span>
+											</a>
+										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="<?= BASEURL; ?>AdminKetuaElektronik">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Ketua Program Elektronik</span>
+											</a>
+										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="<?= BASEURL; ?>AdminKetuaTkj">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Ketua Program Tkj</span>
+											</a>
+										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="<?= BASEURL; ?>AdminKetuaRpl">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Ketua Program Rpl</span>
+											</a>
+										</div>
 									</div>
 								</div>
 								<?php } ?>
@@ -650,7 +682,7 @@
 										</div>
 									</div>
 								</div>
-								<?php if ($data['user']['role'] == 0) { ?>
+								
 								<!-- adiwiyata -->
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
@@ -664,6 +696,7 @@
 										<span class="menu-arrow"></span>
 									</span>
 									<div class="menu-sub menu-sub-accordion">
+									<?php if ($data['user']['role'] == 0) { ?>
 										<div class="menu-item">
 											<a class="menu-link" href="<?= BASEURL; ?>AdiwiyataOrganisasi">
 												<span class="menu-bullet">
@@ -688,9 +721,18 @@
 												<span class="menu-title">Alur Kegiatan Adiwiyata</span>
 											</a>
 										</div>
+									<?php } ?>
+										<div class="menu-item">
+											<a class="menu-link" href="<?= BASEURL; ?>AdminAdiwiyataBerita">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Berita Adiwiyata</span>
+											</a>
+										</div>
 									</div>
 								</div>
-								<?php } ?>
+								
 								<!-- berita -->
 								<div data-kt-menu-trigger="click" class="menu-item">
 									<a href="<?= BASEURL; ?>adminBerita">
